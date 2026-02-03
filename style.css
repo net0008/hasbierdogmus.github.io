@@ -148,7 +148,16 @@ nav {
     background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%);
     overflow: hidden;
 }
-
+/* Motto Stili */
+.motto {
+    font-size: 1.5rem;          /* Başlıktan küçük, metinden büyük */
+    font-weight: 700;           /* Kalın yazı */
+    font-style: italic;         /* İtalik stil */
+    color: var(--green);        /* Vurgu rengimiz olan yeşil */
+    margin-bottom: 1.5rem;      /* Altındaki metinle arasına boşluk */
+    border-left: 4px solid var(--navy); /* Soluna şık bir çizgi */
+    padding-left: 15px;         /* Çizgi ile yazı arasına boşluk */
+}
 .topo-background {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
