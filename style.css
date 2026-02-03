@@ -56,11 +56,23 @@ nav {
     align-items: center;
 }
 
+/* Logo ve Yazıyı Kapsayan Alan */
 .logo {
+    display: flex;          /* Yan yana diz */
+    align-items: center;    /* Dikey olarak ortala */
+    gap: 12px;              /* Logo ile yazı arasına boşluk koy */
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--navy);
     letter-spacing: -0.5px;
+    text-decoration: none;
+}
+
+/* Logonun Kendisi */
+.logo img {
+    height: 45px;   /* Logonun yüksekliğini sınırla (Header 80px idi) */
+    width: auto;    /* Genişliği orantılı ayarla */
+    object-fit: contain;
 }
 
 .nav-menu {
