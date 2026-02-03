@@ -526,3 +526,36 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 @media (max-width: 768px) {
     .evaluation-grid { grid-template-columns: 1fr; }
 }
+/* =========================================
+   11. GÖMÜLÜ RAPOR (IFRAME) STİLLERİ
+   ========================================= */
+
+.embed-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    /* 16:9 Oranı için %56.25. Raporun oranına göre ayarlayabilirsin.
+       Örn: 4:3 için %75, Kare için %100 */
+    padding-bottom: 65%; /* Raporun yüksekliğine göre bu değeri artırıp azaltabilirsin */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 2px solid var(--border-color);
+    background: #fff; /* Yüklenirken beyaz arka plan */
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Mobil için yükseklik ayarı */
+@media (max-width: 768px) {
+    .embed-container {
+        padding-bottom: 100%; /* Mobilde daha kare/uzun bir görünüm için */
+    }
+}
