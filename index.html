@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>Hasbi Erdoğmuş | Eğitim Teknolojileri ve CBS Uzmanı</title>
+    <title>Hakkımda | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
     
-    <meta name="description" content="Hasbi Erdoğmuş kişisel portfolyo. Eğitim teknolojileri, yenilikçi sınıf tasarımları ve CBS projeleri.">
+    <meta name="description" content="Hasbi Erdoğmuş kimdir? Eğitim teknolojileri, CBS uzmanlığı ve dijital dönüşüm vizyonu hakkında detaylı bilgi.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
@@ -22,7 +21,7 @@
 
     <header id="header">
         <nav>
-            <a href="#home" class="logo">
+            <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="GeoCode Logo">
                 <span>HASBİ ERDOĞMUŞ</span>
             </a>
@@ -32,8 +31,8 @@
             </div>
 
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" onclick="closeMenu()">Ana Sayfa</a></li>
-                <li><a href="about.html" onclick="closeMenu()">Hakkımdai</a></li>
+                <li><a href="index.html" onclick="closeMenu()">Ana Sayfa</a></li>
+                <li><a href="about.html" class="active" onclick="closeMenu()">Hakkımda</a></li>
                 
                 <li class="dropdown">
                     <a href="#">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
@@ -49,70 +48,86 @@
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <div class="topo-background"></div>
+    <section class="about-hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>MERHABA,<br>KİŞİSEL SAYFAMA<br>HOŞ GELDİNİZ</h1>
+            <div class="about-text">
+                <span class="badge">17 YILLIK TECRÜBE</span>
+                <h1>Eğitim ve Teknolojinin Kesişiminde Bir Yolculuk</h1>
+                <p>Merhaba, ben <strong>Hasbi ERDOĞMUŞ</strong>. Eğitim teknolojileri dünyasında 17 yılı geride bırakmış; öğrenmenin dijital dönüşümüne rehberlik etmeyi misyon edinmiş bir eğitimci ve teknoloji uzmanıyım.</p>
                 
-                <div class="motto-box">
-                    <i class="fas fa-quote-left quote-icon"></i>
-                    <p>tttttttttTeknoloji odaklı öğrenme senaryoları, sadece araçların kullanımı değil; öğretmenin rehberliğinde bilginin beceriye dönüştüğü bir yolculuktur.</p>
-                    <span class="motto-author">- Hasbi ERDOĞMUŞ</span>
+                <div class="motto-box-small">
+                    <p>"Teknoloji, doğru ellerde sadece bir araç değil, geleceği inşa eden bir kuvvettir."</p>
                 </div>
-                
-                <p class="subtitle">
-                    Eğitim Teknolojileri alanındaki <span class="highlight">17 yıllık köklü tecrübemle</span>, 
-                    öğrenme ortamlarını dönüştürmek için yenilikçi pedagoji ve ileri düzey CBS çözümleri 
-                    arasında köprü kuruyorum.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#about" class="btn btn-primary">Çalışmalarımı İncele <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn btn-secondary">İletişime Geç</a>
+            </div>
+            <div class="about-image">
+                <img src="assets/HasbiErdogmus.png" alt="Hasbi Erdoğmuş">
+            </div>
+        </div>
+    </section>
+
+    <section class="biography section-padding">
+        <div class="container">
+            <div class="bio-grid">
+                <div class="bio-card">
+                    <i class="fas fa-chalkboard-teacher bio-icon"></i>
+                    <h3>Neler Yapıyorum?</h3>
+                    <p>Şu anda <strong>Yenilikçi Sınıf</strong> modeline uygun eğitim ortamlarının kurulması ve öğretmenlerimizin bu modern ekosisteme uyum sağlaması için aktif olarak eğitimler veriyorum. Sadece teorik değil, tamamen veriye dayalı ve interaktif bir eğitim yaklaşımını savunuyorum.</p>
                 </div>
-            </div> <div class="hero-image">
-                <div class="portrait-frame">
-                    <div class="portrait-placeholder">
-                        <img src="assets/HasbiErdogmus.png" alt="Hasbi Erdoğmuş">
-                    </div>
+                <div class="bio-card">
+                    <i class="fas fa-bullseye bio-icon"></i>
+                    <h3>Vizyonum</h3>
+                    <p>Amacım; <strong>Türkiye Yüzyılı Maarif Modeli</strong> ışığında, teknolojiyi eğitimin kalbine yerleştirerek, öğrencilerimize ve meslektaşlarıma küresel standartlarda bir dijital yetkinlik kazandırmaktır.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="featured-works" id="about">
-        <div class="section-header">
-            <h2>Öne Çıkan Çalışmalar</h2>
-            <p>Eğitimi teknoloji ve inovasyonla dönüştürme yolculuğumu keşfedin</p>
-        </div>
-        
-        <div class="cards-grid">
-            <div class="card">
-                <span class="card-category">EĞİTSEL İÇERİK</span>
-                <h3>Dijital Eğitim Kaynakları</h3>
-                <p>Geleneksel pedagojiyi modern dijital araçlarla harmanlayarak öğrenci katılımını artıran içerikler geliştiriyorum.</p>
-                <a href="#" class="card-link">Detaylar &rarr;</a>
+    <section class="skills-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Teknik Uzmanlık Alanlarım</h2>
+                <p>Eğitimci kimliğimi, modern mühendislik ve analiz araçlarıyla harmanlıyorum.</p>
             </div>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <i class="fas fa-globe-americas"></i>
+                        <h4>CBS & Uzaktan Algılama</h4>
+                    </div>
+                    <p>Google Earth Engine ve Python (geemap) kullanarak uydu verileri üzerinden sel, deprem ve NDVI analizleri.</p>
+                </div>
 
-            <div class="card">
-                <span class="card-category">YENİLİKÇİ SINIF</span>
-                <h3>21. Yüzyıl Öğrenme Ortamları</h3>
-                <p>İş birliğini ve eleştirel düşünmeyi teşvik eden, teknolojiyle zenginleştirilmiş sınıflar tasarlıyorum.</p>
-                <a href="#" class="card-link">Keşfet &rarr;</a>
-            </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h4>Yazılım Geliştirme</h4>
+                    </div>
+                    <p>Python (Flask) ile web tabanlı servisler, sesli asistan projeleri ve Looker Studio ile veri görselleştirme.</p>
+                </div>
 
-            <div class="card">
-                <span class="card-category">CBS & TEKNOLOJİ</span>
-                <h3>Eğitimde Coğrafi Bilgi Sistemleri</h3>
-                <p>Öğrencilerin dünyayı anlamlandırması için mekansal analizi ve CBS teknolojisini eğitime entegre ediyorum.</p>
-                <a href="#" class="card-link">Projeler &rarr;</a>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>İnteraktif İçerik</h4>
+                    </div>
+                    <p>Articulate Storyline ile pedagojik açıdan zengin ders modülleri ve HTML5/JS optimizasyonu.</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <i class="fas fa-vr-cardboard"></i>
+                        <h4>Geleceğin Teknolojileri</h4>
+                    </div>
+                    <p>Unreal Engine ile "Eco-City" simülasyonları geliştirerek eğitimi sanal dünyalara taşıma.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
         <h2>Bağlantıda Kalalım</h2>
-        <p class="contact-desc">Eğitim teknolojileri projelerinde iş birliği yapmak veya yenilikçi metodolojileri tartışmak için bana ulaşabilirsiniz.</p>
+        <p class="contact-desc">Bergama’nın yerel coğrafyasından NASA’nın küresel verilerine uzanan projelerde iş birliği için bana ulaşın.</p>
         <div class="social-links">
             <a href="mailto:hasbi@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
             <a href="https://linkedin.com/in/kullaniciadi" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
