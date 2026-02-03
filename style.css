@@ -31,6 +31,15 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 
+/* GENEL KONTEYNER (Sayfa Düzeni ve Kenar Boşlukları İçin) */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 /* =========================================
    2. HEADER & NAVİGASYON
    ========================================= */
@@ -58,9 +67,9 @@ nav {
 
 /* Logo Ayarları */
 .logo {
-    display: flex;           /* Yan yana */
-    align-items: center;     /* Ortala */
-    gap: 15px;               /* Boşluk */
+    display: flex;
+    align-items: center;
+    gap: 15px;
     text-decoration: none;
     height: 100%;
 }
@@ -74,7 +83,7 @@ nav {
 }
 
 .logo img {
-    height: 50px;            /* Logo yüksekliği */
+    height: 50px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -93,7 +102,7 @@ nav {
     position: relative;
 }
 
-.nav-menu a:hover { color: var(--green); }
+.nav-menu a:hover, .nav-menu a.active { color: var(--green); }
 
 /* Dropdown */
 .dropdown { position: relative; }
@@ -174,19 +183,19 @@ nav {
     font-weight: 800;
     color: var(--navy);
     line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-/* [YENİ] Özel Motto Kutusu Tasarımı */
+/* Motto Kutusu Stili */
 .motto-box {
-    background-color: var(--navy); /* Lacivert Arkaplan */
-    color: var(--white);           /* Beyaz Yazı */
-    padding: 20px 25px;            /* İç boşluk */
-    border-radius: 8px 0 8px 0;    /* Köşeleri hafif yuvarla (Estetik) */
-    margin-bottom: 2rem;           /* Alt boşluk */
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 20px 25px;
+    border-radius: 8px 0 8px 0;
+    margin-bottom: 2rem;
     position: relative;
-    box-shadow: 0 10px 20px rgba(30, 60, 114, 0.2); /* Hafif gölge */
-    border-left: 5px solid var(--green); /* Sol tarafa yeşil vurgu çizgisi */
+    box-shadow: 0 10px 20px rgba(30, 60, 114, 0.2);
+    border-left: 5px solid var(--green);
 }
 
 .motto-box p {
@@ -199,9 +208,9 @@ nav {
 
 .motto-author {
     display: block;
-    text-align: right;        /* İsmi sağa yasla */
-    font-weight: 700;         /* Kalın yazı */
-    color: var(--green);      /* İsmi yeşil yap */
+    text-align: right;
+    font-weight: 700;
+    color: var(--green);
     font-size: 0.9rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -209,7 +218,7 @@ nav {
 
 .quote-icon {
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.2); /* Soluk tırnak işareti */
+    color: rgba(255, 255, 255, 0.2);
     position: absolute;
     top: 10px;
     right: 15px;
@@ -264,7 +273,7 @@ nav {
     color: var(--white);
 }
 
-/* Profil Resmi */
+/* Profil Resmi (Yuvarlak Efekt) */
 .portrait-frame {
     width: 100%;
     max-width: 400px;
@@ -280,7 +289,7 @@ nav {
 .portrait-placeholder {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 50%; /* Resmi yuvarlatan asıl kod */
     background: #e9ecef;
     display: flex;
     align-items: center;
@@ -467,19 +476,19 @@ footer {
     .portrait-frame { max-width: 240px; }
     .section-header h2 { font-size: 2rem; }
 }
+
 /* =========================================
-   7. HAKKINDA SAYFASI ÖZEL STİLLERİ
+   7. HAKKINDA VE EĞİTSEL İÇERİK SAYFASI STİLLERİ
    ========================================= */
 
-/* Hakkında Hero Bölümü */
+/* Hakkında Hero */
 .about-hero {
-    padding: 120px 0 60px 0; /* Header payı */
+    padding: 120px 0 60px 0;
     background: var(--white);
     min-height: 60vh;
     display: flex;
     align-items: center;
 }
-
 .about-hero .hero-content {
     display: flex;
     align-items: center;
@@ -489,16 +498,13 @@ footer {
     margin: 0 auto;
     padding: 0 2rem;
 }
-
 .about-text { flex: 1; }
 .about-image { flex: 1; display: flex; justify-content: center; }
-
 .about-image img {
     max-width: 400px;
     border-radius: 20px;
-    box-shadow: 20px 20px 0px var(--light-bg); /* Şık gölge efekti */
+    box-shadow: 20px 20px 0px var(--light-bg);
 }
-
 .badge {
     background: var(--light-bg);
     color: var(--navy);
@@ -509,7 +515,6 @@ footer {
     display: inline-block;
     margin-bottom: 15px;
 }
-
 .motto-box-small {
     border-left: 3px solid var(--green);
     padding-left: 15px;
@@ -517,17 +522,13 @@ footer {
     font-style: italic;
     color: var(--medium-gray);
 }
-
-/* Biyografi Kartları */
 .section-padding { padding: 80px 0; }
 .bg-light { background-color: var(--light-bg); }
-
 .bio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-
 .bio-card {
     background: var(--white);
     padding: 40px;
@@ -536,108 +537,46 @@ footer {
     border: 1px solid var(--border-color);
     transition: 0.3s;
 }
-
 .bio-card:hover { transform: translateY(-5px); border-color: var(--green); }
-
-.bio-icon {
-    font-size: 2.5rem;
-    color: var(--green);
-    margin-bottom: 20px;
-}
-
-.bio-card h3 {
-    color: var(--navy);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-/* Yetenekler (Skills) */
+.bio-icon { font-size: 2.5rem; color: var(--green); margin-bottom: 20px; }
+.bio-card h3 { color: var(--navy); margin-bottom: 15px; font-size: 1.5rem; }
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
-
 .skill-item {
     background: var(--white);
     padding: 30px;
     border-radius: 12px;
     border-bottom: 4px solid var(--navy);
 }
-
 .skill-header {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 15px;
 }
+.skill-header i { font-size: 1.8rem; color: var(--navy); }
+.skill-header h4 { font-size: 1.1rem; font-weight: 700; color: var(--dark-text); }
 
-.skill-header i {
-    font-size: 1.8rem;
-    color: var(--navy);
-}
-
-.skill-header h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--dark-text);
-}
-
-/* Responsive (About) */
-@media (max-width: 968px) {
-    .about-hero .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-image img {
-        width: 100%;
-        max-width: 350px;
-        margin-top: 30px;
-    }
-    
-    .motto-box-small {
-        text-align: left; /* Mobilde de okunaklı olsun */
-        display: inline-block;
-    }
-}/* =========================================
-   8. EĞİTSEL İÇERİKLER SAYFASI STİLLERİ
-   ========================================= */
-
-/* Sayfa Başlığı (Page Header) */
+/* Eğitsel İçerik Stilleri */
 .page-header {
     background: linear-gradient(135deg, var(--navy), #152a4f);
     padding: 120px 0 60px 0;
     text-align: center;
     color: var(--white);
 }
-
-.page-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.page-header p {
-    font-size: 1.1rem;
-    opacity: 0.8;
-    font-weight: 300;
-}
-
-/* Giriş Alanı Grid */
+.page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.page-header p { font-size: 1.1rem; opacity: 0.8; font-weight: 300; }
 .intro-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 50px;
     align-items: start;
 }
-
-.features-list {
-    margin-top: 30px;
-    display: grid;
-    gap: 20px;
-}
-
+.features-list { margin-top: 30px; display: grid; gap: 20px; }
 .feature-item {
     display: flex;
     gap: 15px;
@@ -647,18 +586,8 @@ footer {
     border-left: 4px solid var(--green);
     box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
-
-.feature-item i {
-    font-size: 2rem;
-    color: var(--navy);
-}
-
-.feature-item h4 {
-    margin-bottom: 5px;
-    color: var(--navy);
-}
-
-/* Pedagoji Kutusu */
+.feature-item i { font-size: 2rem; color: var(--navy); }
+.feature-item h4 { margin-bottom: 5px; color: var(--navy); }
 .pedagogy-box {
     background: var(--white);
     padding: 30px;
@@ -666,67 +595,41 @@ footer {
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-
 .pedagogy-box h3 {
     color: var(--navy);
     border-bottom: 2px solid var(--light-bg);
     padding-bottom: 15px;
     margin-bottom: 20px;
 }
-
-.pedagogy-box ul {
-    list-style: none;
-}
-
-.pedagogy-box li {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.pedagogy-box li i {
-    color: var(--green);
-}
-
-/* Modül Kartları (Resimdeki Gibi) */
+.pedagogy-box ul { list-style: none; }
+.pedagogy-box li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.pedagogy-box li i { color: var(--green); }
 .modules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
-
 .module-card {
     background: transparent;
     border-radius: 20px;
     overflow: hidden;
     transition: 0.3s;
 }
-
-.module-card:hover {
-    transform: translateY(-5px);
-}
-
+.module-card:hover { transform: translateY(-5px); }
 .module-img {
     position: relative;
-    border-radius: 20px; /* Resimdeki gibi yuvarlak köşeler */
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    aspect-ratio: 1/1; /* Kare format */
+    aspect-ratio: 1/1;
 }
-
 .module-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: 0.5s;
 }
-
-.module-card:hover .module-img img {
-    transform: scale(1.1); /* Zoom efekti */
-}
-
-/* Hover Overlay */
+.module-card:hover .module-img img { transform: scale(1.1); }
 .module-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -737,11 +640,7 @@ footer {
     opacity: 0;
     transition: 0.3s;
 }
-
-.module-card:hover .module-overlay {
-    opacity: 1;
-}
-
+.module-card:hover .module-overlay { opacity: 1; }
 .btn-module {
     background: var(--white);
     color: var(--navy);
@@ -751,32 +650,24 @@ footer {
     transform: translateY(20px);
     transition: 0.3s;
 }
-
-.module-card:hover .btn-module {
-    transform: translateY(0);
-}
-
-.module-info {
-    text-align: center;
-    padding-top: 15px;
-}
-
+.module-card:hover .btn-module { transform: translateY(0); }
+.module-info { text-align: center; padding-top: 15px; }
 .module-info h3 {
     font-size: 1.1rem;
     color: var(--navy);
     margin-bottom: 5px;
     font-weight: 700;
-    text-decoration: underline; /* Resimdeki gibi altı çizili link hissi */
+    text-decoration: underline;
     text-underline-offset: 4px;
 }
-
 .module-tag {
     font-size: 0.85rem;
     color: var(--medium-gray);
     font-weight: 500;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
+    .about-hero .hero-content { flex-direction: column; text-align: center; }
+    .about-image img { width: 100%; max-width: 350px; margin-top: 30px; }
+    .motto-box-small { text-align: left; display: inline-block; }
     .intro-grid { grid-template-columns: 1fr; }
 }
