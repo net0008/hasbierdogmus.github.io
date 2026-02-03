@@ -467,3 +467,138 @@ footer {
     .portrait-frame { max-width: 240px; }
     .section-header h2 { font-size: 2rem; }
 }
+/* =========================================
+   7. HAKKINDA SAYFASI ÖZEL STİLLERİ
+   ========================================= */
+
+/* Hakkında Hero Bölümü */
+.about-hero {
+    padding: 120px 0 60px 0; /* Header payı */
+    background: var(--white);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.about-hero .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-text { flex: 1; }
+.about-image { flex: 1; display: flex; justify-content: center; }
+
+.about-image img {
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px var(--light-bg); /* Şık gölge efekti */
+}
+
+.badge {
+    background: var(--light-bg);
+    color: var(--navy);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.motto-box-small {
+    border-left: 3px solid var(--green);
+    padding-left: 15px;
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--medium-gray);
+}
+
+/* Biyografi Kartları */
+.section-padding { padding: 80px 0; }
+.bg-light { background-color: var(--light-bg); }
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.bio-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    transition: 0.3s;
+}
+
+.bio-card:hover { transform: translateY(-5px); border-color: var(--green); }
+
+.bio-icon {
+    font-size: 2.5rem;
+    color: var(--green);
+    margin-bottom: 20px;
+}
+
+.bio-card h3 {
+    color: var(--navy);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Yetenekler (Skills) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.skill-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    border-bottom: 4px solid var(--navy);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.skill-header i {
+    font-size: 1.8rem;
+    color: var(--navy);
+}
+
+.skill-header h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+/* Responsive (About) */
+@media (max-width: 968px) {
+    .about-hero .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-image img {
+        width: 100%;
+        max-width: 350px;
+        margin-top: 30px;
+    }
+    
+    .motto-box-small {
+        text-align: left; /* Mobilde de okunaklı olsun */
+        display: inline-block;
+    }
+}
