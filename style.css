@@ -177,15 +177,42 @@ nav {
     margin-bottom: 1rem;
 }
 
-/* Motto Stili (Yeni Eklendi) */
-.motto {
-    font-size: 1.5rem;
-    font-weight: 700;
+/* [YENİ] Özel Motto Kutusu Tasarımı */
+.motto-box {
+    background-color: var(--navy); /* Lacivert Arkaplan */
+    color: var(--white);           /* Beyaz Yazı */
+    padding: 20px 25px;            /* İç boşluk */
+    border-radius: 8px 0 8px 0;    /* Köşeleri hafif yuvarla (Estetik) */
+    margin-bottom: 2rem;           /* Alt boşluk */
+    position: relative;
+    box-shadow: 0 10px 20px rgba(30, 60, 114, 0.2); /* Hafif gölge */
+    border-left: 5px solid var(--green); /* Sol tarafa yeşil vurgu çizgisi */
+}
+
+.motto-box p {
     font-style: italic;
-    color: var(--green);
-    margin-bottom: 1.5rem;
-    border-left: 4px solid var(--navy);
-    padding-left: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.motto-author {
+    display: block;
+    text-align: right;        /* İsmi sağa yasla */
+    font-weight: 700;         /* Kalın yazı */
+    color: var(--green);      /* İsmi yeşil yap */
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.quote-icon {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.2); /* Soluk tırnak işareti */
+    position: absolute;
+    top: 10px;
+    right: 15px;
 }
 
 .hero-text .subtitle {
