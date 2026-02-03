@@ -56,30 +56,28 @@ nav {
     align-items: center;
 }
 
-/* Logo Kapsayıcısı */
+/* Logo Ayarları */
 .logo {
-    display: flex;           /* Resmi ve yazıyı yan yana getirir */
-    align-items: center;     /* Dikeyde tam ortalar */
-    gap: 15px;               /* Resim ile yazı arasına boşluk koyar */
-    text-decoration: none;   /* Alt çizgiyi kaldırır */
-    height: 100%;            /* Header yüksekliğine uyar */
+    display: flex;           /* Yan yana */
+    align-items: center;     /* Ortala */
+    gap: 15px;               /* Boşluk */
+    text-decoration: none;
+    height: 100%;
 }
 
-/* Logo Yazısı */
 .logo span {
     font-size: 1.4rem;
     font-weight: 800;
     color: var(--navy);
     letter-spacing: -0.5px;
-    line-height: 1;          /* Satır yüksekliğini sıkılaştır */
+    line-height: 1;
 }
 
-/* Logo Resmi (İkon) */
 .logo img {
-    height: 50px;            /* Yüksekliği sabitler (Header 80px, bu ideal) */
-    width: auto;             /* Genişliği orantılı ayarlar */
-    object-fit: contain;     /* Resmi bozmadan sığdırır */
-    display: block;          /* Satır içi boşlukları temizler */
+    height: 50px;            /* Logo yüksekliği */
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-menu {
@@ -97,7 +95,7 @@ nav {
 
 .nav-menu a:hover { color: var(--green); }
 
-/* Dropdown (Masaüstü) */
+/* Dropdown */
 .dropdown { position: relative; }
 .dropdown-menu {
     position: absolute;
@@ -148,16 +146,7 @@ nav {
     background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%);
     overflow: hidden;
 }
-/* Motto Stili */
-.motto {
-    font-size: 1.5rem;          /* Başlıktan küçük, metinden büyük */
-    font-weight: 700;           /* Kalın yazı */
-    font-style: italic;         /* İtalik stil */
-    color: var(--green);        /* Vurgu rengimiz olan yeşil */
-    margin-bottom: 1.5rem;      /* Altındaki metinle arasına boşluk */
-    border-left: 4px solid var(--navy); /* Soluna şık bir çizgi */
-    padding-left: 15px;         /* Çizgi ile yazı arasına boşluk */
-}
+
 .topo-background {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -185,7 +174,18 @@ nav {
     font-weight: 800;
     color: var(--navy);
     line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+/* Motto Stili (Yeni Eklendi) */
+.motto {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--green);
     margin-bottom: 1.5rem;
+    border-left: 4px solid var(--navy);
+    padding-left: 15px;
 }
 
 .hero-text .subtitle {
