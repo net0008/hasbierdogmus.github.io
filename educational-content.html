@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Eğitsel İçerikler | Hasbi Erdoğmuş</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="description" content="5E modeline uygun, interaktif coğrafya ders modülleri ve teknoloji odaklı öğrenme senaryoları.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="GeoCode Logo">
+                <span>HASBİ ERDOĞMUŞ</span>
+            </a>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" onclick="closeMenu()">Ana Sayfa</a></li>
+                <li><a href="about.html" onclick="closeMenu()">Hakkımda</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="active">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="educational-content.html" class="active" onclick="closeMenu()">Eğitsel İçerikler</a>
+                        <a href="#innovative-classroom" onclick="closeMenu()">Yenilikçi Sınıf</a>
+                        <a href="#gis-tech" onclick="closeMenu()">CBS ve Teknoloji</a>
+                    </div>
+                </li>
+                
+                <li><a href="#contact" onclick="closeMenu()">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>İnteraktif Öğrenme Modülleri</h1>
+            <p>Teknoloji Odaklı Öğrenme Senaryoları (TOÖS)</p>
+        </div>
+    </section>
+
+    <section class="content-intro section-padding">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>Bilginin Beceriye Dönüştüğü Yolculuk</h2>
+                    <p>Eğitim teknolojilerindeki birikimimi, coğrafya biliminin karmaşık konularını basitleştiren interaktif modüllere dönüştürüyorum. Bu sayfada yer alan içerikler, sadece bilgi aktarmayı değil, öğrencinin sürece aktif katılımını sağlamayı hedefleyen <strong>2024 Teknoloji Odaklı Öğrenme Senaryoları (TOÖS)</strong> vizyonu doğrultusunda tasarlanmıştır.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <div>
+                                <h4>HTML5 & SCORM Uyumu</h4>
+                                <p>Tüm LMS sistemlerinde ve modern tarayıcılarda sorunsuz çalışma.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-photo-video"></i>
+                            <div>
+                                <h4>Zengin Multimedya</h4>
+                                <p>Profesyonel seslendirme, animasyon ve etkileşimli bileşenler.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pedagogy-box">
+                    <h3>Pedagojik Dayanaklar</h3>
+                    <p>Üretilen her içerik, <strong>Türkiye Yüzyılı Maarif Modeli</strong>'nin hedeflediği erdemli ve yetkin birey profilini destekleyen şu stratejileri esas alır:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>5E Öğrenme Modeli:</strong> Giriş, Keşfetme, Açıklama, Derinleştirme, Değerlendirme.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Aktif Öğrenme:</strong> Öğrenciyi "tasarımcı" konumuna getirme.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Süreç Odaklı Değerlendirme:</strong> Anlık geri bildirim ve rubrikler.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Hibrit Öğrenme:</strong> Hem sınıf içi hem uzaktan eğitime uygunluk.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Örnek Ders Modülleri</h2>
+                <p>Coğrafya dersleri için geliştirdiğim interaktif senaryolar</p>
+            </div>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/ders1.jpg" alt="Yağış Çeşitleri">
+                        <div class="module-overlay">
+                            <a href="#" class="btn-module"><i class="fas fa-play"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Oluşumuna Göre Yağışlar</h3>
+                        <span class="module-tag">Coğrafya 9. Sınıf</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/ders2.jpg" alt="5E Model">
+                        <div class="module-overlay">
+                            <a href="#" class="btn-module"><i class="fas fa-play"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>5-E Öğrenme Modeli</h3>
+                        <span class="module-tag">Pedagoji</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/ders3.jpg" alt="Rüzgarlar">
+                        <div class="module-overlay">
+                            <a href="#" class="btn-module"><i class="fas fa-play"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Sürekli Rüzgarlar</h3>
+                        <span class="module-tag">Coğrafya 9. Sınıf</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/ders4.jpg" alt="Ölçek">
+                        <div class="module-overlay">
+                            <a href="#" class="btn-module"><i class="fas fa-play"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Harita Ölçek İlişkisi</h3>
+                        <span class="module-tag">Harita Bilgisi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
