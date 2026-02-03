@@ -140,9 +140,8 @@ nav {
 }
 
 /* =========================================
-   3-6. DİĞER BÖLÜMLER (HERO, ABOUT, FOOTER vb.)
+   3-6. DİĞER BÖLÜMLER
    ========================================= */
-/* (Buradaki eski kodların aynen kalıyor, yer kaplamasın diye kısalttım) */
 .hero { position: relative; min-height: 100vh; padding-top: var(--header-height); display: flex; align-items: center; background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%); overflow: hidden; }
 .topo-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.04; background-image: repeating-linear-gradient(0deg, transparent, transparent 35px, var(--navy) 35px, var(--navy) 36px), repeating-linear-gradient(90deg, transparent, transparent 35px, var(--navy) 35px, var(--navy) 36px); pointer-events: none; }
 .hero-content { max-width: var(--container-width); margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
@@ -178,7 +177,6 @@ nav {
 .social-icon { width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s; }
 .social-icon:hover { background: var(--green); transform: translateY(-5px) rotate(360deg); }
 footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-align: center; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
-
 @media (max-width: 968px) {
     .hamburger { display: block; z-index: 1001; }
     .nav-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background: var(--white); flex-direction: column; justify-content: center; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s ease-in-out; z-index: 1000; }
@@ -193,7 +191,7 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 }
 
 /* =========================================
-   7. HAKKINDA SAYFASI (Önceki gibi)
+   7. HAKKINDA SAYFASI
    ========================================= */
 .about-hero { padding: 120px 0 60px 0; background: var(--white); min-height: 60vh; display: flex; align-items: center; }
 .about-hero .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 50px; max-width: var(--container-width); margin: 0 auto; padding: 0 2rem; }
@@ -216,7 +214,7 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 .skill-header h4 { font-size: 1.1rem; font-weight: 700; color: var(--dark-text); }
 
 /* =========================================
-   8. EĞİTSEL İÇERİKLER SAYFASI (Güncellendi)
+   8. EĞİTSEL İÇERİKLER SAYFASI (Düzeltildi)
    ========================================= */
 .page-header {
     background: linear-gradient(135deg, var(--navy), #152a4f);
@@ -245,7 +243,7 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 .feature-item i { font-size: 2rem; color: var(--navy); }
 .feature-item h4 { margin-bottom: 5px; color: var(--navy); }
 
-/* Pedagoji Kutusu Düzeltme */
+/* Pedagoji Kutusu HİZALAMA DÜZELTMESİ (v3.4) */
 .pedagogy-box {
     background: var(--white);
     padding: 30px;
@@ -261,14 +259,27 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 }
 .pedagogy-box ul { list-style: none; padding-left: 0; }
 .pedagogy-box li { 
-    margin-bottom: 12px; 
+    margin-bottom: 15px; 
     display: flex; 
-    align-items: flex-start; /* [ÖNEMLİ] Hizalama düzeltildi */
-    gap: 10px; 
+    align-items: flex-start; /* İkon yukarıda sabit kalır */
+    gap: 12px; 
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0; /* Hafif çizgi ile ayrım */
 }
+.pedagogy-box li:last-child { border-bottom: none; }
 .pedagogy-box li i { 
     color: var(--green); 
-    margin-top: 6px; /* İkonu metnin ilk satırıyla hizalar */
+    font-size: 1.1rem;
+    margin-top: 5px; /* İkonu ilk satırla hizala */
+    flex-shrink: 0; /* İkonun sıkışmasını engelle */
+}
+.pedagogy-box li div {
+    font-size: 0.95rem;
+    color: var(--dark-text);
+}
+.pedagogy-box li strong {
+    color: var(--navy);
+    font-weight: 700;
 }
 
 /* Modül Kartları */
@@ -286,31 +297,11 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 .module-info h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 5px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .module-tag { font-size: 0.85rem; color: var(--medium-gray); font-weight: 500; }
 
-/* Yeni Sayfa İçerik Stilleri (Detay Sayfası) */
+/* Detay Sayfası Stilleri */
 .module-detail { padding-top: 120px; padding-bottom: 80px; }
-.iframe-container {
-    width: 100%;
-    height: 600px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    background: #000;
-    margin-bottom: 40px;
-}
+.iframe-container { width: 100%; height: 600px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000; margin-bottom: 40px; }
 .iframe-container iframe { width: 100%; height: 100%; border: none; }
-.module-desc-box {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-}
-.award-box {
-    margin-bottom: 20px;
-    background: #fff3cd;
-    color: #856404;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 5px solid #ffc107;
-    font-weight: 600;
-}
+.module-desc-box { background: var(--white); padding: 40px; border-radius: 12px; border: 1px solid var(--border-color); }
+.award-box { margin-bottom: 20px; background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; border-left: 5px solid #ffc107; font-weight: 600; }
 .award-box a { text-decoration: underline; }
+@media (max-width: 968px) { .intro-grid { grid-template-columns: 1fr; } }
