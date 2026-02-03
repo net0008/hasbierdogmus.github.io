@@ -305,3 +305,74 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 .award-box { margin-bottom: 20px; background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; border-left: 5px solid #ffc107; font-weight: 600; }
 .award-box a { text-decoration: underline; }
 @media (max-width: 968px) { .intro-grid { grid-template-columns: 1fr; } }
+/* =========================================
+   9. YENİLİKÇİ SINIF SAYFASI STİLLERİ
+   ========================================= */
+
+.project-details {
+    background: var(--white);
+}
+
+.project-row {
+    padding: 20px 0;
+}
+
+.project-content h3 {
+    color: var(--navy);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.project-label {
+    display: inline-block;
+    background: #e3f2fd;
+    color: var(--navy);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.project-label i {
+    color: var(--green);
+    margin-right: 5px;
+}
+
+.project-steps {
+    list-style: none;
+    margin-top: 20px;
+    background: var(--light-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--navy);
+}
+
+.project-steps li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.project-steps li::before {
+    content: "•";
+    color: var(--green);
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.project-steps li strong {
+    color: var(--navy);
+}
+
+.project-divider {
+    border: 0;
+    height: 1px;
+    background: #e1e8ed;
+    margin: 40px 0;
+}

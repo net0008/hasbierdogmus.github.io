@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yenilikçi Sınıf | Hasbi Erdoğmuş</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="description" content="Tasarım, Kodlama ve Coğrafya. Tinkercad, Looker Studio ve Codeblocks ile yenilikçi sınıf uygulamaları.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="GeoCode Logo">
+                <span>HASBİ ERDOĞMUŞ</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" onclick="closeMenu()">Ana Sayfa</a></li>
+                <li><a href="about.html" onclick="closeMenu()">Hakkımda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="educational-content.html" onclick="closeMenu()">Eğitsel İçerikler</a>
+                        <a href="innovative-classroom.html" class="active" onclick="closeMenu()">Yenilikçi Sınıf</a>
+                        <a href="#gis-tech" onclick="closeMenu()">CBS ve Teknoloji</a>
+                    </div>
+                </li>
+                <li><a href="#contact" onclick="closeMenu()">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Yenilikçi Sınıf</h1>
+            <p>Tasarım, Kodlama ve Coğrafya</p>
+        </div>
+    </section>
+
+    <section class="content-intro section-padding">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>Deney ve Üretim Ekosistemi</h2>
+                    <p>Bu alanda yer alan içerikler, teknolojinin sınıf ortamına sadece bir araç olarak değil, bir <strong>"deney ve üretim ekosistemi"</strong> olarak entegre edildiği Yenilikçi Sınıf modeline dayanmaktadır. Öğrencilerimiz, coğrafya kavramlarını dijital araçlarla modelleyerek soyut bilgiyi somut verilere ve fiziksel ürünlere dönüştürürler.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-cubes"></i>
+                            <div>
+                                <h4>Somutlaştırma</h4>
+                                <p>Soyut coğrafi kavramların 3D modellere dönüşümü.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-code-branch"></i>
+                            <div>
+                                <h4>Algoritmik Düşünme</h4>
+                                <p>Coğrafyanın matematiksel omurgasının kodlanması.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pedagogy-box">
+                    <h3>Pedagojik Yaklaşımımız</h3>
+                    <p>Bu projelerin tamamı, <strong>TOÖS Öğretmen El Kitabı</strong>'nda vurgulanan şu üç ana eksen üzerine kuruludur:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>5E Öğrenme Döngüsü:</strong> Öğrenci önce problemi keşfeder, dijital araçla açıklar ve 3D baskı ile derinleştirir.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>STEM Entegrasyonu:</strong> Fen (Dünya), Teknoloji (Tinkercad), Mühendislik (3D baskı) ve Matematik (Koordinat).</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Ürün Odaklı Değerlendirme:</strong> Kodun kalitesi ve 3D modelin niteliği ile ölçme.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Öğrenci Çalışmaları</h2>
+                <p>Dijital araçlarla üretilen somut ders materyalleri</p>
+            </div>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/yenilikci-iklim.jpg" alt="Bergama İklim Diyagramı">
+                        <div class="module-overlay">
+                            <a href="#project-data" class="btn-module"><i class="fas fa-arrow-down"></i> Detaylar</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Veri Okuryazarlığı</h3>
+                        <span class="module-tag">Looker Studio & İklim</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/yenilikci-katmanlar.jpg" alt="Dünyanın Katmanları">
+                        <div class="module-overlay">
+                            <a href="#project-3d" class="btn-module"><i class="fas fa-arrow-down"></i> Detaylar</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>3D Modelleme</h3>
+                        <span class="module-tag">Tinkercad & Jeoloji</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/yenilikci-meridyen.jpg" alt="Meridyenler">
+                        <div class="module-overlay">
+                            <a href="#project-code" class="btn-module"><i class="fas fa-arrow-down"></i> Detaylar</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Hesaplamalı Düşünme</h3>
+                        <span class="module-tag">Codeblocks & Meridyen</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/yenilikci-paralel.jpg" alt="Paraleller">
+                        <div class="module-overlay">
+                            <a href="#project-code" class="btn-module"><i class="fas fa-arrow-down"></i> Detaylar</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Hesaplamalı Düşünme</h3>
+                        <span class="module-tag">Codeblocks & Paralel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-details section-padding">
+        <div class="container">
+            
+            <div id="project-data" class="project-row">
+                <div class="project-content">
+                    <div class="project-label"><i class="fas fa-chart-bar"></i> Veri Okuryazarlığı</div>
+                    <h3>Bergama İklim Diyagramı (Looker Studio)</h3>
+                    <p>Coğrafi bilgiyi işleme becerisini, modern iş dünyasının kullandığı Looker Studio ile sınıfa taşıyoruz.</p>
+                    <ul class="project-steps">
+                        <li><strong>Senaryo:</strong> Öğrenciler, Bergama'nın uzun yıllar sıcaklık ve yağış verilerini analiz eder.</li>
+                        <li><strong>Uygulama:</strong> Veriler Looker Studio üzerinden dinamik grafiklere dönüştürülür.</li>
+                        <li><strong>Kazanım:</strong> Karmaşık verileri görselleştirme ve yerel iklim koşullarını kanıta dayalı yorumlama yetisi geliştirilir.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="project-divider">
+
+            <div id="project-3d" class="project-row">
+                <div class="project-content">
+                    <div class="project-label"><i class="fas fa-cube"></i> 3D Modelleme</div>
+                    <h3>Dünyanın Katmanları (Tinkercad)</h3>
+                    <p>Dünyanın iç yapısını sadece kitaptan okumak yerine, öğrencilerimiz bu yapıyı katman katman bizzat inşa ediyor.</p>
+                    <ul class="project-steps">
+                        <li><strong>Süreç:</strong> Öğrenciler Tinkercad üzerinde yer kabuğu, manto ve çekirdek gibi katmanları ölçekli bir şekilde modeller.</li>
+                        <li><strong>Üretim:</strong> Tasarlanan modeller okulun 3D yazıcısından somut birer ders materyali olarak çıktı alınır.</li>
+                        <li><strong>Kazanım:</strong> Uzamsal düşünme becerisi ve tasarım odaklı düşünme (Design Thinking) süreci deneyimlenir.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="project-divider">
+
+            <div id="project-code" class="project-row">
+                <div class="project-content">
+                    <div class="project-label"><i class="fas fa-code"></i> Hesaplamalı Düşünme</div>
+                    <h3>Kod Blokları ile Meridyen ve Paraleller</h3>
+                    <p>Coğrafyanın matematiksel omurgasını blok tabanlı kodlama ile keşfediyoruz.</p>
+                    <ul class="project-steps">
+                        <li><strong>Tasarım Süreci:</strong> Öğrenciler, sürükle-bırak mantığındaki Tinkercad Codeblocks kullanarak paralel ve meridyen ağını oluşturacak algoritmaları yazar.</li>
+                        <li><strong>Matematiksel Coğrafya:</strong> Kod blokları ile bir kürenin çevresine 10-15 derecelik açılarla çizgiler yerleştiren döngüler kurarlar.</li>
+                        <li><strong>Final:</strong> Kodun ürettiği 3D model, yazıcıdan basılarak koordinat sistemi üzerine fiziksel bir çalışma alanı oluşturulur.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
