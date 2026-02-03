@@ -377,7 +377,7 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     margin: 40px 0;
 }
 /* =========================================
-   10. PROJE DETAY SAYFASI (DÜNYANIN KATMANLARI)
+   10. PROJE DETAY SAYFASI (DÜZELTİLDİ - v3.7)
    ========================================= */
 
 .project-header-box {
@@ -390,24 +390,33 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     margin: 10px 0;
 }
 
-/* Tinkercad Görsel Efekti */
+/* Tinkercad Görsel Efekti (REVİZE EDİLDİ) */
 .tinkercad-link-container {
     max-width: 800px;
     margin: 0 auto 50px auto;
-    position: relative;
+}
+
+/* Linkin kendisini kapsayıcı yapıyoruz */
+.tinkercad-link-container a {
+    display: block;          /* Linki blok yap */
+    position: relative;      /* Overlay buna göre hizalansın */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
+
 .tinkercad-link-container img {
     width: 100%;
+    display: block;          /* Satır boşluğunu sil */
     transition: 0.5s;
-    display: block;
+    position: relative;      /* Z-index çalışsın diye */
+    z-index: 1;              /* Resim 1. katta */
 }
+
 .tinkercad-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 184, 148, 0.8); /* Yeşil Overlay */
+    background: rgba(0, 184, 148, 0.9); /* Yeşil Overlay */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -418,16 +427,27 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     color: var(--white);
     font-size: 1.5rem;
     font-weight: 700;
+    z-index: 10;             /* [ÖNEMLİ] Perdeyi 10. kata (en üste) çıkardık! */
 }
+
 .tinkercad-overlay i { font-size: 3rem; margin-bottom: 10px; }
-.tinkercad-link-container:hover .tinkercad-overlay { opacity: 1; }
-.tinkercad-link-container:hover img { transform: scale(1.05); }
+
+/* Hover Efektleri */
+.tinkercad-link-container a:hover .tinkercad-overlay { opacity: 1; }
+.tinkercad-link-container a:hover img { transform: scale(1.05); }
+
+/* Resim Altı Açıklama */
 .img-caption {
     text-align: center;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: var(--medium-gray);
-    font-style: italic;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: var(--navy);
+    font-weight: 600;
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    width: 100%;
 }
 
 /* Görev Metni */
