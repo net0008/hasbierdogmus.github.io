@@ -562,11 +562,29 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     margin-bottom: 20px; /* Altındaki metinle arayı açar */
 }
 
-/* YATAY HARİTALAR İÇİN ÖZEL AYAR (Düzeltildi) */
+/* =========================================
+   11. GÖMÜLÜ RAPOR (IFRAME) DÜZELTMESİ (v3.18 - Final)
+   ========================================= */
+
+/* Standart Kutu (Dikey Raporlar İçin) */
+.embed-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Kare form */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 2px solid var(--border-color);
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+/* YATAY HARİTALAR İÇİN ÖZEL AYAR (Yükseltildi) */
 .embed-container.landscape {
     padding-bottom: 0 !important; /* Yüzdeyi iptal et */
-    height: 60vh;                 /* Ekran yüksekliğinin %60'ını kapla */
-    min-height: 550px;            /* Ama asla 550px'den kısa olma (Kontroller sığsın) */
+    height: 75vh;                 /* Ekran yüksekliğinin %75'ini kapla */
+    min-height: 800px;            /* [ÖNEMLİ] Yüksekliği 800px yaptık, scrollbar çıkmayacak */
 }
 
 .embed-container iframe {
@@ -576,20 +594,19 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     border: none;
 }
 
-/* Resim Altı Açıklama Hizalaması */
+/* Resim Altı Açıklama */
 .img-caption {
     text-align: center;
     margin-top: 15px;
-    margin-bottom: 40px; /* Altındaki başlıklarla mesafeyi açar */
+    margin-bottom: 40px;
     font-size: 0.95rem;
     color: var(--navy);
     background: #e3f2fd;
     padding: 10px;
     border-radius: 8px;
-    display: block; /* Blok yaparak hizayı düzeltir */
+    display: block;
 }
 
-/* Metin kutusunun üst boşluğunu garantiye al */
 .module-desc-box {
     margin-top: 20px;
 }
