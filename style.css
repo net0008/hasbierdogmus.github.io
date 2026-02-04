@@ -532,7 +532,7 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 
 .embed-container {
     position: relative;
-    width: 100%;
+    width: 98%;
     height: 0;
     /* Yüksekliği artırdık. Kareye yakın bir oran (100%) verdik ki sığsın */
     padding-bottom: 80%; 
