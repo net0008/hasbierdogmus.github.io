@@ -544,24 +544,52 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 }
 
 
+/* =========================================
+   11. GÖMÜLÜ RAPOR (IFRAME) DÜZELTMESİ (v3.15)
+   ========================================= */
+
+/* Standart Kutu (Looker Studio vb. için) */
+.embed-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Kare form */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 2px solid var(--border-color);
+    background: #fff;
+    margin-bottom: 20px; /* Altındaki metinle arayı açar */
+}
+
+/* YATAY HARİTALAR İÇİN ÖZEL AYAR (Düzeltildi) */
+.embed-container.landscape {
+    padding-bottom: 0 !important; /* Yüzdeyi iptal et */
+    height: 60vh;                 /* Ekran yüksekliğinin %60'ını kapla */
+    min-height: 550px;            /* Ama asla 550px'den kısa olma (Kontroller sığsın) */
+}
+
 .embed-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     border: none;
 }
 
-/* Mobil için yükseklik ayarı */
-@media (max-width: 768px) {
-    .embed-container {
-        padding-bottom: 100%; /* Mobilde daha kare/uzun bir görünüm için */
-    }
+/* Resim Altı Açıklama Hizalaması */
+.img-caption {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 40px; /* Altındaki başlıklarla mesafeyi açar */
+    font-size: 0.95rem;
+    color: var(--navy);
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 8px;
+    display: block; /* Blok yaparak hizayı düzeltir */
 }
-/* Mevcut kodun hemen altına ekle */
 
-/* Yatay Haritalar İçin Özel Boyut (16:9 Oranı) */
-.embed-container.landscape {
-    padding-bottom: 60%; /* Yüksekliği azalttık, artık yatay duracak */
+/* Metin kutusunun üst boşluğunu garantiye al */
+.module-desc-box {
+    margin-top: 20px;
 }
