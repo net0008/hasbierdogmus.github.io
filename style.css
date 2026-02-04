@@ -559,3 +559,9 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
         padding-bottom: 100%; /* Mobilde daha kare/uzun bir görünüm için */
     }
 }
+/* Mevcut kodun hemen altına ekle */
+
+/* Yatay Haritalar İçin Özel Boyut (16:9 Oranı) */
+.embed-container.landscape {
+    padding-bottom: 60%; /* Yüksekliği azalttık, artık yatay duracak */
+}
