@@ -610,3 +610,128 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 .module-desc-box {
     margin-top: 20px;
 }
+/* =========================================
+   12. İLETİŞİM BÖLÜMÜ (Contact Section)
+   ========================================= */
+
+.contact-section {
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.quote-text {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Çift Sütun Izgara */
+.contact-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+/* Sol Sütun: Manifesto */
+.contact-manifesto h3 {
+    color: var(--navy);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.contact-manifesto p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.contact-cta-box {
+    background: #fff;
+    border-left: 4px solid var(--orange);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Sağ Sütun: Hizmetler */
+.contact-details h3 {
+    color: var(--navy);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.services-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.services-list li i {
+    color: var(--orange);
+    font-size: 1.2rem;
+    margin-right: 15px;
+    margin-top: 4px;
+}
+
+.services-list li strong {
+    display: block;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.services-list li span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* E-posta Kartları */
+.email-cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.email-card {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+    min-width: 200px;
+}
+
+.email-card:hover {
+    transform: translateY(-3px);
+}
+
+.email-card.hotmail {
+    background: #0078d4; /* Outlook Mavisi */
+}
+
+.email-card.gmail {
+    background: #ea4335; /* Google Kırmızısı */
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .contact-grid-layout {
+        grid-template-columns: 1fr; /* Mobilde alt alta */
+        gap: 30px;
+    }
+}
