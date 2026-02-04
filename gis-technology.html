@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBS ve Uzaktan Algılama | Hasbi Erdoğmuş</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="description" content="Google Earth Engine ve Python ile coğrafi veri analizi, sel riski modellemesi ve NDVI çalışmaları.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="GeoCode Logo">
+                <span>HASBİ ERDOĞMUŞ</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" onclick="closeMenu()">Ana Sayfa</a></li>
+                <li><a href="about.html" onclick="closeMenu()">Hakkımda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="educational-content.html" onclick="closeMenu()">Eğitsel İçerikler</a>
+                        <a href="innovative-classroom.html" onclick="closeMenu()">Yenilikçi Sınıf</a>
+                        <a href="gis-technology.html" class="active" onclick="closeMenu()">CBS ve Teknoloji</a>
+                    </div>
+                </li>
+                <li><a href="#contact" onclick="closeMenu()">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>CBS ve Uzaktan Algılama</h1>
+            <p>Veriyle Dünyayı Anlamak</p>
+        </div>
+    </section>
+
+    <section class="content-intro section-padding">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>Mekansal Zeka ve Analiz</h2>
+                    <p>Bu sayfa, coğrafi bilgiyi sadece birer statik görsel olarak değil; yaşayan, sorgulanabilen ve analiz edilebilen birer veri seti olarak ele alan projelerimi içermektedir. Çalışmalarımda <strong>Google Earth Engine (GEE)</strong> ve <strong>Python (Geemap)</strong> altyapısını kullanarak, uydu verilerini <strong>Türkiye Yüzyılı Maarif Modeli</strong> vizyonuna uygun, problem çözme odaklı dijital öğrenme araçlarına dönüştürüyorum.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-globe-americas"></i>
+                            <div>
+                                <h4>Google Earth Engine</h4>
+                                <p>Büyük veri (Big Data) ile bulut tabanlı coğrafi analizler.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-layer-group"></i>
+                            <div>
+                                <h4>Python & Geemap</h4>
+                                <p>Etkileşimli haritalar ve mekansal veri görselleştirme.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pedagogy-box">
+                    <h3>Pedagojik Bakış Açısı</h3>
+                    <p>Bu çalışmalar, <strong>TOÖS Öğretmen El Kitabı</strong>'nda tanımlanan "Senaryo Temelli Öğrenme" ve "5E Modeli" ile tam uyumludur:</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Keşfetme:</strong> Öğrenciler ham uydu verilerini interaktif araçlarla manipüle eder.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Derinleştirme:</strong> Soyut coğrafi kavramlar (yükselti, debi, vejetasyon), gerçek dünya verileriyle somutlaşır.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Değerlendirme:</strong> Süreç, veriye dayalı argüman üretme ve karar verme becerileri üzerinden ölçülür.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Analiz Projeleri</h2>
+                <p>Bergama Havzası Özelinde CBS Uygulamaları</p>
+            </div>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/cbs-sel.jpg" alt="Sel Riski Modellemesi">
+                        <div class="module-overlay">
+                            <a href="project-gis-flood.html" class="btn-module"><i class="fas fa-play"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Sel Riski Modellemesi</h3>
+                        <span class="module-tag">Topografya & Hidroloji</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/cbs-zemin.jpg" alt="Zemin Stabilite Analizi">
+                        <div class="module-overlay">
+                            <a href="project-gis-soil.html" class="btn-module"><i class="fas fa-play"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Zemin Stabilite Analizi</h3>
+                        <span class="module-tag">Yerleşim Uygunluğu</span>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/cbs-ndvi.jpg" alt="NDVI Analizi">
+                        <div class="module-overlay">
+                            <a href="project-gis-ndvi.html" class="btn-module"><i class="fas fa-play"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Bitki Örtüsü (NDVI)</h3>
+                        <span class="module-tag">Kuraklık & Tarım</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
