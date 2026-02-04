@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapay Zeka Çalışmaları | Hasbi Erdoğmuş</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="GeoCode Logo">
+                <span>HASBİ ERDOĞMUŞ</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" onclick="closeMenu()">Ana Sayfa</a></li>
+    <li><a href="about.html" onclick="closeMenu()">Hakkımda</a></li>
+    <li class="dropdown">
+        <a href="#" class="active">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+        <div class="dropdown-menu">
+            <a href="educational-content.html" onclick="closeMenu()">Eğitsel İçerikler</a>
+            <a href="innovative-classroom.html" onclick="closeMenu()">Yenilikçi Sınıf</a>
+            <a href="gis-technology.html" onclick="closeMenu()">CBS ve Teknoloji</a>
+            <a href="ai-studies.html" onclick="closeMenu()">Yapay Zeka (AI)</a>
+            <a href="other-works.html" onclick="closeMenu()">Diğer Çalışmalar</a> </div>
+    </li>
+    <li><a href="#contact" onclick="closeMenu()">İletişim</a></li>
+</ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Yapay Zeka Çalışmaları</h1>
+            <p>Teori ve Uygulama: Eğitimde AI Dönüşümü</p>
+        </div>
+    </section>
+
+    <section class="content-intro section-padding">
+        <div class="container">
+            <div class="intro-text text-center" style="max-width: 900px; margin: 0 auto;">
+                <h2>Geleceği Tasarlamak</h2>
+                <p>Bu sayfada, yapay zekanın (YZ) eğitimdeki dönüştürücü gücünü ve coğrafya bilimiyle olan stratejik entegrasyonunu sergileyen düzeydeki çalışmalarım yer almaktadır. Amacımız, öğrencileri teknolojinin sadece tüketicisi değil, üreticisi ve yönlendiricisi konumuna taşımaktır.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section section-padding bg-light">
+        <div class="container">
+            <div class="modules-grid">
+                
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/ai-rocks.jpg" alt="Kayaçların YZ ile Tanınması">
+                        <div class="module-overlay">
+                            <a href="project-ai-rocks.html" class="btn-module"><i class="fas fa-play"></i> Sunumu İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Nesne Tanıma & Kayaçlar</h3>
+                        <span class="module-tag">Makine Öğrenmesi</span>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Farklı kayaç türlerini görsel olarak tanıyan YZ modelinin geliştirilmesi.</p>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/ai-codeweek.jpg" alt="AB CodeWeek Sunumu">
+                        <div class="module-overlay">
+                            <a href="project-ai-codeweek.html" class="btn-module"><i class="fas fa-play"></i> Sunumu İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>AB CodeWeek Sunumu</h3>
+                        <span class="module-tag">Blok Tabanlı Kodlama</span>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Hesaplamalı düşünme becerisinin coğrafya eğitimindeki yeri.</p>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img" style="background: #2c3e50; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-microphone-alt" style="font-size: 5rem; color: #fff;"></i>
+                    </div>
+                    <div class="module-info">
+                        <h3>Eğitimde Sesli Asistan</h3>
+                        <span class="module-tag">Python & TTS</span>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Python (Flask) ve Google TTS ile geliştirilen, ders senaryolarında rehberlik eden asistan.</p>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img" style="background: #2980b9; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-satellite" style="font-size: 5rem; color: #fff;"></i>
+                    </div>
+                    <div class="module-info">
+                        <h3>Tahminsel Analiz (GEE)</h3>
+                        <span class="module-tag">Büyük Veri & YZ</span>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Google Earth Engine üzerinde makine öğrenmesi ile afet risk analizleri.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
