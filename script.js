@@ -19,15 +19,24 @@ function getSiteRoot() {
 }
 
 async function loadComponents() {
+<<<<<<< HEAD
     let baseUrl = "";
+=======
+    // 1. Kök dizini ve yolları ayarla
+    const repoName = "/hasbierdogmus.github.io"; 
+    let rootUrl = window.location.origin;
+    
+    // Script dosyasının olduğu yeri kök kabul et (En garanti yöntem)
+>>>>>>> parent of 982ad3f (1)
     const scriptEl = document.querySelector('script[src*="script.js"]');
+    let baseUrl = "";
     
     // Kök dizini bul
     if(scriptEl) {
         const scriptPath = scriptEl.src; 
         baseUrl = scriptPath.replace('/script.js', ''); 
     } else {
-        baseUrl = window.location.origin + "/hasbierdogmus.github.io";
+        baseUrl = rootUrl + repoName;
     }
 
     // --- 1. HEADER YÜKLE ---
