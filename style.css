@@ -1,32 +1,6 @@
 /* =========================================
-   1. GENEL AYARLAR (ESKİ SİSTEM)
+   1. TEMEL AYARLAR VE DEĞİŞKENLER
    ========================================= */
-<<<<<<< HEAD
-* {
-    box-sizing: border-box; /* Bu kutuların taşmasını engeller, gerekli */
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: #333;
-    background-color: #fff;
-    line-height: 1.6;
-}
-
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-ul { list-style: none; padding: 0; margin: 0; }
-img { max-width: 100%; display: block; }
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-=======
 :root {
     /* Varsayılan (Gündüz) Renkleri */
     --primary-color: #003049;    /* Lacivert */
@@ -101,44 +75,34 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
 /* ... CSS'İN GERİ KALANI BURADAN DEVAM ETSİN ... */
->>>>>>> parent of 982ad3f (1)
 /* =========================================
-   2. HEADER & MENU
+   2. HEADER & NAVİGASYON
    ========================================= */
 header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid #eee;
+    height: var(--header-height);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
     z-index: 1000;
     display: flex;
     align-items: center;
-<<<<<<< HEAD
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-=======
->>>>>>> parent of 982ad3f (1)
 }
 
 nav {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .logo {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
-    gap: 10px;
-    font-weight: 800;
-    font-size: 1.3rem;
-    color: #003049; /* Lacivert */
-=======
     gap: 15px;
     text-decoration: none;
     height: 100%;
@@ -150,15 +114,8 @@ nav {
     color: var(--navy);
     letter-spacing: -0.5px;
     line-height: 1;
->>>>>>> parent of 982ad3f (1)
 }
-.logo img { height: 45px; width: auto; }
 
-<<<<<<< HEAD
-.nav-menu { display: flex; gap: 25px; align-items: center; }
-.nav-menu a { font-weight: 600; color: #333; font-size: 0.95rem; }
-.nav-menu a:hover, .nav-menu a.active { color: #2ecc71; /* Yeşil */ }
-=======
 .logo img {
     height: 50px;
     width: auto;
@@ -180,170 +137,21 @@ nav {
 }
 
 .nav-menu a:hover, .nav-menu a.active { color: var(--green); }
->>>>>>> parent of 982ad3f (1)
 
 .dropdown { position: relative; }
 .dropdown-menu {
     position: absolute;
     top: 100%; left: 0;
-    background: #fff;
+    background: var(--white);
     min-width: 220px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-lg);
     border-radius: 8px;
     padding: 10px 0;
     opacity: 0; visibility: hidden;
-    transform: translateY(10px);
-    transition: 0.3s;
-    border: 1px solid #eee;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
-<<<<<<< HEAD
-.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown-menu a { display: block; padding: 10px 20px; font-size: 0.9rem; }
-.dropdown-menu a:hover { background: #f9f9f9; color: #003049; }
-
-.hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: #003049; }
-
-/* =========================================
-   3. SAYFA İÇERİKLERİ
-   ========================================= */
-.hero {
-    padding-top: 80px;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%);
-}
-.hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-.hero-text h1 { font-size: 3rem; color: #003049; margin-bottom: 20px; line-height: 1.2; }
-.portrait-frame {
-    width: 350px; height: 350px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin: 0 auto;
-}
-.portrait-frame img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Butonlar */
-.btn { padding: 12px 25px; border-radius: 30px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
-.btn-primary { background: #003049; color: #fff; }
-.btn-secondary { border: 2px solid #003049; color: #003049; }
-
-/* Sayfa Başlıkları (Page Header) */
-.page-header {
-    background: #003049;
-    padding: 120px 0 60px;
-    text-align: center;
-    color: #fff;
-    margin-bottom: 50px;
-}
-.page-header h1 { font-size: 2.5rem; margin-bottom: 10px; color: #fff; }
-.page-header p { opacity: 0.8; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
-
-/* =========================================
-   4. KARTLAR VE GRIDLER
-   ========================================= */
-.section-padding { padding: 60px 0; }
-.section-header { text-align: center; margin-bottom: 40px; }
-.section-header h2 { color: #003049; font-size: 2.2rem; }
-
-.cards-grid, .projects-grid, .modules-grid, .bio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.card, .project-card, .bio-card {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-.card:hover, .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-
-.card-image { height: 200px; overflow: hidden; position: relative; }
-.card-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.card:hover img { transform: scale(1.1); }
-
-.card-content { padding: 25px; }
-.card-content h3 { color: #003049; margin-bottom: 10px; font-size: 1.3rem; }
-.card-content p { color: #666; font-size: 0.9rem; }
-
-/* Etiketler */
-.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-.tags span { background: #f4f4f4; color: #555; padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: 600; }
-
-/* =========================================
-   5. BANNER (KIRMIZI ŞERİT)
-   ========================================= */
-#global-banner { display: none; }
-#global-banner:not(:empty) { display: block; }
-.announcement-bar {
-    background: linear-gradient(90deg, #c0392b, #e74c3c);
-    color: white;
-    padding: 10px 0;
-    font-size: 0.9rem;
-    position: relative;
-    z-index: 1001;
-}
-.announcement-content { display: flex; align-items: center; justify-content: center; gap: 15px; text-align: center; }
-.close-banner { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 1.2rem; margin-left: auto; }
-
-/* =========================================
-   6. FOOTER
-   ========================================= */
-footer {
-    background: #003049;
-    color: #fff;
-    padding: 50px 0 20px;
-    text-align: center;
-    border-top: 4px solid #f77f00; /* Turuncu Çizgi */
-}
-.footer-content-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
-.ataturk-img {
-    width: 100px; height: 100px;
-    border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.3);
-}
-.footer-quote { font-style: italic; opacity: 0.9; max-width: 600px; text-align: left; }
-.footer-quote span { display: block; font-weight: bold; margin-top: 5px; color: #f77f00; text-transform: uppercase; font-style: normal; }
-
-/* =========================================
-   7. MOBİL UYUMLULUK
-   ========================================= */
-@media (max-width: 968px) {
-    .hamburger { display: block; z-index: 1001; }
-    .nav-menu {
-        position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
-        background: #fff;
-        flex-direction: column; justify-content: center;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: 0.4s;
-    }
-    .nav-menu.active { right: 0; }
-    .hero-content, .footer-content-wrapper { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
-    .footer-quote { text-align: center; }
-    .dropdown-menu { position: static; box-shadow: none; border: none; display: none; }
-    .dropdown:hover .dropdown-menu { display: block; }
-=======
 
 .dropdown:hover .dropdown-menu {
     opacity: 1; visibility: visible; transform: translateY(0);
@@ -1200,5 +1008,4 @@ footer p {
         padding-right: 25px; /* Çarpı işareti yazının üstüne gelmesin */
         font-size: 0.8rem;
     }
->>>>>>> parent of 982ad3f (1)
 }
