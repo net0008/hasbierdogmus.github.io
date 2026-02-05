@@ -806,3 +806,95 @@ footer p {
         text-align: center;
     }
 }
+/* =========================================
+   14. ROBOTİK VE KODLAMA KARTLARI
+   ========================================= */
+.robotics-section .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-image img {
+    transform: scale(1.1); /* Resim hafif yakınlaşır */
+}
+
+.card-image .overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 48, 73, 0.4); /* Lacivert transparan perde */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.project-card:hover .card-image .overlay {
+    opacity: 1;
+}
+
+.card-image .overlay i {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--navy-blue);
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background: #f0f0f0;
+    color: #555;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}

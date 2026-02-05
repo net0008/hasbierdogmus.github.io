@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotik ve Kodlama | Hasbi Erdoğmuş</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="GeoCode Logo">
+                <span>HASBİ ERDOĞMUŞ</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" onclick="closeMenu()">Ana Sayfa</a></li>
+                <li><a href="about.html" onclick="closeMenu()">Hakkımda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="educational-content.html" onclick="closeMenu()">Eğitsel İçerikler</a>
+                        <a href="innovative-classroom.html" onclick="closeMenu()">Yenilikçi Sınıf</a>
+                        <a href="robotics-coding.html" class="active" onclick="closeMenu()">Robotik ve Kodlama</a>
+                        <a href="gis-technology.html" onclick="closeMenu()">CBS ve Teknoloji</a>
+                        <a href="ai-studies.html" onclick="closeMenu()">Yapay Zeka (AI)</a>
+                        <a href="other-works.html" onclick="closeMenu()">Diğer Çalışmalar</a>
+                    </div>
+                </li>
+                <li><a href="contact.html" onclick="closeMenu()">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Robotik ve Kodlama</h1>
+            <p>"Algoritmik düşünce, geleceğin ortak dilidir."</p>
+        </div>
+    </section>
+
+    <section class="robotics-section section-padding">
+        <div class="container">
+            
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <span class="badge" style="background-color: var(--orange); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">FİZİKSEL PROGRAMLAMA</span>
+                <h2 style="color: var(--navy); margin-top: 15px;">Kodun Somut Hali</h2>
+                <p style="max-width: 700px; margin: 0 auto; color: #555;">Sadece ekranda değil, gerçek dünyada da çalışan kodlar... Öğretmen ve öğrencilere yönelik düzenlediğim Arduino, Micro:bit ve mBlock eğitimleri ile üretimi ve tasarımı merkeze alıyoruz.</p>
+            </div>
+
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="assets/arduino-atolye.jpg" alt="Arduino Eğitimi">
+                        <div class="overlay">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Arduino ile Elektronik & Kodlama</h3>
+                        <p>Sensörler, motorlar ve devre elemanları... Öğrencilerin kendi akıllı sistemlerini kurduğu, temel elektronikten ileri seviye otomasyona uzanan uygulamalı atölyeler.</p>
+                        <div class="tags">
+                            <span>C++</span>
+                            <span>Elektronik</span>
+                            <span>Otomasyon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="assets/microbit-projeler.jpg" alt="Micro:bit Projeleri">
+                        <div class="overlay">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Micro:bit ile Akıllı Cihazlar</h3>
+                        <p>Dahili sensörleri ve led matrisi ile öğrencilerin en hızlı sonuç aldığı, giyilebilir teknolojiler ve oyun tasarımına kapı aralayan BBC Micro:bit projeleri.</p>
+                        <div class="tags">
+                            <span>Blok Kodlama</span>
+                            <span>IoT</span>
+                            <span>Oyun Tasarımı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="assets/mblock-kodlama.jpg" alt="mBlock Eğitimi">
+                        <div class="overlay">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>mBlock ile Yapay Zeka ve Robotik</h3>
+                        <p>Scratch tabanlı yapısıyla kodlamaya kolay giriş. Yapay zeka eklentileri (görüntü işleme, ses tanıma) ile zenginleştirilmiş yeni nesil blok tabanlı kodlama eğitimleri.</p>
+                        <div class="tags">
+                            <span>AI & ML</span>
+                            <span>Robotik</span>
+                            <span>Algoritma</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content-wrapper">
+                <img src="assets/ataturk-ilim.jpg" alt="Gazi Mustafa Kemal Atatürk" class="ataturk-img">
+                
+                <div class="footer-quote">
+                    "Hayatta en hakiki mürşit ilimdir, fendir."
+                    <span>Gazi Mustafa Kemal ATATÜRK</span>
+                </div>
+            </div>
+            
+            <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
