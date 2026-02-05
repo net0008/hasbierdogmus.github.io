@@ -735,7 +735,7 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
         gap: 30px;
     }
 }
-/* =========================================
+//* =========================================
    13. FOOTER & ATATÜRK KÖŞESİ
    ========================================= */
 footer {
@@ -743,52 +743,53 @@ footer {
     color: var(--white);
     padding: 40px 0 20px;
     text-align: center;
-    border-top: 4px solid var(--orange); /* Üstüne turuncu bir şerit attık */
+    border-top: 4px solid var(--orange);
 }
 
 .footer-content-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px; /* Resim ile yazı arasındaki boşluk */
+    gap: 25px; /* Boşluk biraz artırıldı */
     max-width: 900px;
-    margin: 0 auto 20px;
-    flex-wrap: wrap; /* Mobilde alt alta geçsin diye */
+    margin: 0 auto 30px;
+    flex-wrap: wrap;
 }
 
 /* Atatürk Resmi Stili */
 .ataturk-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover; /* Resmi bozmadan daire içine sığdırır */
-    border-radius: 50%; /* Tam daire yapar */
-    border: 3px solid rgba(255, 255, 255, 0.3); /* Etrafına hafif bir çerçeve */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    filter: sepia(30%) contrast(1.1); /* Hafif nostaljik bir ton verir */
+    width: 110px; /* Boyut biraz büyütüldü */
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.4); /* Çerçeve biraz daha belirgin */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    filter: sepia(10%) contrast(1.1); /* Hafif bir sıcaklık ve netlik katıldı */
 }
 
 .footer-quote {
     font-family: 'Georgia', serif;
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Font biraz büyütüldü */
     color: rgba(255, 255, 255, 0.95);
-    text-align: left; /* Yazı resmin yanında soldan başlasın */
-    max-width: 600px;
+    text-align: left;
+    max-width: 650px;
+    line-height: 1.4;
 }
 
 .footer-quote span {
     display: block;
     font-size: 0.9rem;
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: 12px;
     color: var(--orange);
     font-style: normal;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 footer p {
-    margin-top: 30px;
+    margin-top: 20px;
     opacity: 0.6;
     font-size: 0.8rem;
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -798,7 +799,7 @@ footer p {
 /* Mobil Uyumluluk */
 @media (max-width: 768px) {
     .footer-content-wrapper {
-        flex-direction: column; /* Mobilde resim üste, yazı alta */
+        flex-direction: column;
         text-align: center;
     }
     .footer-quote {
