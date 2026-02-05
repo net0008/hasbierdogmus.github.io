@@ -1,43 +1,80 @@
 /* =========================================
    1. TEMEL AYARLAR VE DEĞİŞKENLER
    ========================================= */
-/* =========================================
-   1. TEMEL AYARLAR VE DEĞİŞKENLER
-   ========================================= */
 :root {
     /* Varsayılan (Gündüz) Renkleri */
     --primary-color: #003049;    /* Lacivert */
+    --navy: #003049;             /* Eski kodlarla uyum için */
+    --navy-blue: #003049;        /* Eski kodlarla uyum için */
     --secondary-color: #d62828;  /* Kırmızı/Turuncu */
     --accent-color: #f77f00;     /* Turuncu */
+    --orange: #f77f00;           /* Eski kodlarla uyum için */
+    --green: #2ecc71;            /* Yeşil */
+    
     --background-color: #ffffff; /* Beyaz Zemin */
+    --white: #ffffff;
+    
     --text-color: #333333;       /* Koyu Gri Yazı */
+    --dark-text: #333333;
+    --medium-gray: #666;
+    
     --card-bg: #ffffff;          /* Kart Rengi */
     --light-bg: #f4f4f4;         /* Hafif Gri Alanlar */
     --border-color: #eaeaea;     /* Çizgiler */
     --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    
+    --header-height: 80px;
+    --container-width: 1200px;
 }
 
 /* Karanlık Mod (Dark Mode) Renkleri */
 [data-theme="dark"] {
-    --primary-color: #66b2ff;    /* Açık Mavi (Lacivertin yerine) */
-    --secondary-color: #ff6b6b;  /* Pastel Kırmızı */
-    --accent-color: #ffa500;     /* Turuncu */
-    --background-color: #121212; /* Tam Siyah değil, Göz yormayan koyu gri */
-    --text-color: #e0e0e0;       /* Kırık Beyaz Yazı */
-    --card-bg: #1e1e1e;          /* Koyu Kart Rengi */
-    --light-bg: #2d2d2d;         /* Koyu Gri Alanlar */
-    --border-color: #333333;     /* Koyu Çizgiler */
+    --primary-color: #66b2ff;    /* Açık Mavi */
+    --navy: #66b2ff;             
+    --navy-blue: #1a1a1a;        /* Footer için koyu */
+    
+    --secondary-color: #ff6b6b;  
+    --accent-color: #ffa500;     
+    --orange: #ffa500;
+    
+    --background-color: #121212; /* KOYU ZEMİN */
+    --white: #1e1e1e;            /* Kartlar için koyu gri */
+    
+    --text-color: #e0e0e0;       /* Açık Yazı */
+    --dark-text: #e0e0e0;
+    --medium-gray: #b0b0b0;
+    
+    --card-bg: #1e1e1e;          
+    --light-bg: #2d2d2d;         
+    --border-color: #333333;     
     --shadow: 0 5px 15px rgba(0,0,0,0.5);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* Genel Stil Ayarları (Bu değişkenleri kullanacak) */
+/* Genel Stil Ayarları */
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease; /* Yumuşak geçiş */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Montserrat', sans-serif; /* Fontu unutmayalım */
 }
 
-/* Diğer mevcut stillerin... */
+/* Header Arkaplanı Dark Mode'da Sırıtmaması İçin */
+[data-theme="dark"] header {
+    background: rgba(30, 30, 30, 0.95);
+    border-bottom: 1px solid #333;
+}
+
+[data-theme="dark"] .nav-menu {
+    background: var(--white); /* Mobil menü arkaplanı */
+}
+
+/* Linkler ve Butonlar */
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ... CSS'İN GERİ KALANI BURADAN DEVAM ETSİN ... */
 /* =========================================
    2. HEADER & NAVİGASYON
    ========================================= */
