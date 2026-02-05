@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kod Blokları ile Paraleller | Hasbi Erdoğmuş</title>
+    <title>Kod Blokları ile Meridyenler | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,25 +11,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div id="global-banner"></div>
-    <header id="global-header"></header>
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="GeoCode Logo">
+                <span>HASBİ ERDOĞMUŞ</span>
+            </a>
+            <a href="innovative-classroom.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Geri Dön</a>
+        </nav>
+    </header>
 
     <section class="module-detail">
         <div class="container">
             <div class="project-header-box">
                 <span class="badge">ÖĞRENCİ GÖREV KARTI</span>
-                <h1>Algoritmik Dünya: Paraleller</h1>
+                <h1>Algoritmik Dünya</h1>
                 <p>Kod Blokları ile Koordinat Sistemi Tasarımı</p>
             </div>
 
             <div class="tinkercad-link-container">
-                <a href="https://www.tinkercad.com/codeblocks/kKk9Vc1AcyW-paralel-11" target="_blank" title="Kod Bloklarını Oynat">
+                <a href="https://www.tinkercad.com/codeblocks/kvxrTKPtHJx-meridyenler-11" target="_blank" title="Kod Bloklarını Oynat">
                     <div class="tinkercad-overlay" style="background: rgba(0, 180, 216, 0.9);">
-                        <i class="fas fa-code"></i>
-                        <span>Algoritmayı Canlı Çalıştır</span>
+                        <span>Algoritmayı Canlı Çalıştır.</span>
                     </div>
-                    <img src="assets/yenilikci-paralel2.jpg" alt="Tinkercad Codeblocks Paralel Tasarımı">
+                    <img src="assets/yenilikci-meridyen2.jpg" alt="Tinkercad Codeblocks Meridyen Tasarımı">
                 </a>
                 <p class="img-caption"><i class="fas fa-mouse-pointer"></i> Kodların nasıl çalıştığını görmek için resme tıklayınız.</p>
             </div>
@@ -93,6 +98,19 @@
         </div>
     </section>
 
-   <footer id="global-footer"></footer>
+   <footer>
+        <div class="container">
+            <div class="footer-content-wrapper">
+                <img src="assets/ataturk-ilim.jpg" alt="Gazi Mustafa Kemal Atatürk" class="ataturk-img">
+                
+                <div class="footer-quote">
+                    "Hayatta en hakiki mürşit ilimdir, fendir."
+                    <span>Gazi Mustafa Kemal ATATÜRK</span>
+                </div>
+            </div>
+            
+            <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
 </body>
 </html>

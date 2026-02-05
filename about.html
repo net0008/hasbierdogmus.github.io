@@ -18,34 +18,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <div id="global-banner"></div>
 
-    <header id="header">
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="GeoCode Logo">
-                <span>HASBİ ERDOĞMUŞ</span>
-            </a>
-            
-            <div class="hamburger" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
-
-            <ul class="nav-menu" id="navMenu">
-    <li><a href="index.html" onclick="closeMenu()">Ana Sayfa</a></li>
-    <li><a href="about.html" onclick="closeMenu()">Hakkımda</a></li>
-    <li class="dropdown">
-        <a href="#" class="active">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
-        <div class="dropdown-menu">
-            <a href="educational-content.html" onclick="closeMenu()">Eğitsel İçerikler</a>
-            <a href="innovative-classroom.html" onclick="closeMenu()">Yenilikçi Sınıf</a>
-            <a href="gis-technology.html" onclick="closeMenu()">CBS ve Teknoloji</a>
-            <a href="ai-studies.html" onclick="closeMenu()">Yapay Zeka (AI)</a>
-            <a href="other-works.html" onclick="closeMenu()">Diğer Çalışmalar</a>
-        </div>
-    </li>
-    <li><a href="contact.html" onclick="closeMenu()">İletişim</a></li> </ul>
-        </nav>
-    </header>
+    <header id="global-header"></header>
 
     <section class="about-hero">
         <div class="hero-content">
@@ -130,20 +106,7 @@
             </div>
         </div>
     </section>    
-    <footer>
-        <div class="container">
-            <div class="footer-content-wrapper">
-                <img src="assets/ataturk-ilim.jpg" alt="Gazi Mustafa Kemal Atatürk" class="ataturk-img">
-                
-                <div class="footer-quote">
-                    "Hayatta en hakiki mürşit ilimdir, fendir."
-                    <span>Gazi Mustafa Kemal ATATÜRK</span>
-                </div>
-            </div>
-            
-            <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
+    <footer id="global-footer"></footer>
     <script src="script.js"></script>
 </body>
 </html>

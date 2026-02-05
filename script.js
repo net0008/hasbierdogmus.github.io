@@ -1,9 +1,92 @@
-function toggleMenu() {
-    const nav = document.getElementById('navMenu');
-    nav.classList.toggle('active');
+document.addEventListener("DOMContentLoaded", function() {
+    loadComponents();
+// 0. BANNER'I YÜKLE (En tepede olduğu için ilk sırada)
+    try {
+        const bannerRes = await fetch('components/banner.html');
+        const bannerHtml = await bannerRes.text();
+        // Sadece dosya boş değilse ekle
+        if(bannerHtml.trim().length > 0) {
+            document.getElementById('global-banner').innerHTML = bannerHtml;
+        }
+    } catch (error) {
+        console.error("Banner yüklenirken hata:", error);
+    }
+
+
+});
+
+async function loadComponents() {
+    // 1. HEADER'I YÜKLE
+    try {
+        const headerRes = await fetch('components/header.html');
+        const headerHtml = await headerRes.text();
+        document.getElementById('global-header').innerHTML = headerHtml;
+        
+        // Menü yüklendikten sonra aktif linki işaretle ve hamburgeri çalıştır
+        setActiveLink();
+        initMenu();
+    } catch (error) {
+        console.error("Header yüklenirken hata:", error);
+    }
+
+    // 2. FOOTER'I YÜKLE
+    try {
+        const footerRes = await fetch('components/footer.html');
+        const footerHtml = await footerRes.text();
+        document.getElementById('global-footer').innerHTML = footerHtml;
+    } catch (error) {
+        console.error("Footer yüklenirken hata:", error);
+    }
 }
 
-function closeMenu() {
-    const nav = document.getElementById('navMenu');
-    nav.classList.remove('active');
+// Hangi sayfadayız? Onu bulup menüde boyayan fonksiyon
+function setActiveLink() {
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    const menuLinks = document.querySelectorAll('.nav-menu a');
+
+    menuLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // Eğer link şu anki sayfaya eşitse
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+            
+            // Eğer bu bir dropdown altındaysa, ana başlığı da aktif yap
+            const parentDropdown = link.closest('.dropdown');
+            if (parentDropdown) {
+                parentDropdown.querySelector('a').classList.add('active');
+            }
+        }
+    });
+}
+
+// Hamburger Menü Fonksiyonları (Yüklendikten sonra çalışacak)
+function initMenu() {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        const navLink = document.querySelectorAll(".nav-menu a");
+        navLink.forEach(n => n.addEventListener("click", () => {
+             // Sadece dropdown başlığına tıklanmadıysa kapat
+             if(!n.parentElement.classList.contains('dropdown')) {
+                 hamburger.classList.remove("active");
+                 navMenu.classList.remove("active");
+             }
+        }));
+    }
+}
+// Banner Kapatma Fonksiyonu
+function closeBanner() {
+    const banner = document.getElementById('global-banner');
+    if(banner) {
+        banner.style.display = 'none';
+        // İstersen burada localStorage kullanarak "Bir daha gösterme" diyebiliriz
+        // localStorage.setItem('bannerClosed', 'true');
+    }
 }

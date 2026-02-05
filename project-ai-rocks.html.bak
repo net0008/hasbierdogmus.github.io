@@ -10,9 +10,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div id="global-banner"></div>
-    <header id="global-header"></header>
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="GeoCode Logo">
+                <span>HASBİ ERDOĞMUŞ</span>
+            </a>
+            <a href="ai-studies.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Geri Dön</a>
+        </nav>
+    </header>
 
     <section class="module-detail">
         <div class="container" style="max-width: 1000px; margin: 0 auto;">
@@ -55,6 +61,19 @@
         </div>
     </section>
 
-    <footer id="global-footer"></footer>
+    <footer>
+        <div class="container">
+            <div class="footer-content-wrapper">
+                <img src="assets/ataturk-ilim.jpg" alt="Gazi Mustafa Kemal Atatürk" class="ataturk-img">
+                
+                <div class="footer-quote">
+                    "Hayatta en hakiki mürşit ilimdir, fendir."
+                    <span>Gazi Mustafa Kemal ATATÜRK</span>
+                </div>
+            </div>
+            
+            <p>&copy; 2026 Hasbi Erdoğmuş. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
 </body>
 </html>
