@@ -2,79 +2,42 @@
    1. TEMEL AYARLAR VE DEĞİŞKENLER
    ========================================= */
 :root {
-    /* Varsayılan (Gündüz) Renkleri */
-    --primary-color: #003049;    /* Lacivert */
-    --navy: #003049;             /* Eski kodlarla uyum için */
-    --navy-blue: #003049;        /* Eski kodlarla uyum için */
-    --secondary-color: #d62828;  /* Kırmızı/Turuncu */
-    --accent-color: #f77f00;     /* Turuncu */
-    --orange: #f77f00;           /* Eski kodlarla uyum için */
-    --green: #2ecc71;            /* Yeşil */
-    
-    --background-color: #ffffff; /* Beyaz Zemin */
+    --navy: #1e3c72;
+    --green: #00b894;
+    --light-bg: #f8f9fa;
     --white: #ffffff;
-    
-    --text-color: #333333;       /* Koyu Gri Yazı */
-    --dark-text: #333333;
-    --medium-gray: #666;
-    
-    --card-bg: #ffffff;          /* Kart Rengi */
-    --light-bg: #f4f4f4;         /* Hafif Gri Alanlar */
-    --border-color: #eaeaea;     /* Çizgiler */
-    --shadow: 0 5px 15px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    --dark-text: #2d3436;
+    --medium-gray: #636e72;
+    --border-color: #e1e8ed;
     
     --header-height: 80px;
-    --container-width: 1200px;
+    --shadow-lg: 0 8px 32px rgba(30, 60, 114, 0.12);
+    --container-width: 1400px;
 }
 
-/* Karanlık Mod (Dark Mode) Renkleri */
-[data-theme="dark"] {
-    --primary-color: #66b2ff;    /* Açık Mavi */
-    --navy: #66b2ff;             
-    --navy-blue: #1a1a1a;        /* Footer için koyu */
-    
-    --secondary-color: #ff6b6b;  
-    --accent-color: #ffa500;     
-    --orange: #ffa500;
-    
-    --background-color: #121212; /* KOYU ZEMİN */
-    --white: #1e1e1e;            /* Kartlar için koyu gri */
-    
-    --text-color: #e0e0e0;       /* Açık Yazı */
-    --dark-text: #e0e0e0;
-    --medium-gray: #b0b0b0;
-    
-    --card-bg: #1e1e1e;          
-    --light-bg: #2d2d2d;         
-    --border-color: #333333;     
-    --shadow: 0 5px 15px rgba(0,0,0,0.5);
-    --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-/* Genel Stil Ayarları */
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif; /* Fontu unutmayalım */
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background: var(--white);
+    overflow-x: hidden;
 }
 
-/* Header Arkaplanı Dark Mode'da Sırıtmaması İçin */
-[data-theme="dark"] header {
-    background: rgba(30, 30, 30, 0.95);
-    border-bottom: 1px solid #333;
-}
-
-[data-theme="dark"] .nav-menu {
-    background: var(--white); /* Mobil menü arkaplanı */
-}
-
-/* Linkler ve Butonlar */
-a { text-decoration: none; color: inherit; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
+img { max-width: 100%; display: block; }
 
-/* ... CSS'İN GERİ KALANI BURADAN DEVAM ETSİN ... */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 /* =========================================
    2. HEADER & NAVİGASYON
    ========================================= */
