@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bergama Yaz Dönemi NDVI ve Su Analizi</title>
+    <style>
+       body { margin: 0; padding: 20px; font-family: 'Segoe UI', sans-serif; background-color: transparent; display: flex; flex-direction: column; align-items: center; }
+        .controls { margin-bottom: 15px; background: white; padding: 10px 20px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .slider-container {
+            position: relative; width: 100%; max-width: 900px; height: 600px;
+            border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden; border-radius: 12px;
+        }
+        .image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: background-image 0.3s ease; }
+        
+        /* Arka Plan Katmanları (Dinamik) */
+        .background-img { background-image: url('https://net0008.github.io/egitim-materyalleri/SuAnalizi/UyduFoto.png'); }
+        
+        /* Ön Plan (NDVI Analizi - Slider ile kontrol edilir) */
+        .foreground-img {
+            background-image: url('https://net0008.github.io/egitim-materyalleri/SuAnalizi/ndvi_su.png');
+            width: 50%; border-right: 3px solid #2ed573; z-index: 2;
+        }
+
+        .slider {
+            position: absolute; -webkit-appearance: none; appearance: none;
+            width: 100%; height: 100%; background: transparent;
+            cursor: ew-resize; z-index: 10; margin: 0;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 45px; height: 45px; background: #2ed573;
+            border: 4px solid white; border-radius: 50%; box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        }
+        .label {
+            position: absolute; top: 20px; padding: 8px 15px;
+            background: rgba(46, 213, 115, 0.9); color: white;
+            font-weight: bold; border-radius: 4px; z-index: 5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <strong>Referans Katmanı Seç: </strong>
+        <input type="radio" name="bg" id="sat" checked onclick="changeBg('UyduFoto.png')"> <label for="sat">Gerçek Uydu Görüntüsü</label>
+        <input type="radio" name="bg" id="osm" onclick="changeBg('OpenStreetMap.png')"> <label for="osm">Sokak Haritası (OSM)</label>
+    </div>
+
+    <div class="slider-container">
+        <div class="image background-img" id="bgLayer"></div>
+        <div class="image foreground-img" id="foreground"></div>
+        <input type="range" min="0" max="100" value="50" class="slider" id="slider">
+        <div class="label" style="right: 20px; background: rgba(0,0,0,0.7);">Görünüm</div>
+        <div class="label" style="left: 20px;">NDVI Analizi (15 Temmuz 2025)</div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const foreground = document.getElementById('foreground');
+        const bgLayer = document.getElementById('bgLayer');
+
+        slider.addEventListener('input', (e) => {
+            foreground.style.width = `${e.target.value}%`;
+        });
+
+        function changeBg(fileName) {
+            bgLayer.style.backgroundImage = `url('https://net0008.github.io/egitim-materyalleri/SuAnalizi/${fileName}')`;
+        }
+    </script>
+
+</body>
+</html>

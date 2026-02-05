@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bergama Analizi</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: 'Segoe UI', sans-serif; background-color: transparent; display: flex; flex-direction: column; align-items: center; }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .image {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+        }
+        /* KRİTİK: Tam yollar eklendi */
+        .background-img {
+            background-image: url('https://net0008.github.io/egitim-materyalleri/sel.png');
+        }
+        .foreground-img {
+            background-image: url('https://net0008.github.io/egitim-materyalleri/dem.png');
+            width: 50%;
+            border-right: 3px solid white;
+        }
+        .slider {
+            position: absolute; -webkit-appearance: none; appearance: none;
+            width: 100%; height: 100%; background: transparent;
+            cursor: ew-resize; z-index: 10; margin: 0;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 40px; height: 40px; background: white;
+            border: 2px solid #333; border-radius: 50%;
+        }
+        .label {
+            position: absolute; bottom: 10px; padding: 5px 10px;
+            background: rgba(0,0,0,0.7); color: white; font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="image background-img"></div>
+        <div class="image foreground-img" id="foreground"></div>
+        <input type="range" min="0" max="100" value="50" class="slider" id="slider">
+        <div class="label" style="left:10px;">Topografya</div>
+        <div class="label" style="right:10px;">Sel Riski</div>
+    </div>
+    <script>
+        const slider = document.getElementById('slider');
+        const foreground = document.getElementById('foreground');
+        slider.addEventListener('input', (e) => {
+            foreground.style.width = `${e.target.value}%`;
+        });
+    </script>
+</body>
+</html>
