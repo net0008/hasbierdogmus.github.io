@@ -1004,7 +1004,7 @@ footer p {
 
 /* 3. Resim Alanı: Yüksekliği düşürdük */
 .robotics-section .card-image {
-    height: 350px; /* [DÜZELTME] 350px'den 220px'e indi. Daha kibar. */
+    height: 5000px; /* [DÜZELTME] 350px'den 220px'e indi. Daha kibar. */
     width: 100%;
     position: relative;
 }
