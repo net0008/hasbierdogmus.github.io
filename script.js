@@ -2,69 +2,73 @@ document.addEventListener("DOMContentLoaded", function() {
     loadComponents();
 });
 
+// Sitenin kök adresini script dosyasının nerede olduğuna bakarak bulan fonksiyon
+function getSiteRoot() {
+    // Sayfadaki script.js dosyasını bul
+    const scriptTag = document.querySelector('script[src*="script.js"]');
+    if (scriptTag) {
+        // Dosyanın tam adresini al (örn: https://.../hasbierdogmus.github.io/script.js)
+        const fullUrl = scriptTag.src;
+        // Sonundaki "/script.js" kısmını at, geriye kök klasör kalsın
+        return fullUrl.substring(0, fullUrl.lastIndexOf('/'));
+    }
+    // Bulamazsa standart yöntemi kullan
+    return window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+}
+
 async function loadComponents() {
-    // URL'nin kökünü al (Örn: https://hasbierdogmus.github.io veya localhost)
-    const baseUrl = window.location.origin;
+    // Kök adresi otomatik bul
+    const basePath = getSiteRoot();
+    console.log("Site Kök Adresi Tespit Edildi:", basePath); // Konsoldan kontrol etmek için
 
     // --- 1. HEADER YÜKLE ---
     try {
-        // Başına / koyarak mutlak yol veriyoruz
-        const headerRes = await fetch(baseUrl + '/components/header.html');
-        
-        if (headerRes.ok) { 
+        // Otomatik bulunan adrese göre dosya iste
+        const headerRes = await fetch(basePath + '/components/header.html');
+        if (headerRes.ok) {
             const headerHtml = await headerRes.text();
-            // Gelen şeyin gerçekten HTML menüsü olup olmadığını kontrol et (DOCTYPE veya 404 yazısı içermesin)
+            // Gelen şeyin hata sayfası olmadığını kontrol et
             if (!headerHtml.includes("404") && !headerHtml.includes("Not Found")) {
                 document.getElementById('global-header').innerHTML = headerHtml;
                 setActiveLink();
                 initMenu();
-            } else {
-                console.error("HATA: Header dosyası bulunamadı (404 döndü).");
             }
-        } else {
-            console.error("HATA: Header yüklenirken sunucu hatası:", headerRes.status);
         }
     } catch (error) {
-        console.error("Header bağlantı hatası:", error);
+        console.error("Header yüklenemedi:", error);
     }
 
     // --- 2. FOOTER YÜKLE ---
     try {
-        const footerRes = await fetch(baseUrl + '/components/footer.html');
+        const footerRes = await fetch(basePath + '/components/footer.html');
         if (footerRes.ok) {
             const footerHtml = await footerRes.text();
             if (!footerHtml.includes("404")) {
                 document.getElementById('global-footer').innerHTML = footerHtml;
             }
         }
-    } catch (error) {
-        console.error("Footer yüklenirken hata:", error);
-    }
+    } catch (error) { console.error("Footer hatası:", error); }
 
     // --- 3. BANNER YÜKLE ---
     try {
-        const bannerRes = await fetch(baseUrl + '/components/banner.html');
+        const bannerRes = await fetch(basePath + '/components/banner.html');
         if (bannerRes.ok) {
             const bannerHtml = await bannerRes.text();
-            // Hem 404 değilse, hem de içi boş değilse göster
             if (!bannerHtml.includes("404") && bannerHtml.trim().length > 10) {
                 const bannerEl = document.getElementById('global-banner');
                 if(bannerEl) bannerEl.innerHTML = bannerHtml;
             }
         }
-    } catch (error) {
-        console.error("Banner yüklenirken hata:", error);
-    }
+    } catch (error) { console.error("Banner hatası:", error); }
 }
 
-// --- MENÜ İŞLEVLERİ ---
+// --- MENÜ İŞLEVLERİ (Aynı kalıyor) ---
 function setActiveLink() {
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
     const menuLinks = document.querySelectorAll('.nav-menu a');
 
     menuLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
-        // Sadece dosya ismini karşılaştır (karmaşık yolları göz ardı et)
         if (linkHref === currentPath || linkHref.endsWith("/" + currentPath)) {
             link.classList.add('active');
             const parentDropdown = link.closest('.dropdown');
@@ -78,7 +82,6 @@ function initMenu() {
     const navMenu = document.getElementById('navMenu');
     
     if (hamburger && navMenu) {
-        // Eski event listener'ları temizlemek için klonlama yöntemi (Opsiyonel ama güvenli)
         const newHamburger = hamburger.cloneNode(true);
         hamburger.parentNode.replaceChild(newHamburger, hamburger);
         
@@ -87,7 +90,6 @@ function initMenu() {
             navMenu.classList.toggle("active");
         });
 
-        // Linklere tıklayınca menüyü kapat
         document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
              if(!n.parentElement.classList.contains('dropdown')) {
                  newHamburger.classList.remove("active");
