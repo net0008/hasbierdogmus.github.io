@@ -12,7 +12,7 @@
     
     --header-height: 80px;
     --shadow-lg: 0 8px 32px rgba(30, 60, 114, 0.12);
-    --container-width: 1400px;
+    --container-width: 1200px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
