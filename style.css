@@ -735,3 +735,73 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
         gap: 30px;
     }
 }
+/* =========================================
+   13. FOOTER & ATATÜRK KÖŞESİ
+   ========================================= */
+footer {
+    background-color: var(--navy-blue);
+    color: var(--white);
+    padding: 40px 0 20px;
+    text-align: center;
+    border-top: 4px solid var(--orange); /* Üstüne turuncu bir şerit attık */
+}
+
+.footer-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Resim ile yazı arasındaki boşluk */
+    max-width: 900px;
+    margin: 0 auto 20px;
+    flex-wrap: wrap; /* Mobilde alt alta geçsin diye */
+}
+
+/* Atatürk Resmi Stili */
+.ataturk-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Resmi bozmadan daire içine sığdırır */
+    border-radius: 50%; /* Tam daire yapar */
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Etrafına hafif bir çerçeve */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    filter: sepia(30%) contrast(1.1); /* Hafif nostaljik bir ton verir */
+}
+
+.footer-quote {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: left; /* Yazı resmin yanında soldan başlasın */
+    max-width: 600px;
+}
+
+.footer-quote span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 8px;
+    color: var(--orange);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer p {
+    margin-top: 30px;
+    opacity: 0.6;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        flex-direction: column; /* Mobilde resim üste, yazı alta */
+        text-align: center;
+    }
+    .footer-quote {
+        text-align: center;
+    }
+}
