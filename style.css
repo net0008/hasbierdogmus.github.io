@@ -1,43 +1,43 @@
 /* =========================================
    1. TEMEL AYARLAR VE DEĞİŞKENLER
    ========================================= */
+/* =========================================
+   1. TEMEL AYARLAR VE DEĞİŞKENLER
+   ========================================= */
 :root {
-    --navy: #1e3c72;
-    --green: #00b894;
-    --light-bg: #f8f9fa;
-    --white: #ffffff;
-    --dark-text: #2d3436;
-    --medium-gray: #636e72;
-    --border-color: #e1e8ed;
-    
-    --header-height: 80px;
-    --shadow-lg: 0 8px 32px rgba(30, 60, 114, 0.12);
-    --container-width: 1400px;
+    /* Varsayılan (Gündüz) Renkleri */
+    --primary-color: #003049;    /* Lacivert */
+    --secondary-color: #d62828;  /* Kırmızı/Turuncu */
+    --accent-color: #f77f00;     /* Turuncu */
+    --background-color: #ffffff; /* Beyaz Zemin */
+    --text-color: #333333;       /* Koyu Gri Yazı */
+    --card-bg: #ffffff;          /* Kart Rengi */
+    --light-bg: #f4f4f4;         /* Hafif Gri Alanlar */
+    --border-color: #eaeaea;     /* Çizgiler */
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* Karanlık Mod (Dark Mode) Renkleri */
+[data-theme="dark"] {
+    --primary-color: #66b2ff;    /* Açık Mavi (Lacivertin yerine) */
+    --secondary-color: #ff6b6b;  /* Pastel Kırmızı */
+    --accent-color: #ffa500;     /* Turuncu */
+    --background-color: #121212; /* Tam Siyah değil, Göz yormayan koyu gri */
+    --text-color: #e0e0e0;       /* Kırık Beyaz Yazı */
+    --card-bg: #1e1e1e;          /* Koyu Kart Rengi */
+    --light-bg: #2d2d2d;         /* Koyu Gri Alanlar */
+    --border-color: #333333;     /* Koyu Çizgiler */
+    --shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
 
+/* Genel Stil Ayarları (Bu değişkenleri kullanacak) */
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: var(--dark-text);
-    background: var(--white);
-    overflow-x: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Yumuşak geçiş */
 }
 
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-ul { list-style: none; }
-img { max-width: 100%; display: block; }
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
+/* Diğer mevcut stillerin... */
 /* =========================================
    2. HEADER & NAVİGASYON
    ========================================= */

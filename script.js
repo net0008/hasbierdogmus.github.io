@@ -28,6 +28,19 @@ async function loadComponents() {
     // ŞU ANKİ SAYFANIN KONUMUNA BAK:
     // Eğer adres "hasbierdogmus.github.io/index.html" ise (Ana Dizin) -> yol: "components/..."
     // Eğer adres "hasbierdogmus.github.io/projeler/abc.html" ise (Alt Dizin) -> yol: "../components/..."
+    // --- 1. HEADER YÜKLE ---
+try {
+    // ... fetch kodları ...
+    if (headerRes.ok) {
+        // ...
+        document.getElementById('global-header').innerHTML = headerHtml;
+        setActiveLink();
+        initMenu();
+        
+        initTheme(); // <--- İŞTE BU SATIRI EKLE (Header yüklendikten sonra çalışsın)
+    }
+}
+    
     
     let pathPrefix = "";
     if (window.location.pathname.includes("/projeler/")) {
@@ -95,3 +108,38 @@ async function loadComponents() {
 function setActiveLink() { /* ... Eski kodun aynısı ... */ }
 function initMenu() { /* ... Eski kodun aynısı ... */ }
 function closeBanner() { document.getElementById('global-banner').style.display = 'none'; }
+/* =========================================
+   TEMA YÖNETİMİ (DARK MODE)
+   ========================================= */
+function initTheme() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
+    const currentTheme = localStorage.getItem('theme');
+
+    // 1. Kayıtlı tema varsa uygula
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark' && icon) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+    }
+
+    // 2. Butona tıklama olayı
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'dark') {
+                // Gündüze Geç
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                if(icon) icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                // Geceye Geç
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                if(icon) icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    }
+}
