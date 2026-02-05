@@ -10,6 +10,7 @@ function getSiteRoot() {
         if (src.includes("../")) {
             const depth = (src.match(/\.\.\//g) || []).length;
             const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            // Son (depth) kadar klasörü at
             const rootPath = pathSegments.slice(0, pathSegments.length - depth).join('/');
             return window.location.origin + '/' + rootPath;
         }
@@ -19,19 +20,15 @@ function getSiteRoot() {
 }
 
 async function loadComponents() {
-    // 1. Kök dizini ve yolları ayarla
-    const repoName = "/hasbierdogmus.github.io"; 
-    let rootUrl = window.location.origin;
-    
-    // Script dosyasının olduğu yeri kök kabul et (En garanti yöntem)
-    const scriptEl = document.querySelector('script[src*="script.js"]');
+    // 1. Kök dizini ayarla
     let baseUrl = "";
+    const scriptEl = document.querySelector('script[src*="script.js"]');
     
     if(scriptEl) {
         const scriptPath = scriptEl.src; 
         baseUrl = scriptPath.replace('/script.js', ''); 
     } else {
-        baseUrl = rootUrl + repoName;
+        baseUrl = window.location.origin + "/hasbierdogmus.github.io";
     }
 
     // --- 1. HEADER YÜKLE ---
