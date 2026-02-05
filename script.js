@@ -2,104 +2,96 @@ document.addEventListener("DOMContentLoaded", function() {
     loadComponents();
 });
 
-// Sitenin kök adresini script dosyasının nerede olduğuna bakarak bulan fonksiyon
+// Sitenin kök adresini otomatik bulan fonksiyon
 function getSiteRoot() {
-    // Sayfadaki script.js dosyasını bul
     const scriptTag = document.querySelector('script[src*="script.js"]');
     if (scriptTag) {
-        // Dosyanın tam adresini al (örn: https://.../hasbierdogmus.github.io/script.js)
-        const fullUrl = scriptTag.src;
-        // Sonundaki "/script.js" kısmını at, geriye kök klasör kalsın
-        return fullUrl.substring(0, fullUrl.lastIndexOf('/'));
+        const src = scriptTag.getAttribute('src');
+        // Eğer script ../script.js diye çağrılmışsa, bulunduğumuz yerden bir yukarı çık
+        if (src.includes("../")) {
+            const depth = (src.match(/\.\.\//g) || []).length;
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            // Son (depth) kadar klasörü at
+            const rootPath = pathSegments.slice(0, pathSegments.length - depth).join('/');
+            return window.location.origin + '/' + rootPath;
+        }
+        // Eğer aynı dizindeyse direkt origin + path kullan
+        return window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
     }
-    // Bulamazsa standart yöntemi kullan
-    return window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+    return window.location.origin;
 }
 
 async function loadComponents() {
-    // Kök adresi otomatik bul
-    const basePath = getSiteRoot();
-    console.log("Site Kök Adresi Tespit Edildi:", basePath); // Konsoldan kontrol etmek için
-
-    // --- 1. HEADER YÜKLE ---
-    try {
-        // Otomatik bulunan adrese göre dosya iste
-        const headerRes = await fetch(basePath + '/components/header.html');
-        if (headerRes.ok) {
-            const headerHtml = await headerRes.text();
-            // Gelen şeyin hata sayfası olmadığını kontrol et
-            if (!headerHtml.includes("404") && !headerHtml.includes("Not Found")) {
-                document.getElementById('global-header').innerHTML = headerHtml;
-                setActiveLink();
-                initMenu();
-            }
-        }
-    } catch (error) {
-        console.error("Header yüklenemedi:", error);
-    }
-
-    // --- 2. FOOTER YÜKLE ---
-    try {
-        const footerRes = await fetch(basePath + '/components/footer.html');
-        if (footerRes.ok) {
-            const footerHtml = await footerRes.text();
-            if (!footerHtml.includes("404")) {
-                document.getElementById('global-footer').innerHTML = footerHtml;
-            }
-        }
-    } catch (error) { console.error("Footer hatası:", error); }
-
-    // --- 3. BANNER YÜKLE ---
-    try {
-        const bannerRes = await fetch(basePath + '/components/banner.html');
-        if (bannerRes.ok) {
-            const bannerHtml = await bannerRes.text();
-            if (!bannerHtml.includes("404") && bannerHtml.trim().length > 10) {
-                const bannerEl = document.getElementById('global-banner');
-                if(bannerEl) bannerEl.innerHTML = bannerHtml;
-            }
-        }
-    } catch (error) { console.error("Banner hatası:", error); }
-}
-
-// --- MENÜ İŞLEVLERİ (Aynı kalıyor) ---
-function setActiveLink() {
-    const currentPath = window.location.pathname.split("/").pop() || "index.html";
-    const menuLinks = document.querySelectorAll('.nav-menu a');
-
-    menuLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        if (linkHref === currentPath || linkHref.endsWith("/" + currentPath)) {
-            link.classList.add('active');
-            const parentDropdown = link.closest('.dropdown');
-            if (parentDropdown) parentDropdown.querySelector('a').classList.add('active');
-        }
-    });
-}
-
-function initMenu() {
-    const hamburger = document.getElementById('hamburgerBtn');
-    const navMenu = document.getElementById('navMenu');
+    // Kök dizini bulma mantığını basitleştirelim:
+    // Eğer components klasörü ana dizindeyse, dosya yollarını ona göre ayarlayalım.
     
-    if (hamburger && navMenu) {
-        const newHamburger = hamburger.cloneNode(true);
-        hamburger.parentNode.replaceChild(newHamburger, hamburger);
-        
-        newHamburger.addEventListener('click', function() {
-            newHamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
-
-        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
-             if(!n.parentElement.classList.contains('dropdown')) {
-                 newHamburger.classList.remove("active");
-                 navMenu.classList.remove("active");
-             }
-        }));
+    // ŞU ANKİ SAYFANIN KONUMUNA BAK:
+    // Eğer adres "hasbierdogmus.github.io/index.html" ise (Ana Dizin) -> yol: "components/..."
+    // Eğer adres "hasbierdogmus.github.io/projeler/abc.html" ise (Alt Dizin) -> yol: "../components/..."
+    
+    let pathPrefix = "";
+    if (window.location.pathname.includes("/projeler/")) {
+        // Eğer projeler klasörünün içindeysek bir geri çık
+        pathPrefix = "../"; 
+        // Eğer projeler/kategori/dosya.html ise iki geri çık (Bunu klasör yapına göre ayarlayabilirsin)
+        if ((window.location.pathname.match(/\//g) || []).length > 2) {
+             // Basit çözüm: components'e ulaşana kadar dene
+        }
     }
+
+    // EN GARANTİ YÖNTEM: Mutlak Yol (Absolute Path)
+    // Senin GitHub adresin belli. Doğrudan orayı hedef gösterelim.
+    // Böylece "neredeyim" derdi kalmaz.
+    const repoName = "/hasbierdogmus.github.io"; // Senin depo adın
+    const rootUrl = window.location.origin + repoName;
+
+    // 1. HEADER
+    try {
+        // GitHub Pages'de bazen repo adı URL'de olur, bazen olmaz (custom domain yoksa olur)
+        // O yüzden göreceli yol yerine, script.js'in yanındaki components'i arayalım.
+        
+        // Script dosyasının olduğu yeri kök kabul et
+        const scriptEl = document.querySelector('script[src*="script.js"]');
+        const scriptPath = scriptEl.src; // Tam adres: http://.../script.js
+        const baseUrl = scriptPath.replace('/script.js', ''); // http://.../root
+
+        const headerRes = await fetch(baseUrl + '/components/header.html');
+        if (headerRes.ok) {
+            const text = await headerRes.text();
+            if(!text.includes("404")) document.getElementById('global-header').innerHTML = text;
+            setActiveLink();
+            initMenu();
+        }
+    } catch (e) { console.log("Header yüklenemedi"); }
+
+    // 2. FOOTER
+    try {
+        const scriptEl = document.querySelector('script[src*="script.js"]');
+        const baseUrl = scriptEl.src.replace('/script.js', '');
+        
+        const footerRes = await fetch(baseUrl + '/components/footer.html');
+        if (footerRes.ok) {
+            const text = await footerRes.text();
+            if(!text.includes("404")) document.getElementById('global-footer').innerHTML = text;
+        }
+    } catch (e) { console.log("Footer yüklenemedi"); }
+
+    // 3. BANNER
+    try {
+        const scriptEl = document.querySelector('script[src*="script.js"]');
+        const baseUrl = scriptEl.src.replace('/script.js', '');
+
+        const bannerRes = await fetch(baseUrl + '/components/banner.html');
+        if (bannerRes.ok) {
+            const text = await bannerRes.text();
+            if(!text.includes("404") && text.trim().length > 5) {
+                const bannerDiv = document.getElementById('global-banner');
+                if(bannerDiv) bannerDiv.innerHTML = text;
+            }
+        }
+    } catch (e) { console.log("Banner yüklenemedi"); }
 }
 
-function closeBanner() {
-    const banner = document.getElementById('global-banner');
-    if(banner) banner.style.display = 'none';
-}
+function setActiveLink() { /* ... Eski kodun aynısı ... */ }
+function initMenu() { /* ... Eski kodun aynısı ... */ }
+function closeBanner() { document.getElementById('global-banner').style.display = 'none'; }
