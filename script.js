@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadComponents();
 });
 
-// Sitenin kök adresini otomatik bulan fonksiyon
+// Sitenin nerede olduğunu bulan akıllı yol tarifi (Bu kalmalı)
 function getSiteRoot() {
     const scriptTag = document.querySelector('script[src*="script.js"]');
     if (scriptTag) {
@@ -10,7 +10,6 @@ function getSiteRoot() {
         if (src.includes("../")) {
             const depth = (src.match(/\.\.\//g) || []).length;
             const pathSegments = window.location.pathname.split('/').filter(Boolean);
-            // Son (depth) kadar klasörü at
             const rootPath = pathSegments.slice(0, pathSegments.length - depth).join('/');
             return window.location.origin + '/' + rootPath;
         }
@@ -20,10 +19,10 @@ function getSiteRoot() {
 }
 
 async function loadComponents() {
-    // 1. Kök dizini ayarla
     let baseUrl = "";
     const scriptEl = document.querySelector('script[src*="script.js"]');
     
+    // Kök dizini bul
     if(scriptEl) {
         const scriptPath = scriptEl.src; 
         baseUrl = scriptPath.replace('/script.js', ''); 
@@ -36,13 +35,11 @@ async function loadComponents() {
         const headerRes = await fetch(baseUrl + '/components/header.html');
         if (headerRes.ok) {
             const text = await headerRes.text();
+            // Hata sayfası değilse ekle
             if(!text.includes("404")) {
                 document.getElementById('global-header').innerHTML = text;
-                
-                // Menü geldikten sonra fonksiyonları çalıştır
-                setActiveLink();
-                initMenu();
-                initTheme(); // Tema modunu başlat
+                setActiveLink(); // Linki boya
+                initMenu();      // Hamburgeri çalıştır
             }
         }
     } catch (e) { console.log("Header yüklenemedi", e); }
@@ -69,50 +66,7 @@ async function loadComponents() {
     } catch (e) { console.log("Banner yüklenemedi", e); }
 }
 
-/* =========================================
-   TEMA YÖNETİMİ (DARK MODE)
-   ========================================= */
-function initTheme() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
-    const currentTheme = localStorage.getItem('theme');
-
-    // 1. Kayıtlı tema varsa uygula
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark' && icon) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
-
-    // 2. Butona tıklama olayı
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-            let theme = document.documentElement.getAttribute('data-theme');
-            
-            if (theme === 'dark') {
-                // Gündüze Geç
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                if(icon) {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
-            } else {
-                // Geceye Geç
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                if(icon) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                }
-            }
-        });
-    }
-}
-
-// --- MENÜ VE LİNK FONKSİYONLARI ---
+// Menüde hangi sayfadaysak onu aktif yapan kod
 function setActiveLink() {
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
     const menuLinks = document.querySelectorAll('.nav-menu a');
@@ -127,12 +81,13 @@ function setActiveLink() {
     });
 }
 
+// Hamburger Menü Aç/Kapa
 function initMenu() {
     const hamburger = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
     
     if (hamburger && navMenu) {
-        // Eski eventleri temizle
+        // Eski eventleri temizle (clone yöntemi)
         const newHamburger = hamburger.cloneNode(true);
         if(hamburger.parentNode) hamburger.parentNode.replaceChild(newHamburger, hamburger);
         
@@ -141,6 +96,7 @@ function initMenu() {
             navMenu.classList.toggle("active");
         });
 
+        // Linke tıklayınca menüyü kapat
         document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
              if(!n.parentElement.classList.contains('dropdown')) {
                  newHamburger.classList.remove("active");
