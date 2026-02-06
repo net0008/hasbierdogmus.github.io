@@ -15,6 +15,18 @@
     --container-width: 1200px;
 }
 
+/* DARK TEMA RENKLERİ */
+[data-theme="dark"] {
+    --navy: #1a2f5a;
+    --green: #00d4a3;
+    --light-bg: #1e1e2e;
+    --white: #0d1117;
+    --dark-text: #e0e0e0;
+    --medium-gray: #a0a0a0;
+    --border-color: #404050;
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -86,6 +98,35 @@ nav {
     display: block;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--navy);
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: var(--light-bg);
+    transform: rotate(180deg);
+}
+
+[data-theme="dark"] .theme-toggle {
+    color: var(--green);
+}
+
 .nav-menu {
     display: flex;
     gap: 2rem;
@@ -137,12 +178,20 @@ nav {
     cursor: pointer;
     font-size: 1.8rem;
     color: var(--navy);
+    background: none;
+    border: none;
+    padding: 8px;
+}
+
+[data-theme="dark"] .hamburger {
+    color: var(--dark-text);
 }
 
 /* =========================================
    3-6. DİĞER BÖLÜMLER
    ========================================= */
 .hero { position: relative; min-height: 100vh; padding-top: var(--header-height); display: flex; align-items: center; background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%); overflow: hidden; }
+[data-theme="dark"] .hero { background: linear-gradient(135deg, #0f172a 0%, #1a2f5a 100%); }
 .topo-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.04; background-image: repeating-linear-gradient(0deg, transparent, transparent 35px, var(--navy) 35px, var(--navy) 36px), repeating-linear-gradient(90deg, transparent, transparent 35px, var(--navy) 35px, var(--navy) 36px); pointer-events: none; }
 .hero-content { max-width: var(--container-width); margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
 .hero-text h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 1.5rem; }
@@ -156,8 +205,10 @@ nav {
 .btn { padding: 1rem 2rem; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
 .btn-primary { background: var(--navy); color: var(--white); box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3); }
 .btn-primary:hover { transform: translateY(-3px); background: #2a5298; box-shadow: 0 6px 20px rgba(30, 60, 114, 0.4); }
+[data-theme="dark"] .btn-primary:hover { background: #00d4a3; color: #0d1117; }
 .btn-secondary { border: 2px solid var(--navy); color: var(--navy); background: transparent; }
 .btn-secondary:hover { background: var(--navy); color: var(--white); }
+[data-theme="dark"] .btn-secondary:hover { background: var(--green); color: #0d1117; border-color: var(--green); }
 .portrait-frame { width: 100%; max-width: 400px; aspect-ratio: 1/1; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--navy)); padding: 6px; box-shadow: var(--shadow-lg); animation: float 6s ease-in-out infinite; margin: 0 auto; }
 .portrait-placeholder { width: 100%; height: 100%; border-radius: 50%; background: #e9ecef; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
 .portrait-placeholder img { width: 100%; height: 100%; object-fit: cover; }
@@ -199,6 +250,10 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
 .about-image { flex: 1; display: flex; justify-content: center; }
 .about-image img { max-width: 400px; border-radius: 20px; box-shadow: 20px 20px 0px var(--light-bg); }
 .badge { background: var(--light-bg); color: var(--navy); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin-bottom: 15px; }
+[data-theme="dark"] .badge {
+    background: rgba(0, 212, 163, 0.15);
+    color: var(--green);
+}
 .motto-box-small { border-left: 3px solid var(--green); padding-left: 15px; margin-top: 20px; font-style: italic; color: var(--medium-gray); }
 .section-padding { padding: 80px 0; }
 .bg-light { background-color: var(--light-bg); }
@@ -222,6 +277,9 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     text-align: center;
     color: var(--white);
 }
+[data-theme="dark"] .page-header {
+    background: linear-gradient(135deg, #0f172a, #1a2f5a);
+}
 .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
 .page-header p { font-size: 1.1rem; opacity: 0.8; font-weight: 300; }
 .intro-grid {
@@ -240,8 +298,17 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     border-left: 4px solid var(--green);
     box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
+[data-theme="dark"] .feature-item {
+    background: var(--light-bg);
+}
 .feature-item i { font-size: 2rem; color: var(--navy); }
+[data-theme="dark"] .feature-item i {
+    color: var(--green);
+}
 .feature-item h4 { margin-bottom: 5px; color: var(--navy); }
+[data-theme="dark"] .feature-item h4 {
+    color: var(--dark-text);
+}
 
 /* Pedagoji Kutusu HİZALAMA DÜZELTMESİ (v3.4) */
 .pedagogy-box {
@@ -458,6 +525,10 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
     padding: 20px;
     border-radius: 10px;
     border-left: 5px solid var(--navy);
+}
+[data-theme="dark"] .mission-text {
+    background: rgba(0, 212, 163, 0.1);
+    border-left-color: var(--green);
 }
 
 /* Adım Kartları */
@@ -1060,4 +1131,56 @@ footer p {
     .robotics-section .card-image {
         height: 200px;
     }
+    
+    .nav-actions {
+        gap: 1rem;
+    }
+    
+    .theme-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+}
+
+/* DARK TEMA - ŞEKİL VE TEMA TOGGLE SEÇEVİ GÖRÜNTÜLERİ */
+[data-theme="dark"] header {
+    background: rgba(13, 17, 23, 0.95);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .dropdown-menu {
+    background: var(--white);
+}
+
+[data-theme="dark"] .card {
+    background: var(--light-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .card:hover {
+    border-color: var(--green);
+}
+
+[data-theme="dark"] .skill-item {
+    background: var(--light-bg);
+    border-bottom-color: var(--green);
+}
+
+[data-theme="dark"] .pedagogy-box {
+    background: var(--light-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .pedagogy-box h3 {
+    border-bottom-color: #404050;
+}
+
+[data-theme="dark"] .step-card {
+    background: var(--light-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .robotics-section .project-card {
+    background: var(--light-bg);
+    border-color: var(--border-color);
 }
