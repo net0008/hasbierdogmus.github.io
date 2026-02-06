@@ -9,7 +9,7 @@
             margin: 0; 
             padding: 20px; 
             font-family: 'Segoe UI', sans-serif; 
-            background-color: transparent; /* Şeffaf zemin */
+            background-color: transparent; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -21,7 +21,7 @@
             padding: 10px 20px; 
             border-radius: 50px; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-            z-index: 100; /* Kontroller hep üstte */
+            z-index: 100;
         }
 
         .slider-container {
@@ -33,7 +33,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             overflow: hidden; 
             border-radius: 12px;
-            background-color: #eee; /* Resim gelmezse gri görünsün */
+            background-color: #333; /* Konteyner rengi koyu gri */
         }
 
         .image { 
@@ -44,16 +44,17 @@
             height: 100%; 
             background-size: cover; 
             background-position: center; 
+            background-color: #333; /* [ÖNEMLİ] Resim yoksa burası gri görünür */
         }
         
         /* Varsayılan Arka Plan */
         .background-img { 
-            background-image: url('./Uydu_Foto.png'); 
+            background-image: url('Uydu_Foto.png'); 
         }
         
         /* Ön Plan (Zemin Riski) */
         .foreground-img {
-            background-image: url('./Zemin_Riski.png');
+            background-image: url('Zemin_Riski.png');
             width: 50%; 
             border-right: 3px solid #ff4757; 
             z-index: 2;
@@ -61,39 +62,26 @@
 
         .slider {
             position: absolute; 
-            top: 0;
-            width: 100%; 
-            height: 100%; 
+            top: 0; width: 100%; height: 100%; 
             background: transparent;
-            -webkit-appearance: none; 
-            appearance: none;
-            cursor: ew-resize; 
-            z-index: 10; 
-            margin: 0;
+            -webkit-appearance: none; appearance: none;
+            cursor: ew-resize; z-index: 10; margin: 0;
         }
         
         .slider::-webkit-slider-thumb {
-            -webkit-appearance: none; 
-            appearance: none;
-            width: 40px; 
-            height: 40px; 
+            -webkit-appearance: none; appearance: none;
+            width: 40px; height: 40px; 
             background: #ff4757;
-            border: 3px solid white; 
-            border-radius: 50%; 
+            border: 3px solid white; border-radius: 50%; 
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             cursor: pointer;
         }
 
         .label {
-            position: absolute; 
-            top: 20px; 
-            padding: 8px 15px;
-            background: rgba(255, 71, 87, 0.9); 
-            color: white;
-            font-weight: bold; 
-            border-radius: 4px; 
-            z-index: 5;
-            pointer-events: none; /* Tıklamayı engellemesin */
+            position: absolute; top: 20px; padding: 8px 15px;
+            background: rgba(255, 71, 87, 0.9); color: white;
+            font-weight: bold; border-radius: 4px; z-index: 5;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -101,15 +89,15 @@
 
     <div class="controls">
         <strong>Alt Katmanı Değiştir: </strong>
-        <input type="radio" name="bg" id="sat" checked onclick="changeBg('Uydu_Foto.png')"> 
-        <label for="sat" style="cursor: pointer; margin-right: 15px;">Uydu Görüntüsü</label>
+        <input type="radio" name="bg" id="btnUydu" checked> 
+        <label for="btnUydu" style="cursor: pointer; margin-right: 15px;">Uydu Görüntüsü</label>
         
-        <input type="radio" name="bg" id="osm" onclick="changeBg('OpenStreetMap.png')"> 
-        <label for="osm" style="cursor: pointer;">Sokak Haritası (OSM)</label>
+        <input type="radio" name="bg" id="btnHarita"> 
+        <label for="btnHarita" style="cursor: pointer;">Sokak Haritası (OSM)</label>
     </div>
 
     <div class="slider-container">
-        <div class="image background-img" id="bgLayer"></div>
+        <div class="image" id="bgLayer" style="background-image: url('Uydu_Foto.png');"></div>
         <div class="image foreground-img" id="foreground"></div>
         
         <input type="range" min="0" max="100" value="50" class="slider" id="slider">
@@ -119,20 +107,28 @@
     </div>
 
     <script>
+        // Elemanları seç
         const slider = document.getElementById('slider');
         const foreground = document.getElementById('foreground');
         const bgLayer = document.getElementById('bgLayer');
+        const btnUydu = document.getElementById('btnUydu');
+        const btnHarita = document.getElementById('btnHarita');
 
-        // Slider değişim olayı
+        // Slider hareketi
         slider.addEventListener('input', (e) => {
             foreground.style.width = `${e.target.value}%`;
         });
 
-        // Arka plan değiştirme fonksiyonu
-        function changeBg(fileName) {
-            // [ÖNEMLİ] ./ ekleyerek "bu klasördeki dosya" dedik.
-            bgLayer.style.backgroundImage = `url('./${fileName}')`;
-        }
+        // Uydu Seçilirse
+        btnUydu.addEventListener('change', () => {
+            // Sadece dosya adını yazıyoruz, ./ kullanmıyoruz ki en temiz halini bulsun
+            bgLayer.style.backgroundImage = "url('Uydu_Foto.png')";
+        });
+
+        // Harita Seçilirse
+        btnHarita.addEventListener('change', () => {
+            bgLayer.style.backgroundImage = "url('OpenStreetMap.png')";
+        });
     </script>
 
 </body>
