@@ -48,13 +48,16 @@
         }
         
         .background-img { 
-    background-image: url('./.github/workflows/projeler/egitim-materyalleri/Uydu_Foto.png'); 
-}
-
-.foreground-img {
-    background-image: url('./.github/workflows/projeler/egitim-materyalleri/Zemin_Riski.png');
-   
-}
+            background-image: url('Uydu_Foto.png'); 
+        }
+        
+        .foreground-img {
+            background-image: url('Zemin_Riski.png');
+            width: 50%; 
+            border-right: 3px solid #ff4757; 
+            z-index: 2;
+            overflow: hidden;
+        }
 
         .slider {
             position: absolute; 
@@ -125,21 +128,21 @@
             foreground.style.width = `${e.target.value}%`;
         });
 
-       // Uydu Seçilirse
-btnUydu.addEventListener('change', () => {
-    bgLayer.className = 'image background-img';
-    bgLayer.style.backgroundImage = "url('./.github/workflows/projeler/egitim-materyalleri/Uydu_Foto.png')";
-    slider.value = 50;
-    foreground.style.width = "50%";
-});
+        // Uydu Seçilirse
+        btnUydu.addEventListener('change', () => {
+            bgLayer.className = 'image background-img';
+            bgLayer.style.backgroundImage = "url('Uydu_Foto.png')";
+            slider.value = 50;
+            foreground.style.width = "50%";
+        });
 
-// Harita Seçilirse
-btnHarita.addEventListener('change', () => {
-    bgLayer.className = 'image';
-    bgLayer.style.backgroundImage = "url('./.github/workflows/projeler/egitim-materyalleri/OpenStreetMap.png')";
-    slider.value = 50;
-    foreground.style.width = "50%";
-});
+        // Harita Seçilirse
+        btnHarita.addEventListener('change', () => {
+            bgLayer.className = 'image';
+            bgLayer.style.backgroundImage = "url('OpenStreetMap.png')";
+            slider.value = 50;
+            foreground.style.width = "50%";
+        });
     </script>
 
 </body>
