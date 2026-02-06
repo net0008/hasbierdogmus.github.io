@@ -107,29 +107,30 @@
     </div>
 
     <script>
-        // Elemanları seç
-        const slider = document.getElementById('slider');
-        const foreground = document.getElementById('foreground');
-        const bgLayer = document.getElementById('bgLayer');
-        const btnUydu = document.getElementById('btnUydu');
-        const btnHarita = document.getElementById('btnHarita');
+    const slider = document.getElementById('slider');
+    const foreground = document.getElementById('foreground');
+    const bgLayer = document.getElementById('bgLayer');
+    const btnUydu = document.getElementById('btnUydu');
+    const btnHarita = document.getElementById('btnHarita');
 
-        // Slider hareketi
-        slider.addEventListener('input', (e) => {
-            foreground.style.width = `${e.target.value}%`;
-        });
+    // Slider hareketi
+    slider.addEventListener('input', (e) => {
+        foreground.style.width = `${e.target.value}%`;
+    });
 
-        // Uydu Seçilirse
-        btnUydu.addEventListener('change', () => {
-            // Sadece dosya adını yazıyoruz, ./ kullanmıyoruz ki en temiz halini bulsun
-            bgLayer.style.backgroundImage = "url('Uydu_Foto.png')";
-        });
+    // Uydu Seçilirse
+    btnUydu.addEventListener('change', () => {
+        bgLayer.style.backgroundImage = "url('Uydu_Foto.png')";
+        slider.value = 50; // Reset slider
+        foreground.style.width = "50%";
+    });
 
-        // Harita Seçilirse
-        btnHarita.addEventListener('change', () => {
-            bgLayer.style.backgroundImage = "url('OpenStreetMap.png')";
-        });
-    </script>
-
+    // Harita Seçilirse
+    btnHarita.addEventListener('change', () => {
+        bgLayer.style.backgroundImage = "url('OpenStreetMap.png')";
+        slider.value = 50; // Reset slider
+        foreground.style.width = "50%";
+    });
+</script>
 </body>
 </html>
