@@ -33,7 +33,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             overflow: hidden; 
             border-radius: 12px;
-            background-color: #333; /* Konteyner rengi koyu gri */
+            background-color: #333;
         }
 
         .image { 
@@ -44,43 +44,53 @@
             height: 100%; 
             background-size: cover; 
             background-position: center; 
-            background-color: #333; /* [ÖNEMLİ] Resim yoksa burası gri görünür */
+            background-color: #333;
         }
         
-        /* Varsayılan Arka Plan */
         .background-img { 
             background-image: url('Uydu_Foto.png'); 
         }
         
-        /* Ön Plan (Zemin Riski) */
         .foreground-img {
             background-image: url('Zemin_Riski.png');
             width: 50%; 
             border-right: 3px solid #ff4757; 
             z-index: 2;
+            overflow: hidden;
         }
 
         .slider {
             position: absolute; 
             top: 0; width: 100%; height: 100%; 
             background: transparent;
-            -webkit-appearance: none; appearance: none;
-            cursor: ew-resize; z-index: 10; margin: 0;
+            -webkit-appearance: none; 
+            appearance: none;
+            cursor: ew-resize; 
+            z-index: 10; 
+            margin: 0;
         }
         
         .slider::-webkit-slider-thumb {
-            -webkit-appearance: none; appearance: none;
-            width: 40px; height: 40px; 
+            -webkit-appearance: none; 
+            appearance: none;
+            width: 40px; 
+            height: 40px; 
             background: #ff4757;
-            border: 3px solid white; border-radius: 50%; 
+            border: 3px solid white; 
+            border-radius: 50%; 
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             cursor: pointer;
         }
 
         .label {
-            position: absolute; top: 20px; padding: 8px 15px;
-            background: rgba(255, 71, 87, 0.9); color: white;
-            font-weight: bold; border-radius: 4px; z-index: 5;
+            position: absolute; 
+            top: 20px; 
+            padding: 8px 15px;
+            background: rgba(255, 71, 87, 0.9); 
+            color: white;
+            font-weight: bold; 
+            border-radius: 4px; 
+            z-index: 5;
             pointer-events: none;
         }
     </style>
@@ -97,7 +107,7 @@
     </div>
 
     <div class="slider-container">
-        <div class="image" id="bgLayer" style="background-image: url('Uydu_Foto.png');"></div>
+        <div class="image background-img" id="bgLayer"></div>
         <div class="image foreground-img" id="foreground"></div>
         
         <input type="range" min="0" max="100" value="50" class="slider" id="slider">
@@ -107,30 +117,33 @@
     </div>
 
     <script>
-    const slider = document.getElementById('slider');
-    const foreground = document.getElementById('foreground');
-    const bgLayer = document.getElementById('bgLayer');
-    const btnUydu = document.getElementById('btnUydu');
-    const btnHarita = document.getElementById('btnHarita');
+        const slider = document.getElementById('slider');
+        const foreground = document.getElementById('foreground');
+        const bgLayer = document.getElementById('bgLayer');
+        const btnUydu = document.getElementById('btnUydu');
+        const btnHarita = document.getElementById('btnHarita');
 
-    // Slider hareketi
-    slider.addEventListener('input', (e) => {
-        foreground.style.width = `${e.target.value}%`;
-    });
+        // Slider hareketi
+        slider.addEventListener('input', (e) => {
+            foreground.style.width = `${e.target.value}%`;
+        });
 
-    // Uydu Seçilirse
-    btnUydu.addEventListener('change', () => {
-        bgLayer.style.backgroundImage = "url('Uydu_Foto.png')";
-        slider.value = 50; // Reset slider
-        foreground.style.width = "50%";
-    });
+        // Uydu Seçilirse
+        btnUydu.addEventListener('change', () => {
+            bgLayer.className = 'image background-img';
+            bgLayer.style.backgroundImage = "url('Uydu_Foto.png')";
+            slider.value = 50;
+            foreground.style.width = "50%";
+        });
 
-    // Harita Seçilirse
-    btnHarita.addEventListener('change', () => {
-        bgLayer.style.backgroundImage = "url('OpenStreetMap.png')";
-        slider.value = 50; // Reset slider
-        foreground.style.width = "50%";
-    });
-</script>
+        // Harita Seçilirse
+        btnHarita.addEventListener('change', () => {
+            bgLayer.className = 'image';
+            bgLayer.style.backgroundImage = "url('OpenStreetMap.png')";
+            slider.value = 50;
+            foreground.style.width = "50%";
+        });
+    </script>
+
 </body>
 </html>
