@@ -1185,44 +1185,60 @@ footer p {
     border-color: var(--border-color);
 }
 /* =========================================
-   DARK MODE: EKSİK KALAN KUTU AYARLARI
+   DARK MODE: RENK VE KONTRAST İYİLEŞTİRMELERİ (SON DOKUNUŞ)
    ========================================= */
 
-/* Feature Item (Eğitsel İçerik Listesi) */
-[data-theme="dark"] .feature-item {
-    background-color: #161b22; /* Kart renginden bir tık açık */
-    border: 1px solid #30363d; /* Belirgin çerçeve */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    color: #c9d1d9; /* Okunabilir gri yazı */
+/* 1. Kart ve Kutu Arka Planları - Koyu modda silik kalmasınlar */
+[data-theme="dark"] .bio-card,
+[data-theme="dark"] .embed-container,
+[data-theme="dark"] .project-details,
+[data-theme="dark"] .robotics-section .project-card,
+[data-theme="dark"] .step-card,
+[data-theme="dark"] .eval-box {
+    background-color: var(--light-bg); /* #1e1e2e - Hafif koyu gri */
+    border-color: var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Başlıklar ve İkonlar */
-[data-theme="dark"] .feature-item h4,
-[data-theme="dark"] .pedagogy-box h3,
-[data-theme="dark"] .contact-card h3 {
-    color: #58a6ff; /* GitHub Mavisi (Navy yerine) */
+/* 2. Başlıklar ve Vurgulu Metinler (Navy yerine Açık Mavi) */
+/* Koyu zeminde lacivert okunmaz, o yüzden "GitHub Mavisi" yaptık */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .hero-text h1,
+[data-theme="dark"] .section-header h2,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .bio-card h3,
+[data-theme="dark"] .project-content h3,
+[data-theme="dark"] .project-header-box h1,
+[data-theme="dark"] .robotics-section .card-content h3,
+[data-theme="dark"] .pedagogy-box li strong,
+[data-theme="dark"] .project-steps li strong,
+[data-theme="dark"] .contact-manifesto h3,
+[data-theme="dark"] .contact-details h3,
+[data-theme="dark"] .step-card h4 {
+    color: #58a6ff !important; /* !important ile zorladık ki kesin değişsin */
 }
 
-[data-theme="dark"] .feature-item i,
-[data-theme="dark"] .pedagogy-box li i,
-[data-theme="dark"] .contact-card i {
-    color: #00d4a3; /* Neon Yeşil */
+/* 3. Genel Metin Okunabilirliği */
+/* Koyu modda siyah yazı kalmasın, hepsini açık gri yap */
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span,
+[data-theme="dark"] .robotics-section .card-content p,
+[data-theme="dark"] .contact-manifesto p,
+[data-theme="dark"] .services-list li strong,
+[data-theme="dark"] .project-steps li {
+    color: var(--dark-text); /* #e0e0e0 */
 }
 
-/* Pedagoji ve İletişim Kutuları */
-[data-theme="dark"] .pedagogy-box,
-[data-theme="dark"] .contact-card {
-    background-color: #161b22;
-    border: 1px solid #30363d;
+/* 4. Footer Düzeltmesi */
+[data-theme="dark"] footer {
+    background-color: #161b22; /* Daha koyu, solid renk */
+    border-top: 1px solid var(--border-color);
 }
 
-[data-theme="dark"] .pedagogy-box ul li {
-    border-bottom: 1px solid #30363d;
-    color: #c9d1d9;
-}
-
-/* Koyu modda vurgulu yazılar */
-[data-theme="dark"] strong, 
-[data-theme="dark"] b {
-    color: #fff;
+/* 5. Linkler */
+[data-theme="dark"] .card-link {
+    color: #58a6ff;
 }
