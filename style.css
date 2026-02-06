@@ -1279,3 +1279,27 @@ footer p {
 [data-theme="dark"] .hero-text .subtitle {
     color: #8b949e; /* Alt başlığı gri yap ki ana başlıkla karışmasın */
 }
+/* =========================================
+   DARK MODE: İLETİŞİM KUTUSU & UYARILAR (FIX)
+   ========================================= */
+
+/* 1. İletişim Sayfasındaki Bilgi Kutusu (O beyaz kalan yer) */
+[data-theme="dark"] .contact-cta-box {
+    background-color: #161b22;  /* Kart rengiyle aynı koyu gri */
+    color: #c9d1d9;             /* Açık gri okunabilir yazı */
+    border-left: 4px solid #58a6ff; /* Çizgisini de mavi yapalım */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Hafif gölge */
+}
+
+/* 2. Sarı Ödül/Uyarı Kutusu (Diğer sayfalarda varsa göz almasın) */
+[data-theme="dark"] .award-box {
+    background-color: rgba(210, 153, 34, 0.15); /* Şeffaf, koyu sarı zemin */
+    color: #e3b341;       /* Göz yormayan altın sarısı yazı */
+    border: 1px solid rgba(210, 153, 34, 0.4);
+    border-left: 4px solid #e3b341;
+}
+
+/* Link rengini de düzeltelim (Sarı kutu içindeki) */
+[data-theme="dark"] .award-box a {
+    color: #fff;
+}
