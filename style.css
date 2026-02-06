@@ -1184,3 +1184,45 @@ footer p {
     background: var(--light-bg);
     border-color: var(--border-color);
 }
+/* =========================================
+   DARK MODE: EKSİK KALAN KUTU AYARLARI
+   ========================================= */
+
+/* Feature Item (Eğitsel İçerik Listesi) */
+[data-theme="dark"] .feature-item {
+    background-color: #161b22; /* Kart renginden bir tık açık */
+    border: 1px solid #30363d; /* Belirgin çerçeve */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: #c9d1d9; /* Okunabilir gri yazı */
+}
+
+/* Başlıklar ve İkonlar */
+[data-theme="dark"] .feature-item h4,
+[data-theme="dark"] .pedagogy-box h3,
+[data-theme="dark"] .contact-card h3 {
+    color: #58a6ff; /* GitHub Mavisi (Navy yerine) */
+}
+
+[data-theme="dark"] .feature-item i,
+[data-theme="dark"] .pedagogy-box li i,
+[data-theme="dark"] .contact-card i {
+    color: #00d4a3; /* Neon Yeşil */
+}
+
+/* Pedagoji ve İletişim Kutuları */
+[data-theme="dark"] .pedagogy-box,
+[data-theme="dark"] .contact-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+}
+
+[data-theme="dark"] .pedagogy-box ul li {
+    border-bottom: 1px solid #30363d;
+    color: #c9d1d9;
+}
+
+/* Koyu modda vurgulu yazılar */
+[data-theme="dark"] strong, 
+[data-theme="dark"] b {
+    color: #fff;
+}
