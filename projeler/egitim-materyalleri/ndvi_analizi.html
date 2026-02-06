@@ -21,6 +21,7 @@
         .foreground-img {
             background-image: url('SuAnalizi/ndvi_su.png');
             width: 50%; border-right: 3px solid #2ed573; z-index: 2;
+            overflow: hidden;
         }
 
         .slider {
@@ -44,8 +45,8 @@
 
     <div class="controls">
         <strong>Referans Katmanı Seç: </strong>
-        <input type="radio" name="bg" id="sat" checked onclick="changeBg('UyduFoto.png')"> <label for="sat">Gerçek Uydu Görüntüsü</label>
-        <input type="radio" name="bg" id="osm" onclick="changeBg('OpenStreetMap.png')"> <label for="osm">Sokak Haritası (OSM)</label>
+        <input type="radio" name="bg" id="sat" checked> <label for="sat">Gerçek Uydu Görüntüsü</label>
+        <input type="radio" name="bg" id="osm"> <label for="osm">Sokak Haritası (OSM)</label>
     </div>
 
     <div class="slider-container">
@@ -60,14 +61,24 @@
         const slider = document.getElementById('slider');
         const foreground = document.getElementById('foreground');
         const bgLayer = document.getElementById('bgLayer');
+        const satRadio = document.getElementById('sat');
+        const osmRadio = document.getElementById('osm');
 
         slider.addEventListener('input', (e) => {
             foreground.style.width = `${e.target.value}%`;
         });
 
-        function changeBg(fileName) {
-            bgLayer.style.backgroundImage = `url('${fileName}')`;
-        }
+        satRadio.addEventListener('change', () => {
+            bgLayer.style.backgroundImage = "url('SuAnalizi/UyduFoto.png')";
+            slider.value = 50;
+            foreground.style.width = "50%";
+        });
+
+        osmRadio.addEventListener('change', () => {
+            bgLayer.style.backgroundImage = "url('SuAnalizi/OpenStreetMap.png')";
+            slider.value = 50;
+            foreground.style.width = "50%";
+        });
     </script>
 
 </body>
