@@ -1,32 +1,36 @@
 <nav>
     <a href="index.html" class="logo">
-        <img src="assets/logo.png" alt="GeoCode Logo">
-        <span>HASBİ ERDOĞMUŞ</span>
+        <img src="assets/logo.png" alt="Logo"> <span>HASBİ ERDOĞMUŞ</span>
     </a>
 
-    <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" title="Tema Değiştir">
-            <i class="fas fa-moon"></i>
-        </button>
-        <div class="hamburger" id="hamburgerBtn">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
+    <button class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
 
-    <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="about.html">Hakkımda</a></li>
-        <li class="dropdown">
-            <a href="#">Projeler <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+    <div class="nav-menu" id="navMenu">
+        
+        <a href="index.html" data-link="index.html">Ana Sayfa</a>
+        <a href="about.html" data-link="about.html">Hakkımda</a>
+        
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Projeler <i class="fas fa-chevron-down"></i></a>
             <div class="dropdown-menu">
                 <a href="educational-content.html">Eğitsel İçerikler</a>
                 <a href="innovative-classroom.html">Yenilikçi Sınıf</a>
                 <a href="robotics-coding.html">Robotik ve Kodlama</a>
                 <a href="gis-technology.html">CBS ve Teknoloji</a>
-                <a href="ai-studies.html">Yapay Zeka (AI)</a>
-                <a href="other-works.html">Diğer Çalışmalar</a>
+                <a href="ai-studies.html">Yapay Zeka</a>
+                <a href="project-other-kis.html">Diğer Çalışmalar</a>
             </div>
-        </li>
-        <li><a href="contact.html">İletişim</a></li>
-    </ul>
+        </div>
+        
+        <a href="contact.html" data-link="contact.html">İletişim</a>
+
+        <div class="nav-actions" style="margin-left: 20px;">
+            <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Temayı Değiştir">
+                <i class="fas fa-moon"></i> 
+            </button>
+        </div>
+
+    </div>
 </nav>
