@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pardus Öğretmen Asistanı</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --pardus-blue: #0047ba; --pardus-dark: #1a1a1a; --bg-gray: #f4f6f8; }
+        
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg-gray);
+            color: #333;
+        }
+
+        /* APP HEADER (Mobil Uygulama Havası) */
+        .app-header {
+            background: var(--pardus-blue);
+            color: white;
+            padding: 20px;
+            padding-top: 40px; /* Çentik payı */
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,71,186,0.3);
+        }
+        
+        .app-logo { font-size: 2rem; margin-bottom: 10px; }
+        .app-title { font-size: 1.2rem; font-weight: 700; }
+
+        /* ARAMA KUTUSU */
+        .search-container {
+            margin: -25px 20px 20px 20px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            outline: none;
+        }
+        
+        .search-icon {
+            position: absolute; left: 20px; top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        /* KATEGORİ IZGARASI */
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .menu-item:active { transform: scale(0.95); }
+        
+        .menu-icon {
+            font-size: 2rem;
+            color: var(--pardus-blue);
+            margin-bottom: 10px;
+        }
+        
+        .menu-text { font-weight: 600; font-size: 0.9rem; color: #444; }
+
+        /* ÇÖZÜM KARTI (Gizli, arama yapılınca veya tıklanınca açılır) */
+        .solution-modal {
+            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            z-index: 1000;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 20px;
+            background: var(--bg-gray);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .back-btn { font-size: 1.5rem; color: #333; cursor: pointer; }
+        
+        .content-body { padding: 25px; line-height: 1.6; }
+        .step { margin-bottom: 15px; padding-left: 15px; border-left: 3px solid var(--pardus-blue); }
+        
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="app-header">
+        <div class="app-logo"><i class="fab fa-linux"></i></div>
+        <div class="app-title">Pardus Sınıf Asistanı</div>
+        <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">Öğretmenler için hızlı çözümler</p>
+    </div>
+
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Sorun nedir? (örn: ses yok, z-kitap)..." onkeyup="filterSolutions(this.value)">
+    </div>
+
+    <div class="grid-menu" id="mainMenu">
+        <div class="menu-item" onclick="openSolution('usb')">
+            <div class="menu-icon"><i class="fas fa-usb"></i></div>
+            <div class="menu-text">USB / Flash Bellek</div>
+        </div>
+        <div class="menu-item" onclick="openSolution('sound')">
+            <div class="menu-icon"><i class="fas fa-volume-mute"></i></div>
+            <div class="menu-text">Ses Sorunları</div>
+        </div>
+        <div class="menu-item" onclick="openSolution('zkitap')">
+            <div class="menu-icon"><i class="fas fa-book-reader"></i></div>
+            <div class="menu-text">Z-Kitap (EXE) Açma</div>
+        </div>
+        <div class="menu-item" onclick="openSolution('wifi')">
+            <div class="menu-icon"><i class="fas fa-wifi"></i></div>
+            <div class="menu-text">İnternet / Wi-Fi</div>
+        </div>
+        <div class="menu-item" onclick="openSolution('touch')">
+            <div class="menu-icon"><i class="fas fa-fingerprint"></i></div>
+            <div class="menu-text">Dokunmatik Ayarı</div>
+        </div>
+        <div class="menu-item" onclick="openSolution('libre')">
+            <div class="menu-icon"><i class="fas fa-file-word"></i></div>
+            <div class="menu-text">Office / Word</div>
+        </div>
+    </div>
+
+    <div class="solution-modal" id="solutionModal">
+        <div class="modal-header">
+            <i class="fas fa-arrow-left back-btn" onclick="closeModal()"></i>
+            <h3 id="modalTitle" style="margin:0;">Başlık</h3>
+        </div>
+        <div class="content-body" id="modalContent">
+            </div>
+    </div>
+
+    <script>
+        // VERİTABANI (JSON) - Burayı zenginleştireceğiz
+        const solutions = {
+            'usb': {
+                title: 'Flash Bellek Görünmüyor',
+                content: `
+                    <div class="step"><strong>Sorun:</strong> Flash belleği taktınız ama dosyaları göremiyorsunuz.</div>
+                    <div class="step"><strong>Çözüm 1:</strong> Masaüstündeki "Dosyalar" simgesine tıklayın. Sol menüde cihazınızın adını görüp üzerine tıklayın.</div>
+                    <div class="step"><strong>Çözüm 2:</strong> Eğer NTFS formatlıysa bazen "Mount" etmeniz gerekir. Pardus Disks uygulamasını açıp "Oynat" üçgenine basın.</div>
+                    <div class="step"><strong>İpucu:</strong> Flash belleği çıkarmadan önce mutlaka sağ tıklayıp "Güvenle Kaldır" deyin, yoksa Pardus tekrar takınca okumayabilir.</div>
+                `
+            },
+            'sound': {
+                title: 'Tahtadan Ses Gelmiyor',
+                content: `
+                    <div class="step"><strong>Kontrol 1:</strong> Sağ alt köşedeki ses simgesine tıklayın. "Sessiz" (Mute) kutucuğunun işaretli OLMADIĞINDAN emin olun.</div>
+                    <div class="step"><strong>Kontrol 2:</strong> Ayarlar > Ses menüsüne gidin. "Çıkış Cihazı" olarak "HDMI" veya "Line Out" seçili olmalıdır. Yanlışlıkla "Kulaklık" seçildiyse ses gelmez.</div>
+                `
+            },
+            'zkitap': {
+                title: 'Z-Kitap (EXE) Nasıl Çalışır?',
+                content: `
+                    <div class="step"><strong>Bilgi:</strong> Pardus .exe dosyalarını doğrudan açmaz. Bunun için <strong>WINE</strong> yüklü olmalıdır.</div>
+                    <div class="step"><strong>Yöntem:</strong> Z-Kitap .exe dosyasına sağ tıklayın -> "Birlikte Aç" -> "Wine Windows Program Loader" seçeneğini seçin.</div>
+                    <div class="step"><strong>Öneri:</strong> Yayınevinin "Pardus/Linux" uyumlu sürümü varsa (genelde .deb veya .sh uzantılıdır) onu kullanmak daha performanslıdır.</div>
+                `
+            }
+            // Diğerleri eklenebilir...
+        };
+
+        function openSolution(key) {
+            const data = solutions[key];
+            if(data) {
+                document.getElementById('modalTitle').innerText = data.title;
+                document.getElementById('modalContent').innerHTML = data.content;
+                document.getElementById('solutionModal').style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('solutionModal').style.display = 'none';
+        }
+
+        // Basit Arama Fonksiyonu
+        function filterSolutions(text) {
+            // Gerçek bir uygulamada burası tüm metinlerde arama yapar
+            // Şimdilik sadece menüde görsel filtreleme yapalım mı?
+            // Bu versiyonda gerek yok, sadece konsepti gösteriyoruz.
+            console.log("Aranan:", text);
+        }
+    </script>
+
+</body>
+</html>
