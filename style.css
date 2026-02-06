@@ -1303,3 +1303,79 @@ footer p {
 [data-theme="dark"] .award-box a {
     color: #fff;
 }
+/* =========================================
+   SESLİ ASİSTAN SAYFASI ÖZEL STİLLERİ
+   ========================================= */
+
+/* 1. Kod Penceresi (Fake VS Code) */
+.code-window {
+    background: #1e1e1e; /* VS Code Dark */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+    margin: 20px 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.code-header {
+    background: #252526;
+    padding: 10px 15px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #333;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.code-content {
+    padding: 20px;
+    color: #d4d4d4;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+/* Kod Renklendirme (Basit Syntax Highlight) */
+.kw { color: #569cd6; } /* Keyword (import, def) */
+.str { color: #ce9178; } /* String ("yazi") */
+.fn { color: #dcdcaa; } /* Function */
+.com { color: #6a9955; font-style: italic; } /* Comment */
+
+/* 2. Sohbet Balonları (Demo İçin) */
+.chat-demo-box {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+[data-theme="dark"] .chat-demo-box {
+    background: #161b22;
+    border-color: #30363d;
+}
+
+.chat-bubble {
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.chat-user {
+    background: #e3f2fd;
+    color: var(--navy);
+    margin-left: auto; /* Sağa yasla */
+    border-bottom-right-radius: 2px;
+}
+[data-theme="dark"] .chat-user { background: #1a2f5a; color: #fff; }
+
+.chat-bot {
+    background: var(--green);
+    color: white;
+    margin-right: auto; /* Sola yasla */
+    border-bottom-left-radius: 2px;
+}

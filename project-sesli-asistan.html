@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eğitimde Sesli Asistan - Hasbi Erdoğmuş</title>
+    <meta name="description" content="Python Flask ve Google TTS kullanılarak geliştirilen, ders senaryolarını seslendiren yapay zeka destekli öğretmen asistanı.">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="global-banner"></div>
+    <header id="global-header"></header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Eğitimde Sesli Asistan</h1>
+                <p>Python ile geliştirilen, öğretmene sınıf içinde rehberlik eden dijital yol arkadaşı.</p>
+                <span class="badge" style="margin-top:15px; background: rgba(255,255,255,0.2); color: #fff;">
+                    <i class="fab fa-python"></i> Python & Flask
+                </span>
+            </div>
+        </section>
+
+        <section class="section-padding project-details">
+            <div class="container">
+                
+                <div class="intro-grid">
+                    <div class="project-content">
+                        <h3><i class="fas fa-microphone-alt"></i> Proje Hakkında</h3>
+                        <p>
+                            Eğitimde Sesli Asistan projesi, ders senaryolarının akışını kontrol etmek ve öğretmene materyal sunumunda yardımcı olmak amacıyla geliştirilmiştir. 
+                            <strong>Python (Flask)</strong> altyapısı üzerinde çalışan sistem, <strong>Google Text-to-Speech (gTTS)</strong> kütüphanesini kullanarak metinleri doğal bir konuşma diline çevirir.
+                        </p>
+                        
+                        <div class="mission-text" style="margin-top: 20px;">
+                            <strong>Amaç:</strong> Öğretmenin tahtaya veya bilgisayara bağımlılığını azaltarak, sınıf içi etkileşimi artırmak ve ders materyallerini sesli komutlarla yönetilebilir hale getirmek.
+                        </div>
+
+                        <ul class="project-steps">
+                            <li><strong>Flask Web Server:</strong> Yerel ağda çalışan hızlı ve hafif backend.</li>
+                            <li><strong>Metin Okuma (TTS):</strong> Ders notlarını anlık olarak sese çevirme.</li>
+                            <li><strong>Senaryo Modu:</strong> Önceden planlanmış ders akışını adım adım takip etme.</li>
+                            <li><strong>Web Arayüzü:</strong> Telefondan veya tabletten kontrol imkanı.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3><i class="fas fa-mobile-alt"></i> Arayüz Simülasyonu</h3>
+                        <div class="chat-demo-box">
+                            <div class="chat-bubble chat-user">
+                                <i class="fas fa-user"></i> Sıradaki konuya geç.
+                            </div>
+                            <div class="chat-bubble chat-bot">
+                                <i class="fas fa-robot"></i> Tamam hocam. Sıradaki konu: "İklim Tipleri". İlgili haritayı ekrana yansıtıyorum ve açıklamayı okuyorum...
+                            </div>
+                            <div class="chat-bubble chat-user">
+                                <i class="fas fa-user"></i> Bir soru sor.
+                            </div>
+                            <div class="chat-bubble chat-bot">
+                                <i class="fas fa-robot"></i> Soru geliyor: "Akdeniz ikliminin karakteristik bitki örtüsü nedir?" Süre başladı.
+                            </div>
+                        </div>
+                        <p class="img-caption">Asistan ile öğretmen arasındaki örnek diyalog akışı.</p>
+                    </div>
+                </div>
+
+                <hr class="project-divider">
+
+                <h3><i class="fas fa-code"></i> Kodun Kalbi: Python & Flask</h3>
+                <p>Projenin arka planında çalışan temel <code>app.py</code> yapısının basitleştirilmiş hali.</p>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span style="color: #999; font-size: 0.8rem; margin-left: 10px;">app.py</span>
+                    </div>
+                    <div class="code-content">
+<pre>
+<span class="kw">from</span> flask <span class="kw">import</span> Flask, render_template, request
+<span class="kw">from</span> gtts <span class="kw">import</span> gTTS
+<span class="kw">import</span> os
+
+app = Flask(__name__)
+
+<span class="com"># Asistanın konuşma fonksiyonu</span>
+<span class="kw">def</span> <span class="fn">konus</span>(metin):
+    tts = gTTS(text=metin, lang=<span class="str">'tr'</span>)
+    dosya_adi = <span class="str">"static/ses.mp3"</span>
+    tts.save(dosya_adi)
+    <span class="com"># Ses dosyasını oynat (OS modülü ile)</span>
+    os.system(<span class="str">"start "</span> + dosya_adi)
+
+<span class="kw">@app.route</span>(<span class="str">'/'</span>)
+<span class="kw">def</span> <span class="fn">index</span>():
+    <span class="kw">return</span> render_template(<span class="str">'index.html'</span>)
+
+<span class="kw">@app.route</span>(<span class="str">'/komut'</span>, methods=[<span class="str">'POST'</span>])
+<span class="kw">def</span> <span class="fn">komut_al</span>():
+    komut = request.form[<span class="str">'mesaj'</span>]
+    
+    <span class="kw">if</span> <span class="str">"merhaba"</span> <span class="kw">in</span> komut.lower():
+        yanit = <span class="str">"Merhaba hocam, ders için hazırım."</span>
+        konus(yanit)
+        <span class="kw">return</span> yanit
+    
+    <span class="kw">elif</span> <span class="str">"dersi başlat"</span> <span class="kw">in</span> komut.lower():
+        yanit = <span class="str">"Ders başlıyor. Bugünkü konumuz: Türkiye'nin İklimi."</span>
+        konus(yanit)
+        <span class="kw">return</span> yanit
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    app.run(debug=True)
+</pre>
+                    </div>
+                </div>
+
+                <div class="award-box">
+                    <i class="fas fa-lightbulb"></i> <strong>Geliştirme Notu:</strong> Bu proje şu anda prototip aşamasındadır. İlerleyen versiyonlarda OpenAI API entegrasyonu ile öğrencilerin sorularına doğal dilde yanıt verebilen bir yapıya dönüştürülmesi hedeflenmektedir.
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="global-footer"></footer>
+    <script src="script.js"></script>
+</body>
+</html>
