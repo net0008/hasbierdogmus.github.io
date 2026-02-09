@@ -151,3 +151,4 @@ function closeBanner() {
     const banner = document.getElementById('global-banner');
     if(banner) banner.style.display = 'none'; 
 }
+});
