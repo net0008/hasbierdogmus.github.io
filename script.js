@@ -1,5 +1,85 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     loadComponents();
+});
+
+// Sitenin kök adresini otomatik bulan fonksiyon
+function getSiteRoot() {
+    const scriptTag = document.querySelector('script[src*="script.js"]');
+    if (scriptTag) {
+        const src = scriptTag.getAttribute('src');
+        if (src.includes("../")) {
+            const depth = (src.match(/\.\.\//g) || []).length;
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            const rootPath = pathSegments.slice(0, pathSegments.length - depth).join('/');
+            return window.location.origin + '/' + rootPath;
+        }
+        return window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+    }
+    return window.location.origin;
+}
+
+async function loadComponents() {
+    // 1. Kök dizini ve yolları ayarla
+    const repoName = "/hasbierdogmus.github.io";
+    const rootUrl = window.location.origin;
+
+    // Script dosyasının olduğu yeri kök kabul et (en garanti yöntem)
+    const scriptEl = document.querySelector('script[src*="script.js"]');
+    let baseUrl = "";
+
+    if (scriptEl && scriptEl.src) {
+        baseUrl = scriptEl.src.replace('/script.js', '');
+    } else {
+        baseUrl = rootUrl + repoName;
+    }
+
+    // --- 1. HEADER YÜKLE ---
+    try {
+        const headerRes = await fetch(baseUrl + '/components/header.html');
+        if (headerRes.ok) {
+            const text = await headerRes.text();
+            if (!text.includes("404")) {
+                document.getElementById('global-header').innerHTML = text;
+
+                // Menü geldikten sonra fonksiyonları çalıştır
+                setActiveLink();
+                initMenu();
+                initTheme(); // Tema modunu başlat
+            }
+        }
+    } catch (e) {
+        console.log("Header yüklenemedi", e);
+    }
+
+    // --- 2. FOOTER YÜKLE ---
+    try {
+        const footerRes = await fetch(baseUrl + '/components/footer.html');
+        if (footerRes.ok) {
+            const text = await footerRes.text();
+            if (!text.includes("404")) {
+                document.getElementById('global-footer').innerHTML = text;
+            }
+        }
+    } catch (e) {
+        console.log("Footer yüklenemedi", e);
+    }
+
+    // --- 3. BANNER YÜKLE ---
+    try {
+        const bannerRes = await fetch(baseUrl + '/components/banner.html');
+        if (bannerRes.ok) {
+            const text = await bannerRes.text();
+            if (!text.includes("404") && text.trim().length > 5) {
+                const bannerDiv = document.getElementById('global-banner');
+                if (bannerDiv) {
+                    bannerDiv.innerHTML = text;
+                }
+            }
+        }
+    } catch (e) {
+        console.log("Banner yüklenemedi", e);
+    }
+}
 
 /* =========================================
    TEMA YÖNETİMİ (DARK MODE)
@@ -33,81 +113,10 @@ function applyTheme(theme) {
 }
 
 function toggleTheme() {
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(theme);
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
 }
-
-// Sitenin kök adresini otomatik bulan fonksiyon
-function getSiteRoot() {
-    const scriptTag = document.querySelector('script[src*="script.js"]');
-    if (scriptTag) {
-        const src = scriptTag.getAttribute('src');
-        if (src.includes("../")) {
-            const depth = (src.match(/\.\.\//g) || []).length;
-            const pathSegments = window.location.pathname.split('/').filter(Boolean);
-            const rootPath = pathSegments.slice(0, pathSegments.length - depth).join('/');
-            return window.location.origin + '/' + rootPath;
-        }
-        return window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-    }
-    return window.location.origin;
-}
-
-async function loadComponents() {
-    // 1. Kök dizini ve yolları ayarla
-    const repoName = "/hasbierdogmus.github.io"; 
-    let rootUrl = window.location.origin;
-    
-    // Script dosyasının olduğu yeri kök kabul et (En garanti yöntem)
-    const scriptEl = document.querySelector('script[src*="script.js"]');
-    let baseUrl = "";
-    
-    if(scriptEl) {
-        const scriptPath = scriptEl.src; 
-        baseUrl = scriptPath.replace('/script.js', ''); 
-    } else {
-        baseUrl = rootUrl + repoName;
-    }
-
-    // --- 1. HEADER YÜKLE ---
-    try {
-        const headerRes = await fetch(baseUrl + '/components/header.html');
-        if (headerRes.ok) {
-            const text = await headerRes.text();
-            if(!text.includes("404")) {
-                document.getElementById('global-header').innerHTML = text;
-                
-                // Menü geldikten sonra fonksiyonları çalıştır
-                setActiveLink();
-                initMenu();
-                initTheme(); // Tema modunu başlat
-            }
-        }
-    } catch (e) { console.log("Header yüklenemedi", e); }
-
-    // --- 2. FOOTER YÜKLE ---
-    try {
-        const footerRes = await fetch(baseUrl + '/components/footer.html');
-        if (footerRes.ok) {
-            const text = await footerRes.text();
-            if(!text.includes("404")) document.getElementById('global-footer').innerHTML = text;
-        }
-    } catch (e) { console.log("Footer yüklenemedi", e); }
-
-    // --- 3. BANNER YÜKLE ---
-    try {
-        const bannerRes = await fetch(baseUrl + '/components/banner.html');
-        if (bannerRes.ok) {
-            const text = await bannerRes.text();
-            if(!text.includes("404") && text.trim().length > 5) {
-                const bannerDiv = document.getElementById('global-banner');
-                if(bannerDiv) bannerDiv.innerHTML = text;
-            }
-        }
-    } catch (e) { console.log("Banner yüklenemedi", e); }
-}
-
-
 
 // --- MENÜ VE LİNK FONKSİYONLARI ---
 function setActiveLink() {
@@ -119,36 +128,54 @@ function setActiveLink() {
         if (linkHref === currentPath || linkHref.endsWith("/" + currentPath)) {
             link.classList.add('active');
             const parentDropdown = link.closest('.dropdown');
-            if (parentDropdown) parentDropdown.querySelector('a').classList.add('active');
+            if (parentDropdown) {
+                const dropdownLink = parentDropdown.querySelector('a');
+                if (dropdownLink) {
+                    dropdownLink.classList.add('active');
+                }
+            }
         }
     });
 }
 
 function initMenu() {
-    const hamburger = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
-    
-    if (hamburger && navMenu) {
-        // Eski eventleri temizle
-        const newHamburger = hamburger.cloneNode(true);
-        if(hamburger.parentNode) hamburger.parentNode.replaceChild(newHamburger, hamburger);
-        
-        newHamburger.addEventListener('click', function() {
-            newHamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
+    const hamburger = document.getElementById('hamburgerBtn') || document.querySelector('.hamburger');
 
-        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
-             if(!n.parentElement.classList.contains('dropdown')) {
-                 newHamburger.classList.remove("active");
-                 navMenu.classList.remove("active");
-             }
-        }));
+    if (!hamburger || !navMenu) {
+        return;
+    }
+
+    // Inline onclick olmayan senaryolarda event bağla
+    if (!hamburger.getAttribute('onclick')) {
+        hamburger.addEventListener('click', toggleMenu);
+    }
+
+    document.querySelectorAll(".nav-menu a").forEach(n =>
+        n.addEventListener("click", () => {
+            if (!n.parentElement.classList.contains('dropdown')) {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        })
+    );
+}
+
+function toggleMenu() {
+    const hamburger = document.getElementById('hamburgerBtn') || document.querySelector('.hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (!hamburger || !navMenu) {
+        return;
+    }
+
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+}
+
+function closeBanner() {
+    const banner = document.getElementById('global-banner');
+    if (banner) {
+        banner.style.display = 'none';
     }
 }
-
-function closeBanner() { 
-    const banner = document.getElementById('global-banner');
-    if(banner) banner.style.display = 'none'; 
-}
-});
