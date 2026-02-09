@@ -1,6 +1,65 @@
 document.addEventListener("DOMContentLoaded", function() {
     loadComponents();
+
+/* =========================================
+   TEMA YÖNETİMİ (DARK MODE)
+   ========================================= */
+function initTheme() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
+    const currentTheme = localStorage.getItem('theme');
+
+    // 1. Kayıtlı tema varsa uygula
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark' && icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+
+    // 2. Butona tıklama olayı
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'dark') {
+                // Gündüze Geç
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                if(icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            } else {
+                // Geceye Geç
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                if(icon) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            }
+        });
+    }
+}
+
 });
+function initTheme() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
+    const currentTheme = localStorage.getItem('theme');
+
+    // 1. Kayıtlı tema varsa uygula
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark' && icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+    
+}
 
 // Sitenin kök adresini otomatik bulan fonksiyon
 function getSiteRoot() {
@@ -72,48 +131,7 @@ async function loadComponents() {
     } catch (e) { console.log("Banner yüklenemedi", e); }
 }
 
-/* =========================================
-   TEMA YÖNETİMİ (DARK MODE)
-   ========================================= */
-function initTheme() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
-    const currentTheme = localStorage.getItem('theme');
 
-    // 1. Kayıtlı tema varsa uygula
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark' && icon) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
-
-    // 2. Butona tıklama olayı
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-            let theme = document.documentElement.getAttribute('data-theme');
-            
-            if (theme === 'dark') {
-                // Gündüze Geç
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                if(icon) {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
-            } else {
-                // Geceye Geç
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                if(icon) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                }
-            }
-        });
-    }
-}
 
 // --- MENÜ VE LİNK FONKSİYONLARI ---
 function setActiveLink() {
