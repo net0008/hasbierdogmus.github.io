@@ -6,59 +6,35 @@ document.addEventListener("DOMContentLoaded", function() {
    ========================================= */
 function initTheme() {
     const toggleBtn = document.getElementById('theme-toggle');
-    const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
     const currentTheme = localStorage.getItem('theme');
 
     // 1. Kayıtlı tema varsa uygula
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark' && icon) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
+    if (currentTheme === 'dark' || currentTheme === 'light') {
+        applyTheme(currentTheme);
+    } else {
+        applyTheme('light');
     }
 
-    // 2. Butona tıklama olayı
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-            let theme = document.documentElement.getAttribute('data-theme');
-            
-            if (theme === 'dark') {
-                // Gündüze Geç
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                if(icon) {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
-            } else {
-                // Geceye Geç
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                if(icon) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                }
-            }
-        });
+    // 2. Inline onclick olmayan senaryolarda event bağla
+    if (toggleBtn && !toggleBtn.getAttribute('onclick')) {
+        toggleBtn.addEventListener('click', toggleTheme);
     }
 }
 
-});
-function initTheme() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
-    const currentTheme = localStorage.getItem('theme');
+function applyTheme(theme) {
+    const icon = document.querySelector('#theme-toggle i');
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
 
-    // 1. Kayıtlı tema varsa uygula
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark' && icon) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
+    if (icon) {
+        icon.classList.toggle('fa-sun', theme === 'dark');
+        icon.classList.toggle('fa-moon', theme !== 'dark');
     }
-    
+}
+
+function toggleTheme() {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(theme);
 }
 
 // Sitenin kök adresini otomatik bulan fonksiyon
