@@ -3,59 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pardus Asistan | Hasbi Erdoğmuş</title>
-    <meta name="description" content="Pardus İşletim Sistemi rehberleri, eğitim içerikleri ve Pardus Asistan projesi detayları.">
+    <title>>Pardus Asistan | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
 </head>
 <body>
     
+    <div id="global-banner"></div>
     <header id="global-header"></header>
 
-    <main class="container page-content">
-        <section class="project-detail">
-            <div class="detail-header">
-                <h1>Pardus Etap 23 İşletim Sistemi Çalışmaları</h1>
-                <p class="tagline">Yerli ve Milli Teknolojinin Eğitimde Yaygınlaştırılması</p>
+    <section class="module-detail">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            <div class="project-header-box">
+                <span class="badge">Web Geliştirme</span>
+                <h1>Yerli ve Milli Teknolojinin Eğitimde Yaygınlaştırılması</h1>
+                <p>Etkileşimli tahtalarda kullanılacak olan Pardus Etap 23 İşletim Sistemine odaklanılmştır.</p>
             </div>
 
-            <div class="detail-grid">
-                <div class="detail-image">
-                    <img src="assets/pardus-image.png" alt="Pardus Etap Arayüzü">
-                </div>
+            <div class="tinkercad-link-container">
+                <img src="assets/pardus-image.png" alt="www.pardusasistan.org.tr" style="width:100%; border-radius:15px;">
+            </div>
+
+            <div class="module-desc-box">
+                <h3><i class="class="fas fa-check-circle""></i> Proje Hakkında</h3>
+                <p>Millî Eğitim Bakanlığı ile TÜBİTAK iş birliğindeki "Millî İşletim Sistemi PARDUS'un Etkileşimli Tahta ve BT Sınıflarında Yaygınlaştırılması" projesi kapsamında, öğretmenlerimizin yaşayabileceği sorunları hızlıca çözmek için tasarladığım projedir.</p>
+                 <li>Windows'tan Pardus'a geçişte öğretmenlerimizin en çok yaşayabilecekleri problemlere odaklanıldı.</li>
+                 <li>Çözüm önerileri olabildiğince basit ve kullanıcı dostu şekilde hazırlanmıştır.</li>
+                 <li>Windows'taki özelliklerin, Pardus Etap 23'teki karşılıkları verilerek, Öğrenme Aktarımı (Transfer Learning) hedeflendi.</li>
+
+
                 
-                <div class="detail-info">
-                    <h3>Proje Hakkında</h3>
-                    <p>Millî Eğitim Bakanlığı ile TÜBİTAK iş birliğindeki "Millî İşletim Sistemi PARDUS'un Etkileşimli Tahta ve BT Sınıflarında Yaygınlaştırılması" projesi kapsamında, öğretmenlerimizin yaşayabileceği sorunları hızlıca çözmek için tasarladığım rehber projesidir.</p>
-                    
-                    <div class="project-features">
-                        <h4><i class="fas fa-check-circle"></i> Neler Yapıyorum?</h4>
-                        <ul>
-                            <li>Pardus ETAP 23 sürümü temel alındı.</li>
-                            <li>Windows'tan Pardus'a geçişte öğretmenlerimizin en çok yaşayabilecekleri problemlere odaklanıldı.</li>
-                            <li>Çözüm önerileri olabildiğince basit ve kullanıcı dostu şekilde hazırlanmıştır.</li>
-                            <li>Windows'taki özelliklerin, Pardus Etap 23'teki karşılıkları verilerek, Öğrenme Aktarımı (Transfer Learning) hedeflendi.</li>
-                        </ul>
-                    </div>
-
-                    <div class="action-buttons" style="margin-top: 2rem;">
-                        <a href="https://www.pardusasistan.org.tr" target="_blank" class="btn">
-                            <i class="fas fa-external-link-alt"></i> Pardus Asistan Sayfası
-                        </a>
-                        <a href="other-works.html" class="btn btn-secondary">
-                            <i class="fas fa-arrow-left"></i> Geri Dön
-                        </a>
-                    </div>
-                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer id="global-footer"></footer>
-
     <script src="script.js"></script>
 </body>
 </html>
