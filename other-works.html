@@ -8,20 +8,11 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            }
-        })();
-    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <div id="global-banner"></div>
-    <header id="global-header"></header>
+    <div id="header-placeholder"></div>
 
     <section class="page-header">
         <div class="container">
@@ -89,18 +80,26 @@
                         <p style="font-size: 0.9rem; margin-top: 10px;">Bakırçay Havzası'nın gerçekçi 3D arazi modellemesi.</p>
                     </div>
                 </div>
-<div class="project-card">
-    <img src="assets/pardus-icon.png" alt="Pardus Projesi"> <div class="project-content">
-        <h3>Pardus Etap Sürümü Çözüm Rehberi</h3>
-        <p>Milli işletim sistemimiz Pardus'un yaygınlaştırılması çalışmalarına destek olmak için kuruldu.</p>
-        <a href="project-pardus-asistan.html" class="btn">Detayları İncele</a>
-    </div>
-</div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/pardus-icon.png" alt="Pardus Projesi">
+                        <div class="module-overlay">
+                            <a href="project-pardus-asistan.html" class="btn-module"><i class="fas fa-laptop-code"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Pardus Etap Çözüm Rehberi</h3>
+                        <span class="module-tag">İşletim Sistemi & Rehber</span>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Milli işletim sistemimiz Pardus'un okullarda yaygınlaştırılması çalışmaları.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer id="global-footer"></footer>
+    <div id="footer-placeholder"></div>
 
     <script src="script.js"></script>
 </body>
