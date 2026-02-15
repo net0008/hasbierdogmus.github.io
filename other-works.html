@@ -8,10 +8,21 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
+    <div id="global-banner"></div>
     <header id="global-header"></header>
 
     <section class="page-header">
@@ -25,6 +36,34 @@
         <div class="container">
             <div class="modules-grid">
                 
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/bergama-iklim.jpg" alt="İklim Zaman Tüneli">
+                        <div class="module-overlay">
+                            <a href="project-tubitak.html" class="btn-module"><i class="fas fa-globe"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Bergama 2050: İklim Zaman Tüneli</h3>
+                        <span class="module-tag">Yapay Zekâ & Veri Analizi</span>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">"4007 Bilim Şenliği Projesi", Pergamon’un İzinde projesi kapsamında, NASA verileri ile hazırlanan interaktif iklim değişikliği görselleştirme çalışması.</p>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-img">
+                        <img src="assets/pardus-icon.png" alt="Pardus Projesi">
+                        <div class="module-overlay">
+                            <a href="project-pardus-asistan.html" class="btn-module"><i class="fas fa-laptop-code"></i> İncele</a>
+                        </div>
+                    </div>
+                    <div class="module-info">
+                        <h3>Pardus ETAP Çözüm Rehberi</h3>
+                        <span class="module-tag">İşletim Sistemi & Rehber</span>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Milli işletim sistemimiz Pardus'un okullarda yaygınlaştırılması çalışmalarına destek sağlayan teknik rehber.</p>
+                    </div>
+                </div>
+
                 <div class="module-card">
                     <div class="module-img">
                         <img src="assets/other-interview.jpg" alt="Çanakkale Gazisi Röportajı">
@@ -79,22 +118,6 @@
                         <span class="module-tag">3D Simülasyon</span>
                         <p style="font-size: 0.9rem; margin-top: 10px;">Bakırçay Havzası'nın gerçekçi 3D arazi modellemesi.</p>
                     </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-img">
-                        <img src="assets/pardus-sayfa.png" alt="Pardus Projesi">
-                        <div class="module-overlay">
-                            <a href="project-pardus-asistan.html" class="btn-module"><i class="fas fa-laptop-code"></i> İncele</a>
-                        </div>
-                    </div>
-                    <div class="module-info">
-    <h3>Pardus Etap Çözüm Rehberi</h3>
-    <span class="module-tag">İşletim Sistemi & Rehber</span>
-    <p style="font-size: 0.9rem; margin-top: 10px;">
-        Milli işletim sistemimiz Pardus'un okullarda yaygınlaştırılması çalışmalarına destek sağlayan teknik rehber.
-    </p>
-</div>
                 </div>
 
             </div>
