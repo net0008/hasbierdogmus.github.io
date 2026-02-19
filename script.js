@@ -179,3 +179,38 @@ function closeBanner() {
         banner.style.display = 'none';
     }
 }
+// --- Sayfa Bazlı Dinamik Güncelleme Tarihi ---
+const sayfaTarihleri = {
+    "/index.html": "12 Şubat 2026 - 10:00",
+    "/": "15 Şubat 2026 - 10:00", 
+    "/about.html": "15 Şubat 2026",
+    "/other-works.html": "18 Şubat 2026",
+    "/project-pardus-asistan.html": "11 Şubat 2026 - 20:30"
+};
+
+const varsayilanTarih = "Şubat 2026"; 
+
+// Footer yüklendikten sonra çalışması için akıllı kontrol döngüsü
+let footerBekleyici = setInterval(function () {
+    const updateAlani = document.getElementById("last-update-date");
+    
+    // Footer HTML'i sayfaya yerleştirildiği an burası çalışır
+    if (updateAlani) {
+        clearInterval(footerBekleyici); // Döngüyü durdur
+
+        let currentPath = window.location.pathname;
+        let fileName = currentPath.substring(currentPath.lastIndexOf('/'));
+        
+        if (fileName === "" || fileName === "/") {
+            fileName = "/index.html";
+        }
+
+        let tarih = sayfaTarihleri[fileName];
+        
+        if (!tarih) {
+            tarih = varsayilanTarih;
+        }
+
+        updateAlani.innerHTML = `<i class="fas fa-history"></i> Bu Sayfanın Son Güncellemesi: <strong>${tarih}</strong>`;
+    }
+}, 100);
