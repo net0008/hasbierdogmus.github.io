@@ -1379,3 +1379,22 @@ footer p {
     margin-right: auto; /* Sola yasla */
     border-bottom-left-radius: 2px;
 }
+/* Güncelleme Tarihi Alanı */
+.footer-update-info {
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Çizgi rengini temanıza göre (light/dark) ayarlayabilirsiniz */
+}
+
+#last-update-date {
+    font-size: 0.85rem;
+    color: var(--text-color, #888); /* Sitenizdeki metin rengi değişkeni */
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+#last-update-date i {
+    margin-right: 5px;
+    color: var(--primary-color, #0047ba); /* Sitenizin ana rengi */
+}
