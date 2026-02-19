@@ -188,7 +188,7 @@ const sayfaTarihleri = {
     "/project-pardus-asistan.html": "11 Şubat 2026 - 20:30"
 };
 
-const varsayilanTarih = "10Şubat 2026"; 
+const varsayilanTarih = "10 Şubat 2026"; 
 
 // Footer yüklendikten sonra çalışması için akıllı kontrol döngüsü
 let footerBekleyici = setInterval(function () {
