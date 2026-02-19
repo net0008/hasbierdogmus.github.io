@@ -859,7 +859,7 @@ footer {
     letter-spacing: 1px;
 }
 
-footer p {
+footer > p {
     margin-top: 30px;
     opacity: 0.6;
     font-size: 0.85rem;
@@ -1388,6 +1388,7 @@ footer p {
 }
 
 #last-update-date {
+    margin: 0;
     font-size: 0.85rem;
     color: var(--text-color, #888); /* Sitenizdeki metin rengi değişkeni */
     font-weight: 400;
