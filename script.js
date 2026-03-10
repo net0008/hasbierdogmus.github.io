@@ -185,10 +185,12 @@ const sayfaTarihleri = {
     "/": "15 Şubat 2026 - 10:00", 
     "/about.html": "15 Şubat 2026",
     "/other-works.html": "18 Şubat 2026",
-    "/project-pardus-asistan.html": "11 Şubat 2026 - 20:30"
+    "/project-pardus-asistan.html": "11 Şubat 2026 - 20:30",
+    "/innovative-classroom.html": "10 Mart 2026",
+    "/project-egitsel-oyun.html": "10 Mart 2026"
 };
 
-const varsayilanTarih = "21 Şubat 2026"; 
+const varsayilanTarih = "10 Mart 2026"; 
 
 // Footer yüklendikten sonra çalışması için akıllı kontrol döngüsü
 let footerBekleyici = setInterval(function () {
