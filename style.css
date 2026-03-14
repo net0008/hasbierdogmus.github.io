@@ -1499,6 +1499,16 @@ footer > p {
     justify-content: center;
 }
 
+#visitor-form .btn-primary[disabled] {
+    background: var(--medium-gray);
+    cursor: not-allowed;
+    transform: none;
+}
+
+#visitor-form .btn-primary .fa-spinner {
+    margin-right: 10px;
+}
+
 #form-status {
     margin-top: 20px;
     padding: 12px;
