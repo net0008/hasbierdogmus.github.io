@@ -1,95 +1,101 @@
 document.addEventListener('DOMContentLoaded', () => {
     const messagesContainer = document.getElementById('messages-container');
-    if (!messagesContainer) return;
+    const visitorForm = document.getElementById('visitor-form');
+    const formStatus = document.getElementById('form-status');
+    
+    // Eğer bu elemanlar sayfada yoksa, scriptin bu bölümü çalışmasın.
+    if (!messagesContainer || !visitorForm || !formStatus) return;
 
-    const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbynQ69ooN9Sav40ggNXT1mKhpFiePv5JV9vsQ9Ti9m2BDXtQEX5g9iTUZnrwuvmqVZr/exec';
+    const getMessagesUrl = 'https://script.google.com/macros/s/AKfycbynQ69ooN9Sav40ggNXT1mKhpFiePv5JV9vsQ9Ti9m2BDXtQEX5g9iTUZnrwuvmqVZr/exec';
+    const postMessageUrl = 'https://script.google.com/macros/s/AKfycbw1rGOMsl9fpc0uuhCCOUZhTCVmVRD11G2OmEuHJzDE3qPzdfWo0rFCDKepQ9FXt_BJ/exec';
 
-    // Başlığı ve yükleniyor mesajını ayarla
-    messagesContainer.innerHTML = `
-        <h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
-        <p class="loading-message" style="color: var(--medium-gray);">Mesajlar yükleniyor...</p>
-    `;
+    const loadMessages = () => {
+        // Mesajları yüklemeden önce mevcut içeriği temizle ve yükleniyor mesajı göster
+        messagesContainer.innerHTML = `
+            <h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
+            <p class="loading-message" style="color: var(--medium-gray);">Mesajlar yükleniyor...</p>
+        `;
 
-    fetch(appsScriptUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Ağ yanıtı sorunluydu: ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Yükleniyor mesajını temizle
-            const loadingMessage = messagesContainer.querySelector('.loading-message');
-            if (loadingMessage) {
-                loadingMessage.remove();
-            }
+        fetch(getMessagesUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ağ yanıtı sorunluydu: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Başlık hariç içini temizle
+                messagesContainer.innerHTML = `<h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>`;
 
-            // Gelen verinin "data" adlı bir dizi içerdiğini varsayıyoruz
-            if (data && data.data && data.data.length > 0) {
-                // Veriyi ters çevirerek en son mesajın en üstte olmasını sağla
-                const reversedData = data.data.reverse();
+                if (data && data.data && data.data.length > 0) {
+                    const reversedData = data.data.reverse();
 
-                reversedData.forEach(item => {
-                    const messageCard = document.createElement('div');
-                    messageCard.className = 'message-card';
+                    reversedData.forEach(item => {
+                        const messageCard = document.createElement('div');
+                        messageCard.className = 'message-card';
 
-                    const cardHeader = document.createElement('div');
-                    cardHeader.className = 'message-header';
+                        const cardHeader = document.createElement('div');
+                        cardHeader.className = 'message-header';
 
-                    const nameElement = document.createElement('strong');
-                    nameElement.textContent = item.isim;
+                        const nameElement = document.createElement('strong');
+                        nameElement.textContent = item.isim;
 
-                    const dateElement = document.createElement('span');
-                    // Tarihi Türkiye formatında göster
-                    const date = new Date(item.tarih);
-                    dateElement.textContent = date.toLocaleDateString('tr-TR', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
+                        const dateElement = document.createElement('span');
+                        const date = new Date(item.tarih);
+                        dateElement.textContent = date.toLocaleDateString('tr-TR', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+
+                        cardHeader.appendChild(nameElement);
+                        cardHeader.appendChild(dateElement);
+
+                        const messageBody = document.createElement('p');
+                        messageBody.textContent = item.mesaj;
+
+                        messageCard.appendChild(cardHeader);
+                        messageCard.appendChild(messageBody);
+
+                        messagesContainer.appendChild(messageCard);
                     });
+                } else {
+                    messagesContainer.innerHTML += '<p style="color: var(--medium-gray);">Henüz hiç mesaj bırakılmamış. İlk mesajı siz bırakın!</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Ziyaretçi defteri mesajları alınırken hata oluştu:', error);
+                messagesContainer.innerHTML = `
+                    <h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
+                    <p style="color: red;">Mesajlar yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
+                `;
+            });
+    };
 
-                    cardHeader.appendChild(nameElement);
-                    cardHeader.appendChild(dateElement);
+    // Form gönderimini dinle
+    visitorForm.addEventListener('submit', e => {
+        e.preventDefault();
+        formStatus.style.display = 'block';
+        formStatus.className = 'status-sending';
+        formStatus.innerText = 'Gönderiliyor...';
 
-                    const messageBody = document.createElement('p');
-                    messageBody.textContent = item.mesaj;
+        fetch(postMessageUrl, { method: 'POST', body: new FormData(visitorForm) })
+            .then(response => {
+                formStatus.className = 'status-success';
+                formStatus.innerText = 'Mesajınız başarıyla iletildi, teşekkürler!';
+                visitorForm.reset();
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                    loadMessages(); // Mesaj listesini tazele
+                }, 3000);
+            })
+            .catch(error => {
+                formStatus.className = 'status-error';
+                formStatus.innerText = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                console.error('Hata!', error.message);
+            });
+    });
 
-                    messageCard.appendChild(cardHeader);
-                    messageCard.appendChild(messageBody);
-
-                    messagesContainer.appendChild(messageCard);
-                });
-            } else {
-                messagesContainer.innerHTML += '<p style="color: var(--medium-gray);">Henüz hiç mesaj bırakılmamış. İlk mesajı siz bırakın!</p>';
-            }
-        })
-        .catch(error => {
-            console.error('Ziyaretçi defteri mesajları alınırken hata oluştu:', error);
-            const loadingMessage = messagesContainer.querySelector('.loading-message');
-            if(loadingMessage) loadingMessage.remove();
-            messagesContainer.innerHTML += '<p style="color: red;">Mesajlar yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>';
-        });
-});
-const scriptURL = 'https://script.google.com/macros/s/AKfycbw1rGOMsl9fpc0uuhCCOUZhTCVmVRD11G2OmEuHJzDE3qPzdfWo0rFCDKepQ9FXt_BJ/exec';
-const form = document.getElementById('visitor-form');
-const status = document.getElementById('form-status');
-
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    status.style.display = 'block';
-    status.innerText = 'Gönderiliyor...';
-
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            status.innerText = 'Mesajınız başarıyla iletildi, teşekkürler!';
-            form.reset();
-            setTimeout(() => { 
-                status.style.display = 'none'; 
-                loadMessages(); // Mesaj listesini tazele
-            }, 3000);
-        })
-        .catch(error => {
-            status.innerText = 'Bir hata oluştu. Lütfen tekrar deneyin.';
-            console.error('Hata!', error.message);
-        });
+    // Sayfa yüklendiğinde mesajları ilk kez yükle
+    loadMessages();
 });
