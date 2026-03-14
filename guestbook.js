@@ -3,62 +3,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const visitorForm = document.getElementById('visitor-form');
     const formStatus = document.getElementById('form-status');
     
-    // Eğer bu elemanlar sayfada yoksa, scriptin bu bölümü çalışmasın.
     if (!messagesContainer || !visitorForm || !formStatus) return;
 
-    const getMessagesUrl = 'https://script.google.com/macros/s/AKfycbynQ69ooN9Sav40ggNXT1mKhpFiePv5JV9vsQ9Ti9m2BDXtQEX5g9iTUZnrwuvmqVZr/exec';
-    const postMessageUrl = 'https://script.google.com/macros/s/AKfycbw1rGOMsl9fpc0uuhCCOUZhTCVmVRD11G2OmEuHJzDE3qPzdfWo0rFCDKepQ9FXt_BJ/exec';
+    // SİZİN GÜNCEL V3 URL'NİZ
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzP_JxRe-BuPqEsPQMxVm9fHHs40q1GDoEj_uNYs_DBw56XF2BQlBqAwC1BgfcRfAvw/exec';
 
     const loadMessages = () => {
-        // Mesajları yüklemeden önce mevcut içeriği temizle ve yükleniyor mesajı göster
-        messagesContainer.innerHTML = `
-            <h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
-            <p class="loading-message" style="color: var(--medium-gray);">Mesajlar yükleniyor...</p>
-        `;
+        messagesContainer.innerHTML = `<h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
+                                       <p style="color: var(--medium-gray);">Mesajlar yükleniyor...</p>`;
 
-        // Önbelleği (cache) kesin olarak atlatmak için URL'ye her seferinde benzersiz bir parametre ekliyoruz.
-        const urlWithCacheBust = getMessagesUrl + '?v=' + new Date().getTime();
-        fetch(urlWithCacheBust, { cache: 'no-cache' })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Ağ yanıtı sorunluydu: ' + response.statusText);
-                }
-                return response.json();
-            })
+        fetch(scriptURL)
+            .then(response => response.json())
             .then(data => {
-                // Başlık hariç içini temizle
+                // Başlık hariç temizle
                 messagesContainer.innerHTML = `<h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>`;
 
-                if (data && data.data && data.data.length > 0) {
-                    const reversedData = data.data.reverse();
-
-                    reversedData.forEach(item => {
+                if (Array.isArray(data) && data.length > 0) {
+                    data.reverse().forEach(item => {
                         const messageCard = document.createElement('div');
                         messageCard.className = 'message-card';
-
-                        const cardHeader = document.createElement('div');
-                        cardHeader.className = 'message-header';
-
-                        const nameElement = document.createElement('strong');
-                        nameElement.textContent = item.isim;
-
-                        const dateElement = document.createElement('span');
-                        const date = new Date(item.tarih);
-                        dateElement.textContent = date.toLocaleDateString('tr-TR', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
+                        
+                        const date = new Date(item.tarih).toLocaleDateString('tr-TR', {
+                            year: 'numeric', month: 'long', day: 'numeric'
                         });
 
-                        cardHeader.appendChild(nameElement);
-                        cardHeader.appendChild(dateElement);
-
-                        const messageBody = document.createElement('p');
-                        messageBody.textContent = item.mesaj;
-
-                        messageCard.appendChild(cardHeader);
-                        messageCard.appendChild(messageBody);
-
+                        messageCard.innerHTML = `
+                            <div class="message-header">
+                                <strong>${item.isim}</strong>
+                                <span>${date}</span>
+                            </div>
+                            <p>${item.mesaj}</p>
+                        `;
                         messagesContainer.appendChild(messageCard);
                     });
                 } else {
@@ -66,38 +41,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(error => {
-                console.error('Ziyaretçi defteri mesajları alınırken hata oluştu:', error);
-                messagesContainer.innerHTML = `
-                    <h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
-                    <p style="color: red;">Mesajlar yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
-                `;
+                console.error('Hata:', error);
+                messagesContainer.innerHTML += '<p style="color: red;">Mesajlar şu an yüklenemiyor.</p>';
             });
     };
 
-    // Form gönderimini dinle
     visitorForm.addEventListener('submit', e => {
         e.preventDefault();
         formStatus.style.display = 'block';
-        formStatus.className = 'status-sending';
         formStatus.innerText = 'Gönderiliyor...';
 
-        fetch(postMessageUrl, { method: 'POST', body: new FormData(visitorForm) })
-            .then(response => {
-                formStatus.className = 'status-success';
-                formStatus.innerText = 'Mesajınız başarıyla iletildi, teşekkürler!';
-                visitorForm.reset();
-                setTimeout(() => {
-                    formStatus.style.display = 'none';
-                    loadMessages(); // Mesaj listesini tazele
-                }, 3000);
-            })
-            .catch(error => {
-                formStatus.className = 'status-error';
-                formStatus.innerText = 'Bir hata oluştu. Lütfen tekrar deneyin.';
-                console.error('Hata!', error.message);
-            });
+        // Veriyi Apps Script'in anlayacağı formata çeviriyoruz
+        const formData = new URLSearchParams(new FormData(visitorForm));
+
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: formData,
+            headers: { "Content-Type": "application/x-www-form-urlencoded" }
+        })
+        .then(() => {
+            formStatus.innerText = 'Mesajınız başarıyla iletildi, teşekkürler!';
+            visitorForm.reset();
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+                loadMessages();
+            }, 3000);
+        })
+        .catch(error => {
+            formStatus.innerText = 'Bir hata oluştu.';
+            console.error('Hata!', error);
+        });
     });
 
-    // Sayfa yüklendiğinde mesajları ilk kez yükle
     loadMessages();
 });
