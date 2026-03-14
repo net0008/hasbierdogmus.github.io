@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziyaretçi Defteri | Hasbi Erdoğmuş</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <meta name="description" content="Hasbi Erdoğmuş'un çalışmaları hakkındaki düşüncelerinizi ve önerilerinizi paylaşın.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="global-banner"></div>
+
+    <header id="global-header"></header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Ziyaretçi Defteri</h1>
+            <p>Çalışmalarım hakkındaki düşüncelerinizi ve önerilerinizi merak ediyorum.</p>
+        </div>
+    </section>
+
+    <main class="section-padding">
+        <div class="container" style="text-align: center; max-width: 800px;">
+            <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--medium-gray);">
+                Aşağıdaki butonu kullanarak düşüncelerinizi, projelerimle ilgili geri bildirimlerinizi veya gelecek için önerilerinizi paylaşabilirsiniz. Değerli vaktiniz için şimdiden teşekkür ederim.
+            </p>
+            <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn btn-primary" style="margin-bottom: 50px; transform: scale(1.1);">
+                <i class="fas fa-pencil-alt"></i> Mesaj Bırak
+            </a>
+            
+            <div id="messages-container" style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 40px;">
+                <h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
+                <!-- Mesajlar buraya dinamik olarak yüklenecek -->
+                <p style="color: var(--medium-gray);">Henüz hiç mesaj bırakılmamış. İlk mesajı siz bırakın!</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="global-footer"></footer>
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="guestbook.js"></script>
+</body>
+</html>
