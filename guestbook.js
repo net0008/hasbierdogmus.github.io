@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="loading-message" style="color: var(--medium-gray);">Mesajlar yükleniyor...</p>
         `;
 
-        fetch(getMessagesUrl)
+        fetch(getMessagesUrl, { cache: 'no-cache' })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Ağ yanıtı sorunluydu: ' + response.statusText);
