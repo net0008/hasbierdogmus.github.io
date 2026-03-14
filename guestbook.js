@@ -70,3 +70,26 @@ document.addEventListener('DOMContentLoaded', () => {
             messagesContainer.innerHTML += '<p style="color: red;">Mesajlar yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>';
         });
 });
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw1rGOMsl9fpc0uuhCCOUZhTCVmVRD11G2OmEuHJzDE3qPzdfWo0rFCDKepQ9FXt_BJ/exec';
+const form = document.getElementById('visitor-form');
+const status = document.getElementById('form-status');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    status.style.display = 'block';
+    status.innerText = 'Gönderiliyor...';
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            status.innerText = 'Mesajınız başarıyla iletildi, teşekkürler!';
+            form.reset();
+            setTimeout(() => { 
+                status.style.display = 'none'; 
+                loadMessages(); // Mesaj listesini tazele
+            }, 3000);
+        })
+        .catch(error => {
+            status.innerText = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+            console.error('Hata!', error.message);
+        });
+});
