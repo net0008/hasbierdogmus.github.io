@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="loading-message" style="color: var(--medium-gray);">Mesajlar yükleniyor...</p>
         `;
 
-        fetch(getMessagesUrl, { cache: 'no-cache' })
+        // Önbelleği (cache) kesin olarak atlatmak için URL'ye her seferinde benzersiz bir parametre ekliyoruz.
+        const urlWithCacheBust = getMessagesUrl + '?v=' + new Date().getTime();
+        fetch(urlWithCacheBust, { cache: 'no-cache' })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Ağ yanıtı sorunluydu: ' + response.statusText);
