@@ -1709,6 +1709,8 @@ footer > p {
     position: absolute;
     bottom: 30px;
     right: 30px;
+    bottom: 15px;
+    right: 15px;
     width: 280px;
     background: rgba(0,0,0,0.7);
     border: 2px solid rgba(255,255,255,0.3);
