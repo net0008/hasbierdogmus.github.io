@@ -28,7 +28,15 @@
 </head>
 <body>
     
-    <div id="global-banner"></div>
+    <div id="global-banner">
+        <div class="announcement-bar">
+            <div class="container announcement-content">
+                <span class="announcement-icon">🇹🇷</span>
+                <span class="announcement-text"><strong>18 Mart Çanakkale Zaferi ve Şehitleri Anma Günü.</strong> Tüm kahramanlarımızı saygı ve rahmetle anıyoruz.</span>
+                <button class="close-banner" onclick="document.getElementById('global-banner').style.display='none'">&times;</button>
+            </div>
+        </div>
+    </div>
 
     <header id="global-header"></header>
 
@@ -94,7 +102,19 @@
         </div>
     </section>
 
-    
+    <!-- 18 Mart Anma Katmanı -->
+    <div id="mart18-overlay">
+        <div class="mart18-content">
+            <button class="mart18-close" onclick="document.getElementById('mart18-overlay').style.display='none'">&times;</button>
+            <img src="assets/18mart.png" alt="18 Mart Çanakkale Zaferi">
+            <div class="mart18-video-container">
+                <p>Son Çanakkale Gazisi'nin Oğlu ile Röportaj</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hame2UGYkg0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
     <footer id="global-footer"></footer>
     <script src="script.js"></script>
     <script src="analytics.js"></script>
