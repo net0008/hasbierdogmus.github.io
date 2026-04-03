@@ -46,6 +46,21 @@
         }
         .step-box ul { padding-left: 20px; }
         .step-box li { margin-bottom: 10px; }
+        .pdf-viewer-container {
+    width: 100%;
+    height: 800px;
+    background: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 4px 20px var(--shadow-color);
+    overflow: hidden; /* Dışarı taşmaları engeller */
+}
+
+/* Mobil cihazlarda yükseklik ayarı */
+@media (max-width: 768px) {
+    .pdf-viewer-container {
+        height: 500px;
+    }
+}
     </style>
 </head>
 <body>
@@ -78,23 +93,28 @@
                 </div>
             </div>
 
-            <div class="module-desc-box">
-                <h2 style="margin-bottom: 25px; text-align: center;"><i class="fas fa-layer-group"></i> 5-E Öğrenme Süreci Uygulaması</h2>
-                
-                <div class="step-box">
-                    <h3>1. Giriş (Engage - İlgi Uyandırma)</h3>
-                    <p>Öğrencilere yanlış yerleşime bağlı bir afet fotoğrafı gösterilir ve <strong>"Doğa mı kusurlu, biz mi?"</strong> sorusuyla tartışma başlatılır. Yakın zamanda Bergama ve Foça çevresinde yaşanan sel felaketleri hatırlatılarak, öğrencilerin çevre sorunlarına karşı duyarlılık geliştirmesi (Maarif Bağlantısı) sağlanır.</p>
-                </div>
-
-                <div class="step-box">
-                    <h3>2. Keşfetme (Explore - Mekânsal Sorgulama)</h3>
-                    <p>Sınıf İstasyon gruplarına ayrılır. Öğrencilere MEB CBS verilerinden üretilmiş <strong>Bergama izohips haritası</strong> dağıtılır. Hedef: Depreme dayanıksız olduğu için yıkılan hastane için yeni ve güvenli bir yer seçmektir.</p>
-                    <ul>
-                        <li><strong>Fay Hattı:</strong> Binayı hattan uzaklaştırmak.</li>
-                        <li><strong>İzohips Sıklığı:</strong> Dik yamaçlardaki heyelan riskinden kaçınmak.</li>
-                        <li><strong>Vadi Tabanları:</strong> Sel ve taşkın riskli, zayıf zeminli bölgeleri elemek.</li>
-                    </ul>
-                </div>
+            <div class="module-desc-box" style="padding: 10px;">
+    <h2 style="margin-bottom: 25px; text-align: center;">
+        <i class="fas fa-file-pdf"></i> 5-E Öğrenme Süreci Uygulaması (Tam Metin)
+    </h2>
+    
+    <div class="pdf-viewer-container">
+        <iframe 
+            src="assets/5-E-ders-plani-Afet-ve-Surdurulebilirlik.pdf#toolbar=0" 
+            width="100%" 
+            height="800px" 
+            style="border: none; border-radius: 8px;">
+            Tarayıcınız PDF görüntülemeyi desteklemiyor. 
+            <a href="assets/5-E-ders-plani-Afet-ve-Surdurulebilirlik.pdf">Dosyayı indirmek için tıklayın.</a>
+        </iframe>
+    </div>
+    
+    <div style="margin-top: 15px; text-align: center;">
+        <a href="assets/5-E-ders-plani-Afet-ve-Surdurulebilirlik.pdf" target="_blank" class="btn" style="padding: 8px 20px; font-size: 0.8rem;">
+            <i class="fas fa-expand"></i> Tam Ekran Görüntüle / İndir
+        </a>
+    </div>
+</div>
 
                 <div class="step-box">
                     <h3>3. Açıklama (Explain - Kavramlaştırma)</h3>
