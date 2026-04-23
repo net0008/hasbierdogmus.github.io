@@ -1870,6 +1870,29 @@ footer > p {
     margin-right: auto; /* Sola yasla */
     border-bottom-left-radius: 2px;
 }
+
+/* =========================================
+   19. ÖZEL GÜN BANNER'I (23 NİSAN VB.)
+   ========================================= */
+.national-day-banner {
+    border-left: 5px solid #e30a17 !important;
+    background-color: #fdf2f2;
+}
+
+.national-day-banner .card-title {
+    color: #e30a17;
+}
+
+.national-day-banner .card-text {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+[data-theme="dark"] .national-day-banner {
+    background-color: #2a1a1d;
+    border-left-color: #ff4d4d !important;
+}
+
 /* Güncelleme Tarihi Alanı */
 .footer-update-info {
     text-align: center;
