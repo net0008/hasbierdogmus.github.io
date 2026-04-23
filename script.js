@@ -142,23 +142,32 @@ function initMenu() {
     const navMenu = document.getElementById('navMenu');
     const hamburger = document.getElementById('hamburgerBtn') || document.querySelector('.hamburger');
 
-    if (!hamburger || !navMenu) {
-        return;
-    }
+    if (hamburger && navMenu) {
+        // Hamburger menüsünü aç/kapat
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
 
-    // Inline onclick olmayan senaryolarda event bağla
-    if (!hamburger.getAttribute('onclick')) {
-        hamburger.addEventListener('click', toggleMenu);
-    }
+        // Menüdeki linklere tıklama olayları
+        navMenu.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (!link) return;
 
-    document.querySelectorAll(".nav-menu a").forEach(n =>
-        n.addEventListener("click", () => {
-            if (!n.parentElement.classList.contains('dropdown')) {
-                hamburger.classList.remove("active");
-                navMenu.classList.remove("active");
+            const isDropdownToggle = link.classList.contains('dropdown-toggle');
+
+            // Mobil görünümde ve açılır menü başlığı ise
+            if (isDropdownToggle && window.innerWidth <= 968) {
+                e.preventDefault(); // Sayfanın başına gitmesini engelle
+                const dropdown = link.parentElement;
+                dropdown.classList.toggle('open');
+            } 
+            // Açılır menü başlığı değilse, menüyü kapat
+            else if (!isDropdownToggle) {
+                closeMenu();
             }
-        })
-    );
+        });
+    }
 }
 
 function toggleMenu() {
@@ -171,6 +180,16 @@ function toggleMenu() {
 
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+}
+
+function closeMenu() {
+    const hamburger = document.getElementById('hamburgerBtn') || document.querySelector('.hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
 }
 
 function closeBanner() {
