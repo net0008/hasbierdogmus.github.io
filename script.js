@@ -190,10 +190,12 @@ async function fetchLastUpdateDate(element) {
     const repo = "hasbierdogmus.github.io";
 
     // Tarayıcıdaki dosya yolunu al (örn: /about.html) ve baştaki '/' karakterini kaldır.
-    let path = window.location.pathname.substring(1);
+    // ESKİ YÖNTEM: let path = window.location.pathname.substring(1);
+    // YENİ YÖNTEM: Sadece dosya adını alarak hem lokalde hem de sunucuda çalışmasını sağlıyoruz.
+    let path = window.location.pathname.split("/").pop();
 
     // Eğer path boş ise (ana sayfa), index.html olarak ayarla.
-    if (path === "") {
+    if (path === "" || path === "index.html") {
         path = "index.html";
     }
 
@@ -203,7 +205,9 @@ async function fetchLastUpdateDate(element) {
         const response = await fetch(apiUrl);
         // API'den cevap gelmezse veya dosya bulunamazsa hata vermemesi için kontrol
         if (!response.ok) {
-            throw new Error(`GitHub API error for path '${path}': ${response.status}`);
+            console.error(`GitHub API Hatası: ${path} için commit bilgisi alınamadı. Durum: ${response.status}`);
+            element.parentElement.style.display = 'none'; // Hata durumunda alanı gizle
+            return;
         }
         const commits = await response.json();
 
@@ -220,7 +224,7 @@ async function fetchLastUpdateDate(element) {
             element.parentElement.style.display = 'none';
         }
     } catch (error) {
-        console.error("Error fetching last update date:", error);
+        console.error("Son güncelleme tarihi çekilirken hata oluştu:", error);
         // API hız limitine takılma veya ağ hatası gibi durumlarda alanı gizle
         element.parentElement.style.display = 'none';
     }
