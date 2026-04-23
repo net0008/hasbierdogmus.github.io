@@ -189,13 +189,22 @@ async function fetchLastUpdateDate(element) {
     const owner = "hasbierdogmus";
     const repo = "hasbierdogmus.github.io";
 
-    // Tarayıcıdaki dosya yolunu al (örn: /about.html) ve baştaki '/' karakterini kaldır.
-    // ESKİ YÖNTEM: let path = window.location.pathname.substring(1);
-    // YENİ YÖNTEM: Sadece dosya adını alarak hem lokalde hem de sunucuda çalışmasını sağlıyoruz.
-    let path = window.location.pathname.split("/").pop();
+    // --- YENİ VE SAĞLAM YÖNTEM ---
+    // Bu yöntem, hem canlı sunucuda (https://site.com/klasor/sayfa.html)
+    // hem de yerel testlerde (file:///C:/.../klasor/sayfa.html) doğru çalışır.
+    const repoName = "hasbierdogmus.github.io";
+    let path = window.location.pathname;
+
+    // Path'in içinde repo adını bul ve sonrasını al. Bu, GitHub Pages'in alt klasör yapısıyla uyumlu çalışır.
+    const repoIndex = path.indexOf(repoName);
+    if (repoIndex > -1) {
+        path = path.substring(repoIndex + repoName.length + 1);
+    } else if (path.startsWith('/')) {
+        path = path.substring(1); // Baştaki / karakterini temizle
+    }
 
     // Eğer path boş ise (ana sayfa), index.html olarak ayarla.
-    if (path === "" || path === "index.html") {
+    if (path === "" || path.endsWith('/')) {
         path = "index.html";
     }
 
