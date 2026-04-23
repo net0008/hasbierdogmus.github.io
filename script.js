@@ -156,14 +156,15 @@ function initMenu() {
 
             const isDropdownToggle = link.classList.contains('dropdown-toggle');
 
-            // Mobil görünümde ve açılır menü başlığı ise
-            if (isDropdownToggle && window.innerWidth <= 968) {
-                e.preventDefault(); // Sayfanın başına gitmesini engelle
-                const dropdown = link.parentElement;
-                dropdown.classList.toggle('open');
-            } 
-            // Açılır menü başlığı değilse, menüyü kapat
-            else if (!isDropdownToggle) {
+            if (isDropdownToggle) {
+                e.preventDefault(); // Sayfanın başına gitmesini engelle (Masaüstü ve mobil için)
+                // Sadece mobil görünümde, tıklayınca alt menüyü aç/kapat
+                if (window.innerWidth <= 968) {
+                    const dropdown = link.parentElement;
+                    dropdown.classList.toggle('open');
+                }
+            } else {
+                // Normal bir linke veya alt menüdeki bir linke tıklandıysa mobil menüyü kapat
                 closeMenu();
             }
         });
