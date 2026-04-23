@@ -1881,12 +1881,11 @@ footer > p {
 #last-update-date {
     margin: 0;
     font-size: 0.85rem;
-    color: var(--text-color, #888); /* Sitenizdeki metin rengi değişkeni */
+    color: rgba(255, 255, 255, 0.8);
     font-weight: 400;
-    opacity: 0.8;
 }
 
 #last-update-date i {
     margin-right: 5px;
-    color: var(--primary-color, #0047ba); /* Sitenizin ana rengi */
+    color: var(--green);
 }
