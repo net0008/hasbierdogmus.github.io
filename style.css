@@ -838,7 +838,7 @@ footer { background: #152a4f; color: rgba(255,255,255,0.6); padding: 2rem; text-
    ========================================= */
 footer {
     background-color: var(--navy); /* --navy-blue DEĞİL, --navy */
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.7); /* Genel metin rengini, tema değişiminden etkilenmeyen açık bir renk yaptık */
     padding: 60px 0 30px;
     text-align: center;
     border-top: 5px solid #f77f00; /* Turuncu rengi manuel yazdım, garanti olsun */
