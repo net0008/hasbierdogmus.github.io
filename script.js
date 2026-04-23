@@ -179,40 +179,60 @@ function closeBanner() {
         banner.style.display = 'none';
     }
 }
-// --- Sayfa Bazlı Dinamik Güncelleme Tarihi ---
-const sayfaTarihleri = {
-    "/index.html": "12 Şubat 2026 - 10:00",
-    "/": "15 Şubat 2026 - 10:00", 
-    "/about.html": "15 Şubat 2026",
-    "/other-works.html": "18 Şubat 2026",
-    "/project-pardus-asistan.html": "11 Şubat 2026 - 20:30",
-    "/innovative-classroom.html": "10 Mart 2026",
-    "/project-egitsel-oyun.html": "10 Mart 2026"
-};
+// --- Otomatik Güncelleme Tarihi (GitHub API ile) ---
 
-const varsayilanTarih = "10 Mart 2026"; 
+/**
+ * Sayfanın son güncellenme tarihini GitHub API'den çeker ve ilgili elementi günceller.
+ * @param {HTMLElement} element - Tarihin yazılacağı HTML elementi.
+ */
+async function fetchLastUpdateDate(element) {
+    const owner = "hasbierdogmus";
+    const repo = "hasbierdogmus.github.io";
 
-// Footer yüklendikten sonra çalışması için akıllı kontrol döngüsü
+    // Tarayıcıdaki dosya yolunu al (örn: /about.html) ve baştaki '/' karakterini kaldır.
+    let path = window.location.pathname.substring(1);
+
+    // Eğer path boş ise (ana sayfa), index.html olarak ayarla.
+    if (path === "") {
+        path = "index.html";
+    }
+
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/commits?path=${path}&page=1&per_page=1`;
+
+    try {
+        const response = await fetch(apiUrl);
+        // API'den cevap gelmezse veya dosya bulunamazsa hata vermemesi için kontrol
+        if (!response.ok) {
+            throw new Error(`GitHub API error for path '${path}': ${response.status}`);
+        }
+        const commits = await response.json();
+
+        if (commits && commits.length > 0) {
+            const lastCommitDate = new Date(commits[0].commit.committer.date);
+
+            // Tarihi "10 Mart 2026" formatında Türkçe olarak formatla
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = lastCommitDate.toLocaleDateString('tr-TR', options);
+
+            element.innerHTML = `<i class="fas fa-history"></i> Son Güncelleme: <strong>${formattedDate}</strong>`;
+        } else {
+            // Dosya için commit geçmişi bulunamazsa alanı gizle
+            element.parentElement.style.display = 'none';
+        }
+    } catch (error) {
+        console.error("Error fetching last update date:", error);
+        // API hız limitine takılma veya ağ hatası gibi durumlarda alanı gizle
+        element.parentElement.style.display = 'none';
+    }
+}
+
+// Footer yüklendikten sonra güncelleme tarihini çekmek için kontrol döngüsü
 let footerBekleyici = setInterval(function () {
     const updateAlani = document.getElementById("last-update-date");
-    
-    // Footer HTML'i sayfaya yerleştirildiği an burası çalışır
+
+    // Footer elementi sayfaya yüklendiğinde bu blok çalışır
     if (updateAlani) {
-        clearInterval(footerBekleyici); // Döngüyü durdur
-
-        let currentPath = window.location.pathname;
-        let fileName = currentPath.substring(currentPath.lastIndexOf('/'));
-        
-        if (fileName === "" || fileName === "/") {
-            fileName = "/index.html";
-        }
-
-        let tarih = sayfaTarihleri[fileName];
-        
-        if (!tarih) {
-            tarih = varsayilanTarih;
-        }
-
-        updateAlani.innerHTML = `<i class="fas fa-history"></i> Bu Sayfanın Son Güncellemesi: <strong>${tarih}</strong>`;
+        clearInterval(footerBekleyici); // Döngüyü sonlandır
+        fetchLastUpdateDate(updateAlani); // Otomatik tarihi çekme fonksiyonunu çağır
     }
 }, 100);
