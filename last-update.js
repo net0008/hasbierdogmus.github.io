@@ -23,7 +23,7 @@
             font-size: 0.72rem;
             font-style: italic;
             letter-spacing: 0.4px;
-            color: rgba(255, 255, 255, 0.38);
+            color: rgba(247, 244, 244, 0.96);
             transition: color 0.3s ease, opacity 0.3s ease;
         }
 
@@ -39,23 +39,23 @@
         #last-update-date .update-value {
             font-weight: 600;
             font-style: normal;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(247, 244, 244, 0.96);
             letter-spacing: 0.2px;
         }
 
         /* ── Açık tema ── */
         [data-theme="light"] #last-update-date {
-            color: rgba(60, 60, 60, 0.42);
+            color: rgba(247, 244, 244, 0.96);
         }
 
         [data-theme="light"] #last-update-date .update-value {
-            color: rgba(60, 60, 60, 0.62);
+            color: rgba(247, 244, 244, 0.96);
         }
 
         /* ── Sistem koyu tema (data-theme henüz set edilmemişse) ── */
         @media (prefers-color-scheme: dark) {
             #last-update-date:not([data-theme="light"] *) {
-                color: rgba(255, 255, 255, 0.38);
+                color: rgba(247, 244, 244, 0.96);
             }
         }
     `;
