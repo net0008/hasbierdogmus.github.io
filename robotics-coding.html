@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -16,6 +17,7 @@
         })();
     </script>
 </head>
+
 <body>
 
     <header id="global-header"></header>
@@ -31,18 +33,19 @@
         <section class="featured-works robotics-section section-padding">
             <div class="container">
                 <div class="projects-grid">
-                    
+
                     <article class="project-card">
                         <a href="https://www.tinkercad.com/" target="_blank" class="card-image">
                             <img src="assets/arduino-atolye.jpg" alt="Tinkercad">
                             <div class="overlay"><i class="fas fa-microchip"></i></div>
                         </a>
                         <div class="card-content">
-                            <h3><a href="https://www.tinkercad.com/" target="_blank">"Arduino ile Matematiksel Düşünme" 4007 Aliğa Bilim Şenliği</a></h3>
+                            <h3><a href="https://www.tinkercad.com/" target="_blank">"Arduino ile Matematiksel Düşünme"
+                                    4007 Aliğa Bilim Şenliği</a></h3>
                             <p>
-                                16-17 Eylül 2018 
+                                16-17 Eylül 2018
                             </p>
-                            
+
                         </div>
                     </article>
 
@@ -56,7 +59,7 @@
                             <p>
                                 30 Kasım 2020
                             </p>
-                            
+
                         </div>
                     </article>
 
@@ -68,5 +71,7 @@
     <footer id="global-footer"></footer>
     <script src="script.js"></script>
     <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
 </body>
+
 </html>

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CBS ve Uzaktan Algılama | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <meta name="description" content="Google Earth Engine ve Python ile coğrafi veri analizi, sel riski modellemesi ve NDVI çalışmaları.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Google Earth Engine ve Python ile coğrafi veri analizi, sel riski modellemesi ve NDVI çalışmaları.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -19,8 +22,9 @@
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <header id="global-header"></header>
 
     <section class="page-header">
@@ -35,8 +39,12 @@
             <div class="intro-grid">
                 <div class="intro-text">
                     <h2>Mekansal Zeka ve Analiz</h2>
-                    <p>Bu sayfa, coğrafi bilgiyi sadece birer statik görsel olarak değil; yaşayan, sorgulanabilen ve analiz edilebilen birer veri seti olarak ele alan projelerimi içermektedir. Çalışmalarımda <strong>Google Earth Engine (GEE)</strong> ve <strong>Python (Geemap)</strong> altyapısını kullanarak, uydu verilerini <strong>Türkiye Yüzyılı Maarif Modeli</strong> vizyonuna uygun, problem çözme odaklı dijital öğrenme araçlarına dönüştürmeyi hedefledim.</p>
-                    
+                    <p>Bu sayfa, coğrafi bilgiyi sadece birer statik görsel olarak değil; yaşayan, sorgulanabilen ve
+                        analiz edilebilen birer veri seti olarak ele alan projelerimi içermektedir. Çalışmalarımda
+                        <strong>Google Earth Engine (GEE)</strong> ve <strong>Python (Geemap)</strong> altyapısını
+                        kullanarak, uydu verilerini <strong>Türkiye Yüzyılı Maarif Modeli</strong> vizyonuna uygun,
+                        problem çözme odaklı dijital öğrenme araçlarına dönüştürmeyi hedefledim.</p>
+
                     <div class="features-list">
                         <div class="feature-item">
                             <i class="fas fa-globe-americas"></i>
@@ -54,22 +62,26 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="pedagogy-box">
                     <h3>Pedagojik Bakış Açısı</h3>
-                    <p>Bu çalışmalar, <strong>TOÖS Öğretmen El Kitabı</strong>'nda tanımlanan "Senaryo Temelli Öğrenme" ve "5E Modeli" ile tam uyumludur:</p>
+                    <p>Bu çalışmalar, <strong>TOÖS Öğretmen El Kitabı</strong>'nda tanımlanan "Senaryo Temelli Öğrenme"
+                        ve "5E Modeli" ile tam uyumludur:</p>
                     <ul>
                         <li>
                             <i class="fas fa-check-circle"></i>
-                            <div><strong>Keşfetme:</strong> Öğrenciler ham uydu verilerini interaktif araçlarla manipüle eder.</div>
+                            <div><strong>Keşfetme:</strong> Öğrenciler ham uydu verilerini interaktif araçlarla manipüle
+                                eder.</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
-                            <div><strong>Derinleştirme:</strong> Soyut coğrafi kavramlar (yükselti, debi, vejetasyon), gerçek dünya verileriyle somutlaşır.</div>
+                            <div><strong>Derinleştirme:</strong> Soyut coğrafi kavramlar (yükselti, debi, vejetasyon),
+                                gerçek dünya verileriyle somutlaşır.</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
-                            <div><strong>Değerlendirme:</strong> Süreç, veriye dayalı argüman üretme ve karar verme becerileri üzerinden ölçülür.</div>
+                            <div><strong>Değerlendirme:</strong> Süreç, veriye dayalı argüman üretme ve karar verme
+                                becerileri üzerinden ölçülür.</div>
                         </li>
                     </ul>
                 </div>
@@ -127,8 +139,10 @@
         </div>
     </section>
 
-   <footer id="global-footer"></footer>
+    <footer id="global-footer"></footer>
     <script src="script.js"></script>
     <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
 </body>
+
 </html>

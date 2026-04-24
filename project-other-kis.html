@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurumsal İletişim Sistemi | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -28,28 +30,42 @@
             border-radius: 10px;
             margin-bottom: 30px;
         }
+
         .slider-item {
             display: inline-block;
-            width: 80%; /* Resim genişliği */
+            width: 80%;
+            /* Resim genişliği */
             max-width: 800px;
             margin: 20px;
             scroll-snap-align: center;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .slider-item img {
             width: 100%;
             display: block;
             border-radius: 8px;
         }
+
         /* Kaydırma çubuğu stili */
-        .slider-container::-webkit-scrollbar { height: 8px; }
-        .slider-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-        .slider-container::-webkit-scrollbar-track { background: transparent; }
+        .slider-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .slider-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        .slider-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
     </style>
 </head>
+
 <body>
-    
+
     <header id="global-header"></header>
 
     <section class="module-detail">
@@ -64,7 +80,7 @@
                 <div class="slider-item">
                     <img src="assets/kis-screen-1.jpg" alt="KİS Ekran Görüntüsü 1">
                 </div>
-                
+
                 <div class="slider-item">
                     <img src="assets/kis-screen-2.jpg" alt="KİS Ekran Görüntüsü 2">
                 </div>
@@ -77,30 +93,44 @@
                     <img src="assets/kis-screen-4.jpg" alt="KİS Ekran Görüntüsü 4">
                 </div>
             </div>
-                        <p class="img-caption"><i class="fas fa-arrows-alt-h"></i> Resimleri sağa/sola kaydırarak inceleyebilirsiniz.</p>
+            <p class="img-caption"><i class="fas fa-arrows-alt-h"></i> Resimleri sağa/sola kaydırarak
+                inceleyebilirsiniz.</p>
 
             <div class="module-desc-box">
                 <h3><i class="fas fa-server"></i> Proje Hakkında</h3>
-                <p>Bu web uygulaması, İlçe Milli Eğitim Müdürlükleri veya okullar gibi kurumların personeli arasında güvenli, hızlı ve kapalı devre iletişim sağlamak amacıyla <strong>Node.js</strong> tabanında geliştirilmiştir. WhatsApp veya e-posta kullanımına kurumsal ve güvenli bir alternatiftir. Localhost'ta çalıştığı için link verilememektedir. İstenirse web tabanlı olarak da rahatlıkla kullanılabilir.</p>
-                
+                <p>Bu web uygulaması, İlçe Milli Eğitim Müdürlükleri veya okullar gibi kurumların personeli arasında
+                    güvenli, hızlı ve kapalı devre iletişim sağlamak amacıyla <strong>Node.js</strong> tabanında
+                    geliştirilmiştir. WhatsApp veya e-posta kullanımına kurumsal ve güvenli bir alternatiftir.
+                    Localhost'ta çalıştığı için link verilememektedir. İstenirse web tabanlı olarak da rahatlıkla
+                    kullanılabilir.</p>
+
                 <hr class="project-divider">
 
-                <div class="features-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div class="features-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
                     <div class="feature-card" style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-comments"></i> Anlık Mesajlaşma</h4>
-                        <p style="font-size: 0.9rem;">Personel arası anlık yazışma ve sohbet penceresi üzerinden hızlı dosya gönderimi.</p>
+                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-comments"></i> Anlık
+                            Mesajlaşma</h4>
+                        <p style="font-size: 0.9rem;">Personel arası anlık yazışma ve sohbet penceresi üzerinden hızlı
+                            dosya gönderimi.</p>
                     </div>
                     <div class="feature-card" style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-folder-open"></i> Ortak Dosya Havuzu</h4>
-                        <p style="font-size: 0.9rem;">Resmi yazılar ve şablonlar için tüm kurumun erişebildiği merkezi dosya alanı.</p>
+                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-folder-open"></i> Ortak
+                            Dosya Havuzu</h4>
+                        <p style="font-size: 0.9rem;">Resmi yazılar ve şablonlar için tüm kurumun erişebildiği merkezi
+                            dosya alanı.</p>
                     </div>
                     <div class="feature-card" style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-bullhorn"></i> Duyuru Panosu</h4>
-                        <p style="font-size: 0.9rem;">Yöneticiler için sağ panelde sabitlenen önemli bilgilendirme ve duyuru alanı.</p>
+                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-bullhorn"></i> Duyuru
+                            Panosu</h4>
+                        <p style="font-size: 0.9rem;">Yöneticiler için sağ panelde sabitlenen önemli bilgilendirme ve
+                            duyuru alanı.</p>
                     </div>
                     <div class="feature-card" style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-user-shield"></i> Güvenlik & Yönetim</h4>
-                        <p style="font-size: 0.9rem;">Cumhurbaşkanlığı "Bilgi ve İletişim Güvenliği" genelgesine uygun, yerel sunucuda çalışan güvenli yapı.</p>
+                        <h4 style="color: var(--navy); margin-bottom: 10px;"><i class="fas fa-user-shield"></i> Güvenlik
+                            & Yönetim</h4>
+                        <p style="font-size: 0.9rem;">Cumhurbaşkanlığı "Bilgi ve İletişim Güvenliği" genelgesine uygun,
+                            yerel sunucuda çalışan güvenli yapı.</p>
                     </div>
                 </div>
             </div>
@@ -110,5 +140,7 @@
     <footer id="global-footer"></footer>
     <script src="script.js"></script>
     <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
 </body>
+
 </html>

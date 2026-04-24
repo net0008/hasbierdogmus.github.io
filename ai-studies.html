@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yapay Zeka Çalışmaları | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -18,8 +20,9 @@
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <header id="global-header"></header>
 
     <section class="page-header">
@@ -33,7 +36,9 @@
         <div class="container">
             <div class="intro-text text-center" style="max-width: 900px; margin: 0 auto;">
                 <h2>Geleceği Tasarlamak</h2>
-                <p>Bu sayfada, yapay zekanın (YZ) eğitimdeki dönüştürücü gücünü ve coğrafya bilimiyle olan stratejik entegrasyonunu sergileyen düzeydeki çalışmalarım yer almaktadır. Amacımız, öğrencileri teknolojinin sadece tüketicisi değil, üreticisi ve yönlendiricisi konumuna taşımaktır.</p>
+                <p>Bu sayfada, yapay zekanın (YZ) eğitimdeki dönüştürücü gücünü ve coğrafya bilimiyle olan stratejik
+                    entegrasyonunu sergileyen düzeydeki çalışmalarım yer almaktadır. Amacımız, öğrencileri teknolojinin
+                    sadece tüketicisi değil, üreticisi ve yönlendiricisi konumuna taşımaktır.</p>
             </div>
         </div>
     </section>
@@ -41,18 +46,20 @@
     <section class="modules-section section-padding bg-light">
         <div class="container">
             <div class="modules-grid">
-                
+
                 <div class="module-card">
                     <div class="module-img">
                         <img src="assets/ai-rocks.jpg" alt="Kayaçların YZ ile Tanınması">
                         <div class="module-overlay">
-                            <a href="project-ai-rocks.html" class="btn-module"><i class="fas fa-play"></i> Sunumu İncele</a>
+                            <a href="project-ai-rocks.html" class="btn-module"><i class="fas fa-play"></i> Sunumu
+                                İncele</a>
                         </div>
                     </div>
                     <div class="module-info">
                         <h3>Nesne Tanıma & Kayaçlar</h3>
                         <span class="module-tag">Makine Öğrenmesi</span>
-                        <p style="font-size: 0.9rem; margin-top: 10px;">Farklı kayaç türlerini görsel olarak tanıyan YZ modelinin geliştirilmesi.</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Farklı kayaç türlerini görsel olarak tanıyan YZ
+                            modelinin geliştirilmesi.</p>
                     </div>
                 </div>
 
@@ -60,7 +67,8 @@
                     <div class="module-img">
                         <img src="assets/ai-codeweek.jpg" alt="AB CodeWeek Sunumu">
                         <div class="module-overlay">
-                            <a href="project-ai-codeweek.html" class="btn-module"><i class="fas fa-play"></i> Sunumu İncele</a>
+                            <a href="project-ai-codeweek.html" class="btn-module"><i class="fas fa-play"></i> Sunumu
+                                İncele</a>
                         </div>
                     </div>
                     <div class="module-info">
@@ -71,24 +79,31 @@
                 </div>
 
                 <div class="module-card">
-                    <div class="module-img" style="background: #ffffff; display: flex; align-items: center; justify-content: center;">
+                    <div class="module-img"
+                        style="background: #ffffff; display: flex; align-items: center; justify-content: center;">
                         <img src="assets/rehber.png" alt="Sesli Rehber">
                     </div>
                     <div class="module-info">
                         <h3>Sesli Telefon Rehberi</h3>
                         <span class="module-tag">Python & TTS</span>
-                        <p style="font-size: 0.9rem; margin-top: 10px;">Python (Flask) ve Google TTS ile geliştirilen uygulama, aracılığı ile telefon rehberine sesli komut verek aranacak kişiyi bulunur ve arama gerçekleştirilir. Kişisel verilerin korunması kanunu gereği, proje burada paylaşılamamaktadır.</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Python (Flask) ve Google TTS ile geliştirilen
+                            uygulama, aracılığı ile telefon rehberine sesli komut verek aranacak kişiyi bulunur ve arama
+                            gerçekleştirilir. Kişisel verilerin korunması kanunu gereği, proje burada
+                            paylaşılamamaktadır.</p>
                     </div>
                 </div>
 
                 <div class="module-card">
-                    <div class="module-img" style="background: #2980b9; display: flex; align-items: center; justify-content: center;">
+                    <div class="module-img"
+                        style="background: #2980b9; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-satellite" style="font-size: 5rem; color: #fff;"></i>
                     </div>
                     <div class="module-info">
                         <h3>Tahminsel Analiz (GEE)</h3>
                         <span class="module-tag">Büyük Veri & YZ</span>
-                        <p style="font-size: 0.9rem; margin-top: 10px;">Google Earth Engine üzerinde makine öğrenmesi ile afet risk analizleri. Google sununucuları kullanım başına ücretlendirme yaptığı için proje burada paylaşılamamaktadır.</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Google Earth Engine üzerinde makine öğrenmesi
+                            ile afet risk analizleri. Google sununucuları kullanım başına ücretlendirme yaptığı için
+                            proje burada paylaşılamamaktadır.</p>
                     </div>
                 </div>
 
@@ -96,9 +111,11 @@
         </div>
     </section>
 
-   <footer id="global-footer"></footer>
+    <footer id="global-footer"></footer>
 
     <script src="script.js"></script>
     <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
 </body>
+
 </html>

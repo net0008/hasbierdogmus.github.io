@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zemin Stabilite Analizi | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -17,8 +19,9 @@
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <header id="global-header"></header>
 
     <section class="module-detail">
@@ -30,36 +33,40 @@
             </div>
 
             <div class="embed-container landscape">
-                <iframe 
-                    src="projeler/egitim-materyalleri/zemin_analizi.html" 
-                    frameborder="0" 
-                    style="border:0" 
+                <iframe src="projeler/egitim-materyalleri/zemin_analizi.html" frameborder="0" style="border:0"
                     allowfullscreen>
                 </iframe>
             </div>
-            <p class="img-caption"><i class="fas fa-arrows-alt-h"></i> Harita üzerindeki çubuğu sağa/sola kaydırarak riskli alanları inceleyebilirsiniz.</p>
+            <p class="img-caption"><i class="fas fa-arrows-alt-h"></i> Harita üzerindeki çubuğu sağa/sola kaydırarak
+                riskli alanları inceleyebilirsiniz.</p>
 
             <div class="module-desc-box">
                 <h3><i class="fas fa-hard-hat"></i> Proje Hakkında</h3>
-                <p>Kentsel planlama ve afet risk yönetimi çerçevesinde hazırlanan bu modül, "güvenli yerleşim" kavramını veriyle sorgulatır. Deprem ve heyelan riski taşıyan bölgelerin bilimsel verilerle tespit edilmesini sağlar.</p>
-                
+                <p>Kentsel planlama ve afet risk yönetimi çerçevesinde hazırlanan bu modül, "güvenli yerleşim" kavramını
+                    veriyle sorgulatır. Deprem ve heyelan riski taşıyan bölgelerin bilimsel verilerle tespit edilmesini
+                    sağlar.</p>
+
                 <hr class="project-divider">
 
                 <div class="evaluation-grid">
                     <div class="eval-box critical">
                         <h4><i class="fas fa-laptop-code"></i> Analiz Yöntemi</h4>
-                        <p>Arazi eğimi (slope) analizleri ile Sentinel-2 uydu görüntüleri ve OpenStreetMap verilerinin entegrasyonuna dayanır.</p>
+                        <p>Arazi eğimi (slope) analizleri ile Sentinel-2 uydu görüntüleri ve OpenStreetMap verilerinin
+                            entegrasyonuna dayanır.</p>
                     </div>
                     <div class="eval-box criteria">
                         <h4><i class="fas fa-graduation-cap"></i> Eğitsel Değeri</h4>
-                        <p>Öğrenciler, zemin riskli alanların mevcut yerleşimlerle nasıl örtüştüğünü analiz ederek <strong>"Problem Temelli Öğrenme"</strong> sürecine dahil olurlar.</p>
+                        <p>Öğrenciler, zemin riskli alanların mevcut yerleşimlerle nasıl örtüştüğünü analiz ederek
+                            <strong>"Problem Temelli Öğrenme"</strong> sürecine dahil olurlar.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<footer id="global-footer"></footer>
+    <footer id="global-footer"></footer>
     <script src="script.js"></script>
     <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
 </body>
+
 </html>

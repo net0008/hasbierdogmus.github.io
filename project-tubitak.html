@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İklim Zaman Tüneli | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
             }
         })();
     </script>
-    
+
     <link rel="stylesheet" href="style.css">
 
     <style>
         .app-container {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; /* 16:9 Ekran Oranı (Otomatik Yükseklik) */
+            padding-bottom: 100%;
+            /* 16:9 Ekran Oranı (Otomatik Yükseklik) */
             height: 0;
             border-radius: 15px;
-            overflow: hidden; /* Taşan kısımları ve çubukları gizle */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            /* Taşan kısımları ve çubukları gizle */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             margin: 30px 0;
             background-color: #fff;
         }
+
         .app-iframe {
             position: absolute;
             top: 0;
@@ -40,44 +45,66 @@
             height: 100%;
             border: none;
         }
+
         /* Mobil cihazlar için oranı biraz daha kare yapabiliriz */
         @media (max-width: 768px) {
             .app-container {
-                padding-bottom: 75%; /* 4:3 Oran */
+                padding-bottom: 75%;
+                /* 4:3 Oran */
             }
         }
     </style>
 </head>
+
 <body>
-    
+
     <header id="global-header"></header>
 
     <section class="module-detail">
         <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            
+
             <div class="project-header-box" style="text-align: center; margin-bottom: 20px;">
                 <span class="badge">TÜBİTAK Projesi</span>
                 <span class="badge" style="background-color: #2ecc71; margin-left: 5px;">Yapay Zeka & Veri Bilimi</span>
                 <h1 style="margin-top: 15px;">Bergama 2050: İklim Zaman Tüneli</h1>
-                <p><strong>"Bergama 4007 Bilim Şenliği"</strong> için NASA verileri ile hazırlanan interaktif iklim simülasyonu.</p>
+                <p><strong>"Bergama 4007 Bilim Şenliği"</strong> için NASA verileri ile hazırlanan interaktif iklim
+                    simülasyonu.</p>
             </div>
 
             <div class="app-container">
-                <iframe src="https://net0008.github.io/bergamaiklimapp/index.html" class="app-iframe" scrolling="no" title="Bergama İklim Zaman Tüneli Simülasyonu"></iframe>
+                <iframe src="https://net0008.github.io/bergamaiklimapp/index.html" class="app-iframe" scrolling="no"
+                    title="Bergama İklim Zaman Tüneli Simülasyonu"></iframe>
             </div>
 
             <div class="module-desc-box" style="max-width: 900px; margin: 0 auto;">
                 <h3>Proje Hakkında</h3>
 
-<p>Bu interaktif STEM platformu; NASA POWER iklim veri setlerini yapay zekâ destekli algoritmalarla işleyerek, Türkiye’nin ve yerelde Bergama’nın 2050 yılına kadar karşılaşabileceği iklim senaryolarını modellemektedir. "Bergama 4007 Bilim Şenliği" için özel olarak geliştirilen proje, katılımcıları sadece verileri okuyan değil, geleceğin kaderini belirleyen <b>aktif karar vericilere</b> dönüştürmektedir.</p>
+                <p>Bu interaktif STEM platformu; NASA POWER iklim veri setlerini yapay zekâ destekli algoritmalarla
+                    işleyerek, Türkiye’nin ve yerelde Bergama’nın 2050 yılına kadar karşılaşabileceği iklim
+                    senaryolarını modellemektedir. "Bergama 4007 Bilim Şenliği" için özel olarak geliştirilen proje,
+                    katılımcıları sadece verileri okuyan değil, geleceğin kaderini belirleyen <b>aktif karar
+                        vericilere</b> dönüştürmektedir.</p>
 
-<ul>
-    <li><b>Eğitsel Oyunlaştırma (Gamification):</b> Sürece entegre edilen "Eko-XP" puan sistemi, seviye atlama mekaniği, dijital görev kilitleri ve kazanılan başarı rozetleri (Orman Mirası, Temiz Enerji vb.) ile öğrenme süreci oyunlaştırılarak katılımcıların içsel motivasyonu en üst düzeye çıkarılır.</li>
-    <li><b>Çift Modlu Deneyim:</b> Kullanıcıların yaş grubuna göre şekillenen dinamik arayüz; öğrenciler için pikselli bir "Kahraman Modu", ebeveynler için ise analitik ve kurumsal bir "Strateji Modu" sunar.</li>
-    <li><b>İklim Karar Masası:</b> Katılımcılar; temiz enerji, ormanlaştırma ve akıllı tarım parametrelerini sürgülerle (hands-on) değiştirerek, arka planda çalışan matematiksel model sayesinde 2050 yılı sıcaklık ve yağış değerlerindeki değişimi ekranda anlık olarak deneyimler.</li>
-    <li><b>Kişisel Karbon Ayak İzi ve İklim Karnesi:</b> Simülasyonu başarıyla tamamlayan kullanıcılar, günlük yaşam alışkanlıklarını ölçen interaktif bir teste tabi tutulur. Süreç sonunda her katılımcıya özel dijital "Gelecek Raporu" oluşturulur.</li>
-    <li><b>Anonim Veri Toplama (Serverless):</b> Uygulama tamamen sunucusuz çalışır ve sıfır atık hedefine uygun tasarlanmıştır. Şenlikte toplanan demografik ve başarı verileri, KVKK'ya uygun şekilde isim alınmadan TÜBİTAK istatistik raporlamaları için Google E-Tablolar'a bulut üzerinden aktarılır.</li>
-</ul>
+                <ul>
+                    <li><b>Eğitsel Oyunlaştırma (Gamification):</b> Sürece entegre edilen "Eko-XP" puan sistemi, seviye
+                        atlama mekaniği, dijital görev kilitleri ve kazanılan başarı rozetleri (Orman Mirası, Temiz
+                        Enerji vb.) ile öğrenme süreci oyunlaştırılarak katılımcıların içsel motivasyonu en üst düzeye
+                        çıkarılır.</li>
+                    <li><b>Çift Modlu Deneyim:</b> Kullanıcıların yaş grubuna göre şekillenen dinamik arayüz; öğrenciler
+                        için pikselli bir "Kahraman Modu", ebeveynler için ise analitik ve kurumsal bir "Strateji Modu"
+                        sunar.</li>
+                    <li><b>İklim Karar Masası:</b> Katılımcılar; temiz enerji, ormanlaştırma ve akıllı tarım
+                        parametrelerini sürgülerle (hands-on) değiştirerek, arka planda çalışan matematiksel model
+                        sayesinde 2050 yılı sıcaklık ve yağış değerlerindeki değişimi ekranda anlık olarak deneyimler.
+                    </li>
+                    <li><b>Kişisel Karbon Ayak İzi ve İklim Karnesi:</b> Simülasyonu başarıyla tamamlayan kullanıcılar,
+                        günlük yaşam alışkanlıklarını ölçen interaktif bir teste tabi tutulur. Süreç sonunda her
+                        katılımcıya özel dijital "Gelecek Raporu" oluşturulur.</li>
+                    <li><b>Anonim Veri Toplama (Serverless):</b> Uygulama tamamen sunucusuz çalışır ve sıfır atık
+                        hedefine uygun tasarlanmıştır. Şenlikte toplanan demografik ve başarı verileri, KVKK'ya uygun
+                        şekilde isim alınmadan TÜBİTAK istatistik raporlamaları için Google E-Tablolar'a bulut üzerinden
+                        aktarılır.</li>
+                </ul>
                 <div style="margin-top: 40px; text-align: center;">
                     <a href="https://net0008.github.io/bergamaiklimapp/index.html" target="_blank" class="btn">
                         <i class="fas fa-external-link-alt"></i> Uygulamayı Tam Ekran Aç
@@ -92,8 +119,10 @@
     </section>
 
     <footer id="global-footer"></footer>
-    
+
     <script src="script.js"></script>
     <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
 </body>
+
 </html>

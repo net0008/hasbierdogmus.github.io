@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NDVI Bitki Örtüsü Analizi | Hasbi Erdoğmuş</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -17,8 +19,9 @@
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <header id="global-header"></header>
 
     <section class="module-detail">
@@ -30,29 +33,30 @@
             </div>
 
             <div class="embed-container landscape">
-                <iframe 
-                    src="projeler/egitim-materyalleri/ndvi_analizi.html" 
-                    frameborder="0" 
-                    style="border:0" 
+                <iframe src="projeler/egitim-materyalleri/ndvi_analizi.html" frameborder="0" style="border:0"
                     allowfullscreen>
                 </iframe>
             </div>
-            <p class="img-caption"><i class="fas fa-arrows-alt-h"></i> Harita üzerindeki çubuğu sağa/sola kaydırarak bitki sağlığını (Yeşil: İyi, Kırmızı: Kötü) analiz edebilirsiniz.</p>
+            <p class="img-caption"><i class="fas fa-arrows-alt-h"></i> Harita üzerindeki çubuğu sağa/sola kaydırarak
+                bitki sağlığını (Yeşil: İyi, Kırmızı: Kötü) analiz edebilirsiniz.</p>
 
             <div class="module-desc-box">
                 <h3><i class="fas fa-seedling"></i> Proje Hakkında</h3>
-                <p>Uzaktan algılamanın en temel enstrümanlarından biri olan spektral analizlerin eğitimdeki izdüşümüdür. Tarım arazilerinin sağlığını ve su stresini uydudan takip etmeyi sağlar.</p>
-                
+                <p>Uzaktan algılamanın en temel enstrümanlarından biri olan spektral analizlerin eğitimdeki izdüşümüdür.
+                    Tarım arazilerinin sağlığını ve su stresini uydudan takip etmeyi sağlar.</p>
+
                 <hr class="project-divider">
 
                 <div class="evaluation-grid">
                     <div class="eval-box critical">
                         <h4><i class="fas fa-laptop-code"></i> Analiz Yöntemi</h4>
-                        <p>Temmuz 2025 tarihli Sentinel-2 verileri üzerinden hesaplanan <strong>Normalleştirilmiş Fark Bitki Örtüsü Endeksi (NDVI)</strong> ile yaz dönemi bitki sağlığı modellenmiştir.</p>
+                        <p>Temmuz 2025 tarihli Sentinel-2 verileri üzerinden hesaplanan <strong>Normalleştirilmiş Fark
+                                Bitki Örtüsü Endeksi (NDVI)</strong> ile yaz dönemi bitki sağlığı modellenmiştir.</p>
                     </div>
                     <div class="eval-box criteria">
                         <h4><i class="fas fa-graduation-cap"></i> Eğitsel Değeri</h4>
-                        <p>Yaz kuraklığının tarım arazileri ve ormanlar üzerindeki etkisinin sayısal olarak takip edilmesi, öğrencilerin <strong>"Veri Okuryazarlığı"</strong> yetkinliğini pekiştirir.</p>
+                        <p>Yaz kuraklığının tarım arazileri ve ormanlar üzerindeki etkisinin sayısal olarak takip
+                            edilmesi, öğrencilerin <strong>"Veri Okuryazarlığı"</strong> yetkinliğini pekiştirir.</p>
                     </div>
                 </div>
             </div>
@@ -62,5 +66,7 @@
     <footer id="global-footer"></footer>
     <script src="script.js"></script>
     <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
 </body>
+
 </html>
