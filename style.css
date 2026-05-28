@@ -2744,3 +2744,15 @@ footer>p {
     margin-right: 5px;
     color: var(--green);
 }
+
+/* =========================================
+   FOUC (Flash of Unstyled Content) Engelleme
+   ========================================= */
+body {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+body.page-loaded {
+    opacity: 1;
+}

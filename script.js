@@ -79,6 +79,9 @@ async function loadComponents() {
     } catch (e) {
         console.log("Banner yüklenemedi", e);
     }
+
+    // Tüm component'ler yüklendikten sonra body görünürlüğünü aç
+    document.body.classList.add('page-loaded');
 }
 
 /* =========================================
