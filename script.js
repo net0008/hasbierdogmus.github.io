@@ -211,10 +211,31 @@ function initLanguage() {
     const toggleBtn = document.getElementById('lang-toggle');
     const currentLang = localStorage.getItem('language') || 'tr';
 
-    // Mevcut dili uygula
-    applyLanguage(currentLang);
+    // Eğer translations yüklü değilse dinamik olarak yükle
+    if (typeof translations === 'undefined') {
+        const scriptEl = document.querySelector('script[src*="script.js"]');
+        let baseUrl = "";
+        if (scriptEl && scriptEl.src) {
+            baseUrl = scriptEl.src.replace('/script.js', '');
+        } else {
+            baseUrl = window.location.origin + "/hasbierdogmus.github.io";
+        }
 
-    // Butona event listener ekle
+        const script = document.createElement('script');
+        script.src = baseUrl + '/translations.js';
+        script.onload = () => {
+            applyLanguage(currentLang);
+            bindLanguageToggle(toggleBtn);
+        };
+        document.head.appendChild(script);
+    } else {
+        // Mevcut dili uygula
+        applyLanguage(currentLang);
+        bindLanguageToggle(toggleBtn);
+    }
+}
+
+function bindLanguageToggle(toggleBtn) {
     if (toggleBtn && !toggleBtn.getAttribute('data-listener')) {
         toggleBtn.addEventListener('click', toggleLanguage);
         toggleBtn.setAttribute('data-listener', 'true');
