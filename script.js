@@ -259,6 +259,13 @@ function applyLanguage(lang) {
         }
     });
 
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) {
+            el.placeholder = dict[key];
+        }
+    });
+
     // Html lang özelliğini güncelle
     document.documentElement.lang = lang;
     localStorage.setItem('language', lang);

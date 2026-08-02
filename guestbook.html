@@ -34,13 +34,13 @@
 
     <section class="page-header">
         <div class="container">
-            <h1>Ziyaretçi Defteri</h1>
+            <h1 data-i18n="gb_h1">Ziyaretçi Defteri</h1>
         </div>
     </section>
 
     <main class="section-padding">
         <div class="container guestbook-container">
-            <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--medium-gray);">
+            <p style="margin-bottom: 25px; font-size: 1.1rem; color: var(--medium-gray);" data-i18n="gb_desc">
                 Aşağıdaki butonu kullanarak düşüncelerinizi, projelerimle ilgili geri bildirimlerinizi veya gelecek için
                 önerilerinizi paylaşabilirsiniz. Değerli vaktiniz için şimdiden teşekkür ederim.
             </p>
@@ -48,22 +48,21 @@
             <div class="custom-form-container">
                 <form id="visitor-form">
                     <div class="form-group">
-                        <input type="text" name="isim" placeholder="Adınız" required>
+                        <input type="text" name="isim" placeholder="Adınız" data-i18n-placeholder="gb_ph_name" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="mesaj" placeholder="Düşünceleriniz..." required></textarea>
+                        <textarea name="mesaj" placeholder="Düşünceleriniz..." data-i18n-placeholder="gb_ph_msg" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Gönder</button>
+                    <button type="submit" class="btn btn-primary" data-i18n="gb_btn_submit">Gönder</button>
                 </form>
                 <div id="form-status" style="display:none; margin-top:15px; padding:10px; border-radius:5px;"></div>
-                <div id="form-status"></div>
             </div>
 
             <div id="messages-container"
                 style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 40px;">
-                <h2 style="color: var(--navy); margin-bottom: 30px;">Paylaşılan Mesajlar</h2>
+                <h2 style="color: var(--navy); margin-bottom: 30px;" data-i18n="gb_messages_h2">Paylaşılan Mesajlar</h2>
                 <!-- Mesajlar buraya dinamik olarak yüklenecek -->
-                <p class="no-messages" style="color: var(--medium-gray);">Henüz hiç mesaj bırakılmamış. İlk mesajı siz
+                <p class="no-messages" style="color: var(--medium-gray);" data-i18n="gb_no_messages">Henüz hiç mesaj bırakılmamış. İlk mesajı siz
                     bırakın!</p>
             </div>
         </div>
