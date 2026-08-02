@@ -34,7 +34,37 @@ const translations = {
         "cat_gis": "CBS & TEKNOLOJİ",
         "card_gis_title": "Eğitimde Coğrafi Bilgi Sistemleri",
         "card_gis_desc": "Öğrencilerin dünyayı anlamlandırması için mekansal analizi ve CBS teknolojisini eğitime entegre ediyorum.",
-        "card_link_projects": "Projeler &rarr;"
+        "card_link_projects": "Projeler &rarr;",
+
+        // About
+        "about_badge": "17 YILLIK TECRÜBE",
+        "about_h1": "Eğitim ve Teknolojinin Kesişiminde Bir Yolculuk",
+        "about_p1": "Merhaba, ben <strong>Hasbi ERDOĞMUŞ</strong>. Coğrafya ve bilişim teknolojilerini harmanlayarak, öğrenme ortamlarına yenilikçi bir bakış açısı katmaya çalışıyorum.",
+        "about_p2": "1996 yılında 19 Mayıs Üniversitesi Eğitim Fakültesi Coğrafya Öğretmenliği bölümünden mezun oldum ve meslek hayatımın ilk 11 yılını sahada Coğrafya öğretmeni olarak geçirdim.",
+        "about_p3": "2008 yılından bu yana Bergama İlçe Milli Eğitim Müdürlüğü bünyesinde, Bakanlık görevlendirmesiyle İlçe Bilişim Koordinatörü olarak görev yapmaktayım.",
+        "about_motto": "\"Eğitim teknolojileri eğitimlerini bürokratik bir zorunluluk olarak değil; çağı yakalamanın ve Z kuşağının dilini konuşmanın vazgeçilmez bir ihtiyacı olarak görüyorum. Amacım, sadece araçları tanıtmak değil, eğitim-öğretim süreçlerinin kalitesini artırmaktır. Bu dönüşüm yolculuğundaki başlangıç noktam ise bellidir: Öğretmenlerimizin zihninde, 'atomu parçalamaktan daha zor olan' o önyargıları kırmak.\"",
+        "about_bio_h3_1": "Neler Yapıyorum?",
+        "about_bio_p1": "Şu anda <strong>Yenilikçi Sınıf</strong> modeline uygun eğitim ortamlarının kurulması ve öğretmenlerimizin bu modern ekosisteme uyum sağlaması için aktif olarak eğitimler veriyorum. Sadece teorik değil, uygulamaya dayalı ve interaktif bir eğitim yaklaşımını savunuyorum.",
+        "about_bio_h3_2": "Vizyonum",
+        "about_bio_p2": "Amacım; <strong>Türkiye Yüzyılı Maarif Modeli</strong> ışığında, teknolojiyi eğitimin kalbine yerleştirerek, öğrencilerimize ve meslektaşlarıma küresel standartlarda bir dijital yetkinlik kazandırmaktır.",
+        "about_skills_h2": "İlgi Duyduğum Alanlar",
+        "about_skills_p": "Eğitimci kimliğimle, modern mühendislik ve analiz araçlarıyla verileri görselleştirmeye çalışıyorum.",
+        "about_skill1_h4": "CBS & Uzaktan Algılama",
+        "about_skill1_p": "Google Earth Engine ve Python (geemap) kullanarak uydu verileri üzerinden sel, deprem ve NDVI analizleri.",
+        "about_skill2_h4": "Yazılım Geliştirme",
+        "about_skill2_p": "Python (Flask) ile web tabanlı servisler, sesli asistan projeleri ve Looker Studio ile veri görselleştirme.",
+        "about_skill3_h4": "İnteraktif İçerik",
+        "about_skill3_p": "Articulate Storyline ile pedagojik açıdan zengin ders modülleri ve HTML5/JS optimizasyonu.",
+        "about_skill4_h4": "Geleceğin Teknolojileri",
+        "about_skill4_p": "Unreal Engine ile \"Eco-City\" simülasyonları geliştirerek eğitimi sanal dünyalara taşıma.",
+
+        // Contact
+        "contact_h1": "İletişim ve İş Birliği",
+        "contact_p1": "\"Zaman, en kıymetli hazinemizdir.\"",
+        "contact_h3": "Çalışma Tarzım",
+        "contact_p2": "Eğitim teknolojileri ve CBS analizleri üzerine çalışmaktan büyük keyif alıyorum. Zamanı en değerli kaynağım olarak gördüğüm için <strong>aktif olarak sosyal medya kullanmıyorum.</strong>",
+        "contact_p3": "Vaktimi dijital içerikler üretmeye ve öğrendiğim yeni bilgileri eğitim ortamında nasıl kullanabileceğime odaklanarak geçiriyorum. Bildirimlerin gürültüsü yerine, kendimi geliştirmeyi tercih ediyorum.",
+        "contact_cta": "Proje teklifi, dijital içerik talebi vb konularda e-posta aracılığı ile ulaşabilirsiniz."
     },
     en: {
         // Header
@@ -71,6 +101,36 @@ const translations = {
         "cat_gis": "GIS & TECHNOLOGY",
         "card_gis_title": "Geographic Information Systems in Education",
         "card_gis_desc": "I integrate spatial analysis and GIS technology into education so students can make sense of the world.",
-        "card_link_projects": "Projects &rarr;"
+        "card_link_projects": "Projects &rarr;",
+
+        // About
+        "about_badge": "17 YEARS OF EXPERIENCE",
+        "about_h1": "A Journey at the Intersection of Education and Technology",
+        "about_p1": "Hello, I'm <strong>Hasbi ERDOĞMUŞ</strong>. By blending geography and information technologies, I try to add an innovative perspective to learning environments.",
+        "about_p2": "I graduated from 19 Mayıs University, Faculty of Education, Department of Geography Teaching in 1996 and spent the first 11 years of my professional life in the field as a Geography teacher.",
+        "about_p3": "Since 2008, I have been working as the District IT Coordinator within the Bergama District Directorate of National Education, assigned by the Ministry.",
+        "about_motto": "\"I see educational technology training not as a bureaucratic obligation, but as an indispensable need to catch up with the era and speak the language of Generation Z. My goal is not just to introduce tools, but to increase the quality of education and training processes. My starting point in this transformation journey is clear: To break those prejudices in the minds of our teachers, which are 'harder than splitting the atom.'\"",
+        "about_bio_h3_1": "What Do I Do?",
+        "about_bio_p1": "Currently, I am actively providing training for the establishment of educational environments suitable for the <strong>Innovative Classroom</strong> model and for our teachers to adapt to this modern ecosystem. I advocate an educational approach that is not only theoretical but also practice-based and interactive.",
+        "about_bio_h3_2": "My Vision",
+        "about_bio_p2": "My goal is; in the light of the <strong>Century of Türkiye Education Model</strong>, to place technology at the heart of education and provide our students and colleagues with a digital competence at global standards.",
+        "about_skills_h2": "My Areas of Interest",
+        "about_skills_p": "With my educator identity, I try to visualize data with modern engineering and analysis tools.",
+        "about_skill1_h4": "GIS & Remote Sensing",
+        "about_skill1_p": "Flood, earthquake and NDVI analysis over satellite data using Google Earth Engine and Python (geemap).",
+        "about_skill2_h4": "Software Development",
+        "about_skill2_p": "Web-based services with Python (Flask), voice assistant projects and data visualization with Looker Studio.",
+        "about_skill3_h4": "Interactive Content",
+        "about_skill3_p": "Pedagogically rich course modules and HTML5/JS optimization with Articulate Storyline.",
+        "about_skill4_h4": "Future Technologies",
+        "about_skill4_p": "Bringing education to virtual worlds by developing \"Eco-City\" simulations with Unreal Engine.",
+
+        // Contact
+        "contact_h1": "Contact and Collaboration",
+        "contact_p1": "\"Time is our most precious treasure.\"",
+        "contact_h3": "My Working Style",
+        "contact_p2": "I greatly enjoy working on educational technologies and GIS analysis. Because I see time as my most valuable resource, <strong>I do not actively use social media.</strong>",
+        "contact_p3": "I spend my time focusing on creating digital content and how I can use the new knowledge I've learned in the educational environment. Instead of the noise of notifications, I prefer to improve myself.",
+        "contact_cta": "You can reach me via email for project proposals, digital content requests, etc."
     }
 };
