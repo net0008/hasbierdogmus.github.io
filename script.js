@@ -45,6 +45,7 @@ async function loadComponents() {
                 setActiveLink();
                 initMenu();
                 initTheme(); // Tema modunu başlat
+                initLanguage(); // Dil desteğini başlat
             }
         }
     } catch (e) {
@@ -201,4 +202,55 @@ function closeBanner() {
     if (banner) {
         banner.style.display = 'none';
     }
+}
+
+/* =========================================
+   DİL YÖNETİMİ (i18n)
+   ========================================= */
+function initLanguage() {
+    const toggleBtn = document.getElementById('lang-toggle');
+    const currentLang = localStorage.getItem('language') || 'tr';
+
+    // Mevcut dili uygula
+    applyLanguage(currentLang);
+
+    // Butona event listener ekle
+    if (toggleBtn && !toggleBtn.getAttribute('data-listener')) {
+        toggleBtn.addEventListener('click', toggleLanguage);
+        toggleBtn.setAttribute('data-listener', 'true');
+    }
+}
+
+function applyLanguage(lang) {
+    if (typeof translations === 'undefined') {
+        console.warn("translations.js yüklenemedi.");
+        return;
+    }
+
+    const dict = translations[lang];
+    if (!dict) return;
+
+    // Tüm data-i18n etiketli elementleri bul
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+            el.innerHTML = dict[key];
+        }
+    });
+
+    // Html lang özelliğini güncelle
+    document.documentElement.lang = lang;
+    localStorage.setItem('language', lang);
+
+    // Buton metnini güncelle (Türkçe'deyken 'EN', İngilizce'deyken 'TR' göster)
+    const toggleBtn = document.getElementById('lang-toggle');
+    if (toggleBtn) {
+        toggleBtn.textContent = lang === 'tr' ? 'EN' : 'TR';
+    }
+}
+
+function toggleLanguage() {
+    const currentLang = localStorage.getItem('language') || 'tr';
+    const nextLang = currentLang === 'tr' ? 'en' : 'tr';
+    applyLanguage(nextLang);
 }
