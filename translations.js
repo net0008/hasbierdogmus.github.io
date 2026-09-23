@@ -65,6 +65,10 @@ const translations = {
         "contact_p2": "Eğitim teknolojileri ve CBS analizleri üzerine çalışmaktan büyük keyif alıyorum. Zamanı en değerli kaynağım olarak gördüğüm için <strong>aktif olarak sosyal medya kullanmıyorum.</strong>",
         "contact_p3": "Vaktimi dijital içerikler üretmeye ve öğrendiğim yeni bilgileri eğitim ortamında nasıl kullanabileceğime odaklanarak geçiriyorum. Bildirimlerin gürültüsü yerine, kendimi geliştirmeyi tercih ediyorum.",
         "contact_cta": "Proje teklifi, dijital içerik talebi vb konularda e-posta aracılığı ile ulaşabilirsiniz.",
+        "contact_linkedin": "LinkedIn Profilim",
+
+        // Footer Update
+        "last_update": "Son güncelleme:",
 
         // Educational Content
         "edu_h1": "İnteraktif Öğrenme Modülleri",
@@ -303,6 +307,10 @@ const translations = {
         "contact_p2": "I greatly enjoy working on educational technologies and GIS analysis. Because I see time as my most valuable resource, <strong>I do not actively use social media.</strong>",
         "contact_p3": "I spend my time focusing on creating digital content and how I can use the new knowledge I've learned in the educational environment. Instead of the noise of notifications, I prefer to improve myself.",
         "contact_cta": "You can reach me via email for project proposals, digital content requests, etc.",
+        "contact_linkedin": "My LinkedIn Profile",
+
+        // Footer Update
+        "last_update": "Last update:",
 
         // Educational Content
         "edu_h1": "Interactive Learning Modules",

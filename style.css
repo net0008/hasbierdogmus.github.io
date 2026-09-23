@@ -1525,6 +1525,11 @@ footer {
     /* Google Kırmızısı */
 }
 
+.email-card.linkedin {
+    background: #0077b5;
+    /* LinkedIn Mavisi */
+}
+
 /* Mobil Uyumluluk */
 @media (max-width: 768px) {
     .contact-grid-layout {

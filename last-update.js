@@ -93,8 +93,14 @@
 
         el.innerHTML =
             '<i class="fas fa-clock" aria-hidden="true"></i>' +
-            '<span class="update-label">Son güncelleme:</span>' +
+            '<span class="update-label" data-i18n="last_update">Son güncelleme:</span>' +
             '<span class="update-value">' + formatDate(lastMod) + '</span>';
+
+        // Çeviriyi anında uygula (eğer translations.js yüklüyse ve dil seçilmişse)
+        if (typeof applyLanguage === 'function') {
+            const currentLang = localStorage.getItem('language') || 'tr';
+            applyLanguage(currentLang);
+        }
 
         return true;
     }
