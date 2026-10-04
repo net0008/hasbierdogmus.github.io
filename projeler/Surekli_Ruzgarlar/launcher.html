@@ -1,17 +1,57 @@
-<html>
+﻿<html lang="tr-TR">
 	<head>
-		<meta charset="utf-8">
+		<!-- Created using Storyline 3 - http://www.articulate.com  --> 
+		<!-- version: 3.20.30234.0 --> 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>S&#252;rekli R&#252;zgarlar</title>
+    <style>
+      @font-face {
+        font-family: "Open Sans Full";
+        font-style: normal;
+        font-weight: 400;
+        src: local("Open Sans"),
+             local("OpenSans"),
+             url(html5/lib/stylesheets/mobile-fonts/open-sans-regular.woff) format("woff")
+      }
+      body {
+        background-color: #F7F7F7;
+      }
+      h1 {
+        color: #636363;
+        font-family: "Open Sans Full", Helvetica, sans-serif;
+        font-size: 150%;
+        margin-bottom: 92px;
+        padding-bottom: 0;
+      }
 
-    <title>Sürekli Rüzgarlar - Eğitim Materyali</title>
-
-    <meta name="description" content="Sürekli Rüzgarlar konusu üzerine etkileşimli e-öğrenme materyali.">
-
-    <meta name="author" content="Hasbi ERDOĞMUŞ">
-		<script> 
+      button {
+        background-color: #FFF;
+        border: 1px solid #636363;
+        border-radius: 80px;
+        box-shadow: 2px 3px 4px 1px rgba(39, 39, 39, 0.33);
+        color: #636363;
+        font-family: "Open Sans Full", Helvetica, sans-serif;
+        font-size: 100%;
+        padding: 20px 50px;
+      }
+      img {
+        height: 15px;
+        width: 15px;
+        margin-left: 8px;
+      }
+    </style>
+		<script>
 			
-					
+			/******************************************************************************/
+			//
+			// NOTE TO DEVELOPERS:
+			// The following code should be integrated with your web page in order to open
+			// the presentation in a new window.  To launch the presentation immediately, 
+			// simply copy the code below into your web page.  To launch the presentation
+			// when a button or link is clicked, call LaunchPresentation when the onClick
+			// event is triggered.
+			//
+			/******************************************************************************/		
 		
 		
 			var Safari =  (navigator.appVersion.indexOf("Safari") >= 0);
@@ -20,7 +60,7 @@
 			var g_bResizeable = true;
 			var g_nContentWidth = 1044;
 			var g_nContentHeight = 788;
-			var g_strStartPage = "index.html" + document.location.search;
+			var g_strStartPage = "story.html" + document.location.search;
 			var g_strBrowserSize = "fullscreen";
 		
 			function LaunchContent()
@@ -83,7 +123,8 @@
 				<tr>
 					<td>
 						<center>
-							<a href="#" onClick="javascript:void(LaunchContent())"><img src="assets/orange_launch_normal.gif" style="border-style: none"/></a>
+              <h1 tabIndex="-1">S&#252;rekli R&#252;zgarlar</h1>
+							<button onclick="LaunchContent()" aria-label="Kursu Başlat: yeni pencerede açılır">Kursu Başlat <img src="story_content/external_window.png" style="border-style: none; height: 14px; width: 14px;" tabIndex="-1" aria-hidden="true"/></button>
 						</center>
 					</td>
 				</tr>
