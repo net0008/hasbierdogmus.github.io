@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Sayfa Bulunamadı (404) | Hasbi Erdoğmuş</title>
+    <meta name="description"
+        content="Aradığınız sayfa bulunamadı. Hasbi Erdoğmuş kişisel portfolyo ana sayfasına veya proje kategorilerine dönebilirsiniz.">
+    <meta name="author" content="Hasbi Erdoğmuş">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#1e3c72">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="global-header"></header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>404 - Sayfa Bulunamadı</h1>
+                <p>Aradığınız içerik taşınmış, kaldırılmış veya bağlantı adresi hatalı olabilir.</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container" style="max-width: 780px; text-align: center;">
+                <div class="module-desc-box" style="padding: 40px 30px;">
+                    <i class="fas fa-compass" style="font-size: 3.5rem; color: var(--green); margin-bottom: 20px;"></i>
+                    <h2 style="color: var(--navy); margin-bottom: 15px;">Doğru Rotaya Geri Dönün</h2>
+                    <p style="color: var(--medium-gray); margin-bottom: 30px;">
+                        Aşağıdaki bağlantıları kullanarak ana sayfaya ya da eğitim teknolojileri, CBS ve yapay zeka
+                        çalışmalarına doğrudan ulaşabilirsiniz.
+                    </p>
+                    <div class="cta-buttons" style="justify-content: center; flex-wrap: wrap; gap: 12px;">
+                        <a href="index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Ana Sayfaya Dön
+                        </a>
+                        <a href="educational-content.html" class="btn btn-secondary">
+                            <i class="fas fa-book-open"></i> Eğitsel İçerikler
+                        </a>
+                        <a href="gis-technology.html" class="btn btn-secondary">
+                            <i class="fas fa-globe-americas"></i> CBS Projeleri
+                        </a>
+                        <a href="ai-studies.html" class="btn btn-secondary">
+                            <i class="fas fa-robot"></i> Yapay Zeka
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> İletişim
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="global-footer"></footer>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="last-update.js"></script>
+</body>
+
+</html>

@@ -4,10 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotik ve Kodlama - Hasbi Erdoğmuş</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Robotik ve Kodlama Çalışmaları | Hasbi Erdoğmuş</title>
+    <meta name="description" content="Teknolojiyi üreten nesiller için Arduino, Tinkercad ve Micro:bit robotik kodlama atölyeleri, TÜBİTAK 4007 bilim şenliği ve STEM etkinlikleri.">
+    <meta name="author" content="Hasbi Erdoğmuş">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e3c72">
+
+    <link rel="canonical" href="https://hasbierdogmus.com.tr/robotics-coding.html">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hasbi Erdoğmuş">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:title" content="Robotik ve Kodlama Çalışmaları | Hasbi Erdoğmuş">
+    <meta property="og:description" content="Teknolojiyi üreten nesiller için Arduino, Tinkercad ve Micro:bit robotik kodlama atölyeleri, TÜBİTAK 4007 bilim şenliği ve STEM etkinlikleri.">
+    <meta property="og:url" content="https://hasbierdogmus.com.tr/robotics-coding.html">
+    <meta property="og:image" content="https://hasbierdogmus.com.tr/assets/arduino-atolye.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Robotik ve Kodlama Çalışmaları | Hasbi Erdoğmuş">
+    <meta name="twitter:description" content="Teknolojiyi üreten nesiller için Arduino, Tinkercad ve Micro:bit robotik kodlama atölyeleri, TÜBİTAK 4007 bilim şenliği ve STEM etkinlikleri.">
+    <meta name="twitter:image" content="https://hasbierdogmus.com.tr/assets/arduino-atolye.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         (function () {
             const savedTheme = localStorage.getItem('theme');
@@ -15,6 +40,45 @@
                 document.documentElement.setAttribute('data-theme', savedTheme);
             }
         })();
+    </script>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+            "@context": "https://schema.org",
+            "@graph": [
+                    {
+                            "@type": "CollectionPage",
+                            "name": "Robotik ve Kodlama Çalışmaları",
+                            "description": "Teknolojiyi üreten nesiller için Arduino, Tinkercad ve Micro:bit robotik kodlama atölyeleri, TÜBİTAK 4007 bilim şenliği ve STEM etkinlikleri.",
+                            "url": "https://hasbierdogmus.com.tr/robotics-coding.html",
+                            "image": "https://hasbierdogmus.com.tr/assets/arduino-atolye.jpg",
+                            "inLanguage": "tr-TR",
+                            "author": {
+                                    "@type": "Person",
+                                    "name": "Hasbi Erdoğmuş",
+                                    "url": "https://hasbierdogmus.com.tr/about.html"
+                            }
+                    },
+                    {
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                    {
+                                            "@type": "ListItem",
+                                            "position": 1,
+                                            "name": "Ana Sayfa",
+                                            "item": "https://hasbierdogmus.com.tr/"
+                                    },
+                                    {
+                                            "@type": "ListItem",
+                                            "position": 2,
+                                            "name": "Robotik ve Kodlama",
+                                            "item": "https://hasbierdogmus.com.tr/robotics-coding.html"
+                                    }
+                            ]
+                    }
+            ]
+    }
     </script>
 </head>
 
@@ -35,12 +99,12 @@
                 <div class="projects-grid">
 
                     <article class="project-card">
-                        <a href="https://www.tinkercad.com/" target="_blank" class="card-image">
-                            <img src="assets/arduino-atolye.jpg" alt="Tinkercad">
+                        <a href="https://www.tinkercad.com/" target="_blank" rel="noopener noreferrer" class="card-image">
+                            <img src="assets/arduino-atolye.jpg" alt="Arduino ile Matematiksel Düşünme Tinkercad Atölyesi" loading="lazy" decoding="async">
                             <div class="overlay"><i class="fas fa-microchip"></i></div>
                         </a>
                         <div class="card-content">
-                            <h3><a href="https://www.tinkercad.com/" target="_blank" data-i18n="rob_m1_title">"Arduino ile Matematiksel Düşünme"
+                            <h3><a href="https://www.tinkercad.com/" target="_blank" rel="noopener noreferrer" data-i18n="rob_m1_title">"Arduino ile Matematiksel Düşünme"
                                     4007 Aliğa Bilim Şenliği</a></h3>
                             <p data-i18n="rob_m1_date">
                                 16-17 Eylül 2018
@@ -50,12 +114,12 @@
                     </article>
 
                     <article class="project-card">
-                        <a href="https://makecode.microbit.org/" target="_blank" class="card-image">
-                            <img src="assets/microbit-projeler.jpg" alt="Micro:bit">
+                        <a href="https://makecode.microbit.org/" target="_blank" rel="noopener noreferrer" class="card-image">
+                            <img src="assets/microbit-projeler.jpg" alt="Micro:bit ile Geleceği Kodluyoruz Projesi" loading="lazy" decoding="async">
                             <div class="overlay"><i class="fas fa-gamepad"></i></div>
                         </a>
                         <div class="card-content">
-                            <h3><a href="https://makecode.microbit.org/" target="_blank" data-i18n="rob_m2_title">Geleceği kodluyoruz.</a></h3>
+                            <h3><a href="https://makecode.microbit.org/" target="_blank" rel="noopener noreferrer" data-i18n="rob_m2_title">Geleceği kodluyoruz.</a></h3>
                             <p data-i18n="rob_m2_date">
                                 30 Kasım 2020
                             </p>

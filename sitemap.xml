@@ -1,71 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Ana Sayfa -->
   <url>
-    <loc>https://hasbierdogmus.github.io/</loc>
+    <loc>https://hasbierdogmus.com.tr/</loc>
+    <lastmod>2026-11-22</lastmod>
     <priority>1.0</priority>
   </url>
+
+  <!-- Ana ve Kategori Sayfaları -->
   <url>
-    <loc>https://hasbierdogmus.github.io/index.html</loc>
-    <priority>1.0</priority>
+    <loc>https://hasbierdogmus.com.tr/about.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hasbierdogmus.github.io/about.html</loc>
+    <loc>https://hasbierdogmus.com.tr/educational-content.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/innovative-classroom.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/gis-technology.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/ai-studies.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/robotics-coding.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/other-works.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- İletişim ve Etkileşim -->
+  <url>
+    <loc>https://hasbierdogmus.com.tr/contact.html</loc>
+    <lastmod>2026-11-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hasbierdogmus.github.io/educational-content.html</loc>
+    <loc>https://hasbierdogmus.com.tr/guestbook.html</loc>
+    <lastmod>2026-11-22</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <!-- Projeler ve Modüller -->
   <url>
-    <loc>https://hasbierdogmus.github.io/innovative-classroom.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hasbierdogmus.github.io/gis-technology.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hasbierdogmus.github.io/ai-studies.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hasbierdogmus.github.io/robotics-coding.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hasbierdogmus.github.io/other-works.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hasbierdogmus.github.io/contact.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hasbierdogmus.github.io/guestbook.html</loc>
+    <loc>https://hasbierdogmus.com.tr/module-5e.html</loc>
+    <lastmod>2026-11-22</lastmod>
     <priority>0.7</priority>
   </url>
-  <!-- Projeler ve Modüller -->
-  <url><loc>https://hasbierdogmus.github.io/module-5e.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/module-rainfall.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/module-scale.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/module-winds.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/pardus-rehber.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-5e-lesson-plan.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-ai-codeweek.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-ai-rocks.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-climate.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-egitsel-oyun.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-gis-flood.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-gis-ndvi.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-gis-soil.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-layers.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-meridians.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-other-fair.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-other-interview.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-other-kis.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-other-unreal.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-parallels.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-pardus-asistan.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-sesli-asistan.html</loc><priority>0.6</priority></url>
-  <url><loc>https://hasbierdogmus.github.io/project-tubitak.html</loc><priority>0.6</priority></url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/module-rainfall.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/module-scale.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/module-winds.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-5e-lesson-plan.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-ai-codeweek.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-ai-rocks.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-climate.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-egitsel-oyun.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-gis-flood.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-gis-ndvi.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-gis-soil.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-layers.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-meridians.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-other-fair.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-other-interview.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-other-kis.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-other-unreal.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-parallels.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-pardus-asistan.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-sesli-asistan.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hasbierdogmus.com.tr/project-tubitak.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

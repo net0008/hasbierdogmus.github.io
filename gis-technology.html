@@ -4,14 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBS ve Uzaktan Algılama | Hasbi Erdoğmuş</title>
-    <link rel="icon" type="image/png" href="assets/logo.png">
-    <meta name="description"
-        content="Google Earth Engine ve Python ile coğrafi veri analizi, sel riski modellemesi ve NDVI çalışmaları.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <title>CBS ve Uzaktan Algılama Projeleri | Hasbi Erdoğmuş</title>
+    <meta name="description" content="Google Earth Engine ve Python (geemap) ile uydu verileri üzerinden Bergama sel riski modellemesi, zemin stabilite ve NDVI bitki örtüsü analizleri.">
+    <meta name="author" content="Hasbi Erdoğmuş">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e3c72">
+
+    <link rel="canonical" href="https://hasbierdogmus.com.tr/gis-technology.html">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hasbi Erdoğmuş">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:title" content="CBS ve Uzaktan Algılama Projeleri | Hasbi Erdoğmuş">
+    <meta property="og:description" content="Google Earth Engine ve Python (geemap) ile uydu verileri üzerinden Bergama sel riski modellemesi, zemin stabilite ve NDVI bitki örtüsü analizleri.">
+    <meta property="og:url" content="https://hasbierdogmus.com.tr/gis-technology.html">
+    <meta property="og:image" content="https://hasbierdogmus.com.tr/assets/cbs-sel.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CBS ve Uzaktan Algılama Projeleri | Hasbi Erdoğmuş">
+    <meta name="twitter:description" content="Google Earth Engine ve Python (geemap) ile uydu verileri üzerinden Bergama sel riski modellemesi, zemin stabilite ve NDVI bitki örtüsü analizleri.">
+    <meta name="twitter:image" content="https://hasbierdogmus.com.tr/assets/cbs-sel.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         (function () {
             const savedTheme = localStorage.getItem('theme');
@@ -21,12 +42,51 @@
         })();
     </script>
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+            "@context": "https://schema.org",
+            "@graph": [
+                    {
+                            "@type": "CollectionPage",
+                            "name": "CBS ve Uzaktan Algılama Projeleri",
+                            "description": "Google Earth Engine ve Python (geemap) ile uydu verileri üzerinden Bergama sel riski modellemesi, zemin stabilite ve NDVI bitki örtüsü analizleri.",
+                            "url": "https://hasbierdogmus.com.tr/gis-technology.html",
+                            "image": "https://hasbierdogmus.com.tr/assets/cbs-sel.jpg",
+                            "inLanguage": "tr-TR",
+                            "author": {
+                                    "@type": "Person",
+                                    "name": "Hasbi Erdoğmuş",
+                                    "url": "https://hasbierdogmus.com.tr/about.html"
+                            }
+                    },
+                    {
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                    {
+                                            "@type": "ListItem",
+                                            "position": 1,
+                                            "name": "Ana Sayfa",
+                                            "item": "https://hasbierdogmus.com.tr/"
+                                    },
+                                    {
+                                            "@type": "ListItem",
+                                            "position": 2,
+                                            "name": "CBS ve Teknoloji",
+                                            "item": "https://hasbierdogmus.com.tr/gis-technology.html"
+                                    }
+                            ]
+                    }
+            ]
+    }
+    </script>
 </head>
 
 <body>
 
     <header id="global-header"></header>
 
+    <main>
     <section class="page-header">
         <div class="container">
             <h1 data-i18n="gis_h1">CBS ve Uzaktan Algılama</h1>
@@ -99,7 +159,7 @@
             <div class="modules-grid">
                 <div class="module-card">
                     <div class="module-img">
-                        <img src="assets/cbs-sel.jpg" alt="Sel Riski Modellemesi">
+                        <img src="assets/cbs-sel.jpg" alt="Sel Riski Modellemesi" loading="lazy" decoding="async">
                         <div class="module-overlay">
                             <a href="project-gis-flood.html" class="btn-module"><i class="fas fa-play"></i> <span data-i18n="gis_btn_view">İncele</span></a>
                         </div>
@@ -112,7 +172,7 @@
 
                 <div class="module-card">
                     <div class="module-img">
-                        <img src="assets/cbs-zemin.jpg" alt="Zemin Stabilite Analizi">
+                        <img src="assets/cbs-zemin.jpg" alt="Zemin Stabilite Analizi" loading="lazy" decoding="async">
                         <div class="module-overlay">
                             <a href="project-gis-soil.html" class="btn-module"><i class="fas fa-play"></i> <span data-i18n="gis_btn_view">İncele</span></a>
                         </div>
@@ -125,7 +185,7 @@
 
                 <div class="module-card">
                     <div class="module-img">
-                        <img src="assets/cbs-ndvi.jpg" alt="NDVI Analizi">
+                        <img src="assets/cbs-ndvi.jpg" alt="NDVI Analizi" loading="lazy" decoding="async">
                         <div class="module-overlay">
                             <a href="project-gis-ndvi.html" class="btn-module"><i class="fas fa-play"></i> <span data-i18n="gis_btn_view">İncele</span></a>
                         </div>
@@ -138,6 +198,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer id="global-footer"></footer>
     <script src="script.js"></script>

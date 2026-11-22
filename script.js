@@ -33,55 +33,58 @@ async function loadComponents() {
         baseUrl = rootUrl + repoName;
     }
 
-    // --- 1. HEADER YÜKLE ---
-    try {
-        const headerRes = await fetch(baseUrl + '/components/header.html');
-        if (headerRes.ok) {
-            const text = await headerRes.text();
-            if (!text.includes("404")) {
-                document.getElementById('global-header').innerHTML = text;
+    // --- 1 & 2. HEADER VE FOOTER'I PARALEL YÜKLE ---
+    const fetchHeader = fetch(baseUrl + '/components/header.html')
+        .then(res => (res.ok ? res.text() : null))
+        .catch(e => {
+            console.log("Header yüklenemedi", e);
+            return null;
+        });
 
-                // Menü geldikten sonra fonksiyonları çalıştır
-                setActiveLink();
-                initMenu();
-                initTheme(); // Tema modunu başlat
-                initLanguage(); // Dil desteğini başlat
-            }
-        }
-    } catch (e) {
-        console.log("Header yüklenemedi", e);
+    const fetchFooter = fetch(baseUrl + '/components/footer.html')
+        .then(res => (res.ok ? res.text() : null))
+        .catch(e => {
+            console.log("Footer yüklenemedi", e);
+            return null;
+        });
+
+    const bannerDiv = document.getElementById('global-banner');
+    const fetchBanner = bannerDiv
+        ? fetch(baseUrl + '/components/banner.html')
+            .then(res => (res.ok ? res.text() : null))
+            .catch(e => {
+                console.log("Banner yüklenemedi", e);
+                return null;
+            })
+        : Promise.resolve(null);
+
+    const [headerText, footerText, bannerText] = await Promise.all([
+        fetchHeader,
+        fetchFooter,
+        fetchBanner
+    ]);
+
+    const headerEl = document.getElementById('global-header');
+    if (headerEl && headerText && !headerText.includes("404")) {
+        headerEl.innerHTML = headerText;
+
+        // Menü geldikten sonra fonksiyonları çalıştır
+        setActiveLink();
+        initMenu();
+        initTheme(); // Tema modunu başlat
+        initLanguage(); // Dil desteğini başlat
     }
 
-    // --- 2. FOOTER YÜKLE ---
-    try {
-        const footerRes = await fetch(baseUrl + '/components/footer.html');
-        if (footerRes.ok) {
-            const text = await footerRes.text();
-            if (!text.includes("404")) {
-                document.getElementById('global-footer').innerHTML = text;
-            }
-        }
-    } catch (e) {
-        console.log("Footer yüklenemedi", e);
+    const footerEl = document.getElementById('global-footer');
+    if (footerEl && footerText && !footerText.includes("404")) {
+        footerEl.innerHTML = footerText;
     }
 
-    // --- 3. BANNER YÜKLE ---
-    try {
-        const bannerRes = await fetch(baseUrl + '/components/banner.html');
-        if (bannerRes.ok) {
-            const text = await bannerRes.text();
-            if (!text.includes("404") && text.trim().length > 5) {
-                const bannerDiv = document.getElementById('global-banner');
-                if (bannerDiv) {
-                    bannerDiv.innerHTML = text;
-                }
-            }
-        }
-    } catch (e) {
-        console.log("Banner yüklenemedi", e);
+    if (bannerDiv && bannerText && !bannerText.includes("404") && bannerText.trim().length > 5) {
+        bannerDiv.innerHTML = bannerText;
     }
 
-    // Tüm component'ler yüklendikten sonra body görünürlüğünü aç
+    // Geriye dönük uyumluluk için sınıfı koru
     document.body.classList.add('page-loaded');
 }
 
@@ -184,7 +187,8 @@ function toggleMenu() {
     }
 
     hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    const isOpen = navMenu.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 function closeMenu() {
@@ -194,6 +198,7 @@ function closeMenu() {
     if (hamburger && navMenu) {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
     }
 }
 

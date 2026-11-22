@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /yedek*
 
-Sitemap: https://hasbierdogmus.github.io/sitemap.xml
+Sitemap: https://hasbierdogmus.com.tr/sitemap.xml
